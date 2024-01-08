@@ -1,4 +1,4 @@
-import Nav from '@components/Nav'
+import Nav from '@components/Nav/Nav'
 // import Provider from '@components/Provider'
 import { ReactNode } from 'react';
 import '@styles/style.scss'
