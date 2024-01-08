@@ -1,11 +1,17 @@
 //====================================================================================================
 .header {
-	padding: rem(15) 0;
-	height: rem(62);
+	position: sticky;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	background-color: var(--bg-primary);
 	&__container {
+		height: rem(62);
 		display: flex;
 		align-items: center;
 		@include adaptiveValue("column-gap", 80, 30, 0, 1500, 768);
+		justify-content: space-between;
 	}
 	&__logo {
 		position: relative;
@@ -20,30 +26,64 @@
 	&__actions {
 		display: flex;
 		align-items: center;
-		gap: rem(10);
+		gap: rem(30);
 	}
 
-	&__search {}
+	&__search {
+		width: rem(24);
+		height: rem(24);
+		transition: opacity 0.3s ease 0s;
+		opacity: 0.6;
+		@media (any-hover: hover){
+			&:hover{
+				opacity: 1;
+			}
+		}
+	}
 
-	&__account {}
+	&__account {
+		display: flex;
+		align-items: center;
+		gap: rem(5);
+		opacity: 0.6;
+		transition: opacity 0.3s ease 0s;
+		@media (any-hover: hover){
+			&:hover{
+				opacity: 1;
+			}
+		}
+	}
 }
 .menu {
 	flex: 1 1 auto;
-	&__icon {}
-
-	&__body {}
+	@media (max-width:$mobile){
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: rgba(0, 0, 0, 0.603); 
+		padding: rem(100) rem(40) rem(40) rem(40);
+		z-index: 110;
+	}
 
 	&__list {
 		display: flex;
 		align-items: center;
 		row-gap: rem(10);
 		@include adaptiveValue("column-gap", 30, 20, 0, 1500, 768);
+		@media (max-width:$mobile){
+			flex-direction: column;
+			gap: rem(20); 
+			align-items: end;
+		}
 	}
 
 	&__item {}
 
 	&__link {
-		@include adaptiveValue("font-size", 18, 14);
+		position: relative;
+		font-size: rem(18);
 		font-weight: 700;
 		line-height: 1.2;
 		opacity: 0.6;
@@ -52,6 +92,11 @@
 			&:hover{
 				opacity: 1;
 			}
+		}
+		@media (max-width:$mobile){
+			@include adaptiveValue("font-size", 30, 20, 0, 768, 320);
+			opacity: 1;
+			padding-right: rem(10);
 		}
 	}
 }
@@ -63,9 +108,9 @@
 	@media (max-width: $mobile) {
 		display: block;
 		position: relative;
-		width: rem(30);
-		height: rem(18);
-		z-index: 5;
+		width: rem(27);
+		height: rem(21);
+		z-index: 120;
 		@media (any-hover: none) {
 			cursor: default;
 		}
@@ -78,7 +123,7 @@
 			position: absolute;
 			width: 100%;
 			height: rem(2);
-			background-color: #000;
+			background-color: var(--text-primary);
 		}
 		&::before {
 			top: 0;
