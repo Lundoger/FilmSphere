@@ -10,6 +10,7 @@
     "classnames": "^2.5.1",
     "lucide-react": "^0.306.0",
     "next": "latest",
+    "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "8.1.0",
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@types/node": "20.3.1",
+    "@types/nprogress": "^0.2.3",
     "@types/react": "18.2.8",
     "@types/react-dom": "18.2.5",
     "@types/redux-logger": "3.0.9",

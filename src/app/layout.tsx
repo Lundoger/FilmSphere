@@ -1,7 +1,7 @@
-import Nav from '@components/Nav/Nav'
+import Nav from '@/components/Nav/Nav'
 // import Provider from '@components/Provider'
 import { ReactNode } from 'react';
-import '@styles/style.scss'
+import '@/styles/style.scss'
 
 export const metadata = {
 	title: 'Film Sphere',
