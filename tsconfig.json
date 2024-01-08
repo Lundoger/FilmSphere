@@ -2,7 +2,6 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": { "@*": ["./*"] },
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": true,
@@ -17,7 +16,15 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [{ "name": "next" }]
+    "plugins": [{ "name": "next" }],
+	"paths": {
+		"@/components/*": ["src/components/*"],
+		"@/UI/*": ["src/components/UI/*"],
+		"@/store/*": ["src/store/*"],
+		"@/styles/*": ["src/styles/*"],
+		"@/hooks/*": ["src/hooks/*"],
+		"@/api/*": ["src/api/*"],
+	}
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
