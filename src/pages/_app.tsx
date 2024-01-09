@@ -9,13 +9,13 @@ import 'nprogress/nprogress.css';
 import Head from 'next/head';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-	const store = useStore(pageProps.initialReduxState);
+	const store = useStore(pageProps.initialReduxState)
 
-	const router = useRouter();
+	const router = useRouter()
 
 	NProgress.configure({
 		showSpinner: false,
-	});
+	})
 
 	useEffect(() => {
 		const handleRouteStart = () => NProgress.start();
@@ -29,34 +29,33 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 			router.events.off('routeChangeStart', handleRouteStart);
 			router.events.off('routeChangeComplete', handleRouteDone);
 			router.events.off('routeChangeError', handleRouteDone);
-		};
-	}, []);
+		}
+	}, [])
 
 	return (
 		<Provider store={store}>
 			<Head>
 				<title>
-					Онлайн-кинотеатр Kinomore - фильмы, сериалы и мультфильмы смотреть онлайн бесплатно в
-					хорошем качестве
+					Online Cinema FilmSphere - Watch Movies, TV Shows, and Cartoons Online for Free in High Quality
 				</title>
 				<link rel="icon" href="/favicon.ico" />
 				<meta
 					name="viewport"
 					content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
 				/>
-				<meta property="og:description" content="Kinomore - фильмы и сериалы" />
-				<meta property="og:title" content="Kinomore - фильмы и сериалы" />
+				<meta property="og:description" content="FilmSphere - Movies and TV Shows" />
+				<meta property="og:title" content="FilmSphere - Movies and TV Shows" />
 				<meta
 					name="description"
-					content="Устройте кинотеатр у себя дома! Смотрите онлайн фильмы хорошего качества в приятной домашней обстановке и в удобное для вас время. Для вас всегда доступны на любой вкус: сериалы, фильмы, мультфильмы и многое другое."
+					content="Create a cinema at home! Watch online movies in high quality in a pleasant home environment and at your convenient time. A variety of options are always available for you: TV shows, movies, cartoons, and much more."
 				/>
 				<meta
 					name="keywords"
-					content="фильмы онлайн в хорошем отличном качестве без смс кино видео смотреть новинки кинофильмы онлайн кинотеатр 2012 2013 просмотр видеоролики"
+					content="watch movies online in excellent quality without SMS cinema video watch new movie online cinema 2012 2013 view video clips"
 				/>
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 			</Head>
 			<Component {...pageProps} />
 		</Provider>
-	);
+	)
 }

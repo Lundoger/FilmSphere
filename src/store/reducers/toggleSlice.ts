@@ -18,4 +18,6 @@ export const toggleSlice = createSlice({
 	}
 })
 
+export const { menuToggle } = toggleSlice.actions
+
 export default toggleSlice.reducer

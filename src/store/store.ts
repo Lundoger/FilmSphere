@@ -36,5 +36,5 @@ export function useStore(initialState: RootState) {
 }
 
 export type AppStore = ReturnType<typeof initStore>
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<AppStore['getState']>;
+export type AppDispatch = AppStore['dispatch']
