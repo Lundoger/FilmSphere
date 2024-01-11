@@ -6,7 +6,6 @@ export const filmSphereApi = createApi({
 		baseUrl: ''
 	}),
 	endpoints: build => ({
-
 		fetchComic: build.query<any, any>({
 			query: (id: number) => ({
 				url: `comics/${id}`,

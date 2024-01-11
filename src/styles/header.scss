@@ -22,6 +22,7 @@
 	}
 
 	&__menu {}
+	&__burger-menu {}
 
 	&__actions {
 		display: flex;
@@ -57,14 +58,7 @@
 .menu {
 	flex: 1 1 auto;
 	@media (max-width:$mobile){
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		background: rgba(0, 0, 0, 0.603); 
-		padding: rem(100) rem(40) rem(40) rem(40);
-		z-index: 110;
+		display: none;
 	}
 
 	&__list {
@@ -97,6 +91,57 @@
 			@include adaptiveValue("font-size", 30, 20, 0, 768, 320);
 			opacity: 1;
 			padding-right: rem(10);
+		}
+	}
+}
+
+.burger-menu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.603); 
+	padding: rem(100) rem(40) rem(40) rem(40);
+	z-index: 110;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s;
+	&--open {	
+		opacity: 1;
+		visibility: visible;
+	}
+	@media (min-width:$mobile){
+		display: none;
+	}
+	&__list {
+		display: flex;
+		flex-direction: column;
+		@include adaptiveValue("gap", 50, 30, 0, 768, 320);
+	}
+
+	&__item {
+	}
+
+	&__link {
+		position: relative;
+		display: block;
+		@include adaptiveValue("font-size", 30, 20, 0, 768, 320);
+		font-weight: 700;
+		line-height: 1.2;
+		padding-left: rem(14);
+		// @include adaptiveValue("height", 31, 24, 0, 768, 320);
+		height: 100%;
+		&--active {
+			&::before{
+				content:'';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: rem(2);	
+				height: 100%;
+				background-color: var(--text-primary);
+			}
 		}
 	}
 }
