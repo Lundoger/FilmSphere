@@ -7,8 +7,8 @@ import classNames from "classnames"
 import Hamburger from "./components/Hamburger"
 
 const Nav = () => {
-	const { menuToggle } = useActions()
-	const { openedMenu } = useAppSelector(state => state.toggleReducer)
+  const { menuToggle } = useActions();
+  const { openedMenu } = useAppSelector((state) => state.toggleReducer);
 
 	return (
 		<header className={classNames(openedMenu && 'menu-open', 'header')}>
@@ -42,4 +42,4 @@ const Nav = () => {
 	)
 }
 
-export default Nav
+export default Nav;
