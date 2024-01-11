@@ -55,7 +55,7 @@ $responsiveType: 1;
 body {
 	background-color: var(--bg-primary);
 	// Скролл заблоковано
-	.lock & {
+	&.lock {
 		overflow: hidden;
 		touch-action: none;
 		overscroll-behavior: none;
