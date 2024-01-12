@@ -1,11 +1,12 @@
 import Link from "next/link"
 import Image from 'next/image'
-import { CircleUserRound, Search } from "lucide-react"
+import { CircleUserRound } from "lucide-react"
 import { useActions } from "@/hooks/useActions"
 import { useAppSelector } from "@/hooks/useAppSelector"
 import classNames from "classnames"
 import Hamburger from "./components/Hamburger"
 import { useRouter } from "next/router"
+import SearchForm from "./components/Search"
 
 const Nav = () => {
 	const { menuToggle } = useActions();
@@ -43,9 +44,7 @@ const Nav = () => {
 				</nav>
 				<Hamburger />
 				<div className="header__actions">
-					<button className="header__search">
-						<Search color="#fbfffe" />
-					</button>
+					<SearchForm/>
 					<Link href="" className="header__account"><CircleUserRound color="#fbfffe" /><span>Sign in</span></Link>
 					<button onClick={() => menuToggle(!openedMenu)} type="button" className='menu__icon icon-menu'><span></span></button>
 				</div>
