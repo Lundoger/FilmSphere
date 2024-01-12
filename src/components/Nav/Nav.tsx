@@ -5,10 +5,18 @@ import { useActions } from "@/hooks/useActions"
 import { useAppSelector } from "@/hooks/useAppSelector"
 import classNames from "classnames"
 import Hamburger from "./components/Hamburger"
+import { useRouter } from "next/router"
 
 const Nav = () => {
-  const { menuToggle } = useActions();
-  const { openedMenu } = useAppSelector((state) => state.toggleReducer);
+	const { menuToggle } = useActions();
+	const { openedMenu } = useAppSelector((state) => state.toggleReducer);
+	const { pathname } = useRouter()
+	const links = [
+		{ href: '/', content: 'Home', },
+		{ href: '/movies', content: 'Movies', },
+		{ href: '/serials', content: 'Serials', },
+		{ href: '/cartoons', content: 'Cartoons', },
+	]
 
 	return (
 		<header className={classNames(openedMenu && 'menu-open', 'header')}>
@@ -23,19 +31,23 @@ const Nav = () => {
 				</Link>
 				<nav className="header__menu menu">
 					<ul className="menu__list">
-						<li className="menu__item"><Link href="/" className="menu__link">Home</Link></li>
-						<li className="menu__item"><Link href="/films" className="menu__link">Movies</Link></li>
-						<li className="menu__item"><Link href="/serials" className="menu__link">Serials</Link></li>
-						<li className="menu__item"><Link href="/cartoons" className="menu__link">Cartoons</Link></li>
+						{links.map((link, i) => {
+							const isCurrentPage = pathname === link.href
+							return (
+								<li key={i} className="menu__item">
+									<Link href={link.href} className={classNames("menu__link", isCurrentPage && "menu__link--active")}>{link.content}</Link>
+								</li>
+							)
+						})}
 					</ul>
 				</nav>
-				<Hamburger/>
+				<Hamburger />
 				<div className="header__actions">
 					<button className="header__search">
 						<Search color="#fbfffe" />
 					</button>
 					<Link href="" className="header__account"><CircleUserRound color="#fbfffe" /><span>Sign in</span></Link>
-					<button onClick={() => menuToggle()} type="button" className='menu__icon icon-menu'><span></span></button>
+					<button onClick={() => menuToggle(!openedMenu)} type="button" className='menu__icon icon-menu'><span></span></button>
 				</div>
 			</div>
 		</header>

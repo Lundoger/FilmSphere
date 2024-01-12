@@ -56,12 +56,14 @@
 	}
 }
 .menu {
+	height: 100%;
 	flex: 1 1 auto;
 	@media (max-width:$mobile){
 		display: none;
 	}
 
 	&__list {
+		height: 100%;
 		display: flex;
 		align-items: center;
 		row-gap: rem(10);
@@ -73,15 +75,30 @@
 		}
 	}
 
-	&__item {}
+	&__item {
+		height: 100%;
+	}
 
 	&__link {
 		position: relative;
+		display: inline-block;
+		line-height: rem(62);
 		font-size: rem(18);
 		font-weight: 700;
-		line-height: 1.2;
 		opacity: 0.6;
 		transition: opacity 0.3s ease 0s;
+		&--active {
+			opacity: 1;
+			&::before{
+				content:'';
+				position: absolute;
+				bottom: 0;
+				left: -25%;
+				width: 150%;
+				height: rem(2);
+				background: linear-gradient(270deg,transparent .17%,#2253b2 15%,#fff 50%,#2253b2 85%,transparent);
+			}
+		}
 		@media (any-hover: hover){
 			&:hover{
 				opacity: 1;
@@ -130,7 +147,6 @@
 		font-weight: 700;
 		line-height: 1.2;
 		padding-left: rem(14);
-		// @include adaptiveValue("height", 31, 24, 0, 768, 320);
 		height: 100%;
 		&--active {
 			&::before{

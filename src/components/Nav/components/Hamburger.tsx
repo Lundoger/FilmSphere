@@ -7,6 +7,7 @@ import React, { useEffect } from 'react'
 
 const Hamburger = () => {
 	const { openedMenu } = useAppSelector(state => state.toggleReducer)
+	const { menuToggle } = useActions() 
 	const { pathname, events } = useRouter()
 	const links = [
 		{ href: '/', content: 'Home' },
@@ -16,7 +17,7 @@ const Hamburger = () => {
 	]
 
 	useEffect(() => {
-
+		events.on('routeChangeComplete', () => menuToggle(false));
 	}, [])
 
 	return (
