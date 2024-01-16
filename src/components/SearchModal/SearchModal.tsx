@@ -28,7 +28,7 @@ const SearchModal = ({children, isOpen, handleClose}: SearchModalProps) => {
 	return (
 		<ReactPortal wrapperId="react-portal-modal-container">
 			<>
-				<div className="modal-bg"></div>
+				<div  className="modal-bg"></div>
 				<div className="search-modal">
 					<h2 className="search-modal__title">Search</h2>
 					<form className='search-modal__form'>
