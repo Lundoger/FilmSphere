@@ -4,7 +4,7 @@ import React from 'react'
 const Films = () => {
 	return (
 		<Layout>
-			<div>films</div>
+			<div>movies</div>
 		</Layout>
 	)
 }
