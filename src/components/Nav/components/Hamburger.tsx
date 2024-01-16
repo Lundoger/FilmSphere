@@ -5,6 +5,7 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import SnowDecoration from '@/components/UI/SnowDecoration/SnowDecoration'
 
 const Hamburger = () => {
 	const { openedMenu } = useAppSelector(state => state.toggleReducer)
@@ -28,11 +29,7 @@ const Hamburger = () => {
 
 	return (
 		<nav className={classNames('burger-menu', openedMenu && 'burger-menu--open')}>
-			<div className='snow-container'>
-				{Array.from({ length: 150 }).map((_, idx) => {
-					return <div className='snow' key={idx} />;
-				})}
-			</div>
+			<SnowDecoration/> 
 			<ul className='burger-menu__list'>
 				{links.map((link, i) => {
 					const isCurrentPage = pathname === link.href
