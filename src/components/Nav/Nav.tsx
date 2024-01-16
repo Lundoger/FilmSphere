@@ -4,19 +4,19 @@ import { CircleUserRound } from "lucide-react"
 import { useActions } from "@/hooks/useActions"
 import { useAppSelector } from "@/hooks/useAppSelector"
 import classNames from "classnames"
-import Hamburger from "./components/Hamburger"
+import Hamburger from "@/components/Nav/components/Hamburger"
 import { useRouter } from "next/router"
-import SearchForm from "./components/Search"
+import SearchForm from "@/components/Nav/components/Search"
 
 const Nav = () => {
 	const { menuToggle } = useActions();
 	const { openedMenu } = useAppSelector((state) => state.toggleReducer);
 	const { pathname } = useRouter()
 	const links = [
-		{ href: '/', content: 'Home', },
-		{ href: '/movies', content: 'Movies', },
-		{ href: '/serials', content: 'Serials', },
-		{ href: '/cartoons', content: 'Cartoons', },
+		{ href: '/', content: 'Home',},
+		{ href: '/movies', content: 'Movies',},
+		{ href: '/serials', content: 'Serials',},
+		{ href: '/cartoons', content: 'Cartoons',},
 	]
 
 	return (

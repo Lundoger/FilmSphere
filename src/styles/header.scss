@@ -4,7 +4,7 @@
 	width: 100%;
 	top: 0;
 	left: 0;
-	z-index: 100;
+	z-index: 9;
 	background-color: var(--bg-primary);
 	&__container {
 		height: rem(62);
@@ -118,9 +118,9 @@
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background: rgba(0, 0, 0, 0.603); 
+	background: rgba(0, 0, 0, 0.903); 
 	padding: rem(100) rem(40) rem(40) rem(40);
-	z-index: 110;
+	z-index: 10;
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s;
@@ -132,12 +132,22 @@
 		display: none;
 	}
 	&__list {
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
 		display: flex;
 		flex-direction: column;
 		@include adaptiveValue("gap", 50, 30, 0, 768, 320);
 	}
 
 	&__item {
+		opacity: 0;
+		transform: translateY(rem(-10));
+		transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
+		&--done {
+			opacity: 1;
+			transform: translateY(rem(0));
+		}
 	}
 
 	&__link {
@@ -171,7 +181,7 @@
 		position: relative;
 		width: rem(27);
 		height: rem(21);
-		z-index: 120;
+		z-index: 11;
 		@media (any-hover: none) {
 			cursor: default;
 		}
