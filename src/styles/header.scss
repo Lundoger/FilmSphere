@@ -27,7 +27,7 @@
 	&__actions {
 		display: flex;
 		align-items: center;
-		gap: rem(30);
+		@include adaptiveValue("gap", 30, 20);
 	}
 
 	&__search {
@@ -51,6 +51,11 @@
 		@media (any-hover: hover){
 			&:hover{
 				opacity: 1;
+			}
+		}
+		span {
+			@media (max-width:$mobileSmall){
+				display: none; 
 			}
 		}
 	}
@@ -124,7 +129,7 @@
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s;
-	&--open {	
+	.menu-open & {	
 		opacity: 1;
 		visibility: visible;
 	}
@@ -171,6 +176,19 @@
 		}
 	}
 }
+//========================================================================================================================================================
+
+.search-modal {
+
+	&__title {
+		@include adaptiveValue("font-size", 40, 20);
+		line-height: 1.3;
+		font-weight: 700;
+		letter-spacing: rem(1);
+		@include adaptiveValue("margin-bottom", 40, 20);
+	}
+}
+
 //====================================================================================================
 
 //Burger

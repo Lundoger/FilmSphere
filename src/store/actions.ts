@@ -1,5 +1,8 @@
-import { menuToggle } from '@/store/reducers/toggleSlice'
+import { menuToggle, searchModalToggle } from '@/store/reducers/toggleSlice'
+import { setSearch } from '@/store/reducers/searchSlice'
 
 export {
 	menuToggle,
+	searchModalToggle,
+	setSearch,
 }

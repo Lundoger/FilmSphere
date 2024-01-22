@@ -24,6 +24,7 @@
 		"@/styles/*": ["src/styles/*"],
 		"@/hooks/*": ["src/hooks/*"],
 		"@/api/*": ["src/api/*"],
+		"@/shared/*": ["src/shared/*"],
 	}
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

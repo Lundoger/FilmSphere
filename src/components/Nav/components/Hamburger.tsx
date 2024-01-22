@@ -1,11 +1,11 @@
 import { useActions } from '@/hooks/useActions'
 import { useAppSelector } from '@/hooks/useAppSelector'
 import { CSSTransition } from 'react-transition-group'
-import classNames from 'classnames'
+import clsx from 'clsx'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import SnowDecoration from '@/components/UI/SnowDecoration/SnowDecoration'
+import SnowDecoration from '@/shared/SnowDecoration/SnowDecoration'
 
 const Hamburger = () => {
 	const { openedMenu } = useAppSelector(state => state.toggleReducer)
@@ -28,7 +28,7 @@ const Hamburger = () => {
 	}, [openedMenu])
 
 	return (
-		<nav className={classNames('burger-menu', openedMenu && 'burger-menu--open')}>
+		<nav className='burger-menu'>
 			<SnowDecoration/> 
 			<ul className='burger-menu__list'>
 				{links.map((link, i) => {
@@ -42,7 +42,7 @@ const Hamburger = () => {
 							timeout={link.timeout}
 						>
 							<li className='burger-menu__item'>
-								<Link href={link.href} className={classNames('burger-menu__link', isCurrentPage && 'burger-menu__link--active')}>{link.content}</Link>
+								<Link href={link.href} className={clsx('burger-menu__link', isCurrentPage && 'burger-menu__link--active')}>{link.content}</Link>
 							</li>
 						</CSSTransition>
 					)
