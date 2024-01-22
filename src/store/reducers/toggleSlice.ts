@@ -1,11 +1,13 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 interface toggleState {
-	openedMenu: boolean
+	openedMenu: boolean,
+	isSearchModalOpen: boolean
 }
 
 const initialState:toggleState = {
-	openedMenu: false
+	openedMenu: false,
+	isSearchModalOpen: false
 }	
 
 export const toggleSlice = createSlice({
@@ -15,9 +17,12 @@ export const toggleSlice = createSlice({
 		menuToggle(state, action: PayloadAction<boolean>) {
 			state.openedMenu = action.payload
 		},
+		searchModalToggle(state, action: PayloadAction<boolean>) {
+			state.isSearchModalOpen = action.payload
+		},
 	}
 })
 
-export const { menuToggle } = toggleSlice.actions
+export const { menuToggle, searchModalToggle } = toggleSlice.actions
 
 export default toggleSlice.reducer

@@ -1,0 +1,69 @@
+.input-line {
+	position: relative;
+}
+
+.label {
+	display: block;
+	height: rem(50);
+	border-radius: rem(20);
+	background-color: #fff;
+	border: rem(2) solid #e1e1e1;
+	&--error {
+		border: rem(2) solid var(--text-error);
+		& .input {
+			color: var(--text-error);
+		}
+	}
+}
+
+.placeholder {
+	position: absolute;
+	left: rem(20);
+	top: rem(25);
+	transform: translateY(-50%);
+	color: var(--text-secondary);
+	transition: all 0.3s ease 0s;
+	&--focus {
+		left: rem(20);
+		top: rem(13);
+		font-size: rem(12);
+	}
+}
+
+.input {
+	height: 100%;
+	border-radius: rem(20);
+	background-color: transparent;
+	width: 100%;
+	outline: none;
+	padding: rem(25) rem(40) rem(8) rem(20);
+	font-size: rem(14);
+	&--focus {
+
+	}
+}
+
+.btn {
+	position: absolute;
+	width: rem(24);
+	height: rem(24);
+	top: 50%;
+	right: rem(10);
+	transform: translateY(-50%);
+}
+
+.clear-btn {
+	opacity: 0;
+	pointer-events: none;
+	visibility: hidden;
+	transition: all 0.3s ease 0s;
+	&--visible {
+		opacity: 1;
+		pointer-events: all;
+		visibility: visible;	
+	}
+}
+
+.eye-btn {
+	
+}

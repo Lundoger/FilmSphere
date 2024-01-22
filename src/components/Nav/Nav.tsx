@@ -3,13 +3,13 @@ import Image from 'next/image'
 import { CircleUserRound } from "lucide-react"
 import { useActions } from "@/hooks/useActions"
 import { useAppSelector } from "@/hooks/useAppSelector"
-import classNames from "classnames"
+import clsx from "clsx"
 import Hamburger from "@/components/Nav/components/Hamburger"
 import { useRouter } from "next/router"
-import SearchForm from "@/components/Nav/components/Search"
+import SearchButton from "@/components/Nav/components/SearchButton"
 
 const Nav = () => {
-	const { menuToggle } = useActions();
+	const { menuToggle, searchModalToggle } = useActions();
 	const { openedMenu } = useAppSelector((state) => state.toggleReducer);
 	const { pathname } = useRouter()
 	const links = [
@@ -20,7 +20,7 @@ const Nav = () => {
 	]
 
 	return (
-		<header className={classNames(openedMenu && 'menu-open', 'header')}>
+		<header className={clsx(openedMenu && 'menu-open', 'header')}>
 			<div className="header__container">
 				<Link href="/" className="header__logo">
 					<Image
@@ -36,7 +36,7 @@ const Nav = () => {
 							const isCurrentPage = pathname === link.href
 							return (
 								<li key={i} className="menu__item">
-									<Link href={link.href} className={classNames("menu__link", isCurrentPage && "menu__link--active")}>{link.content}</Link>
+									<Link href={link.href} className={clsx("menu__link", isCurrentPage && "menu__link--active")}>{link.content}</Link>
 								</li>
 							)
 						})}
@@ -44,7 +44,7 @@ const Nav = () => {
 				</nav>
 				<Hamburger />
 				<div className="header__actions">
-					<SearchForm/>
+					<SearchButton onClick={() => searchModalToggle(true)}/>
 					<Link href="" className="header__account"><CircleUserRound color="#fbfffe" /><span>Sign in</span></Link>
 					<button onClick={() => menuToggle(!openedMenu)} type="button" className='menu__icon icon-menu'><span></span></button>
 				</div>

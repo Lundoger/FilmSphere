@@ -1,11 +1,13 @@
 import { configureStore, combineReducers, PreloadedState } from "@reduxjs/toolkit";
 import { filmSphereApi } from "@/api/filmSphereApi";
 import toggleReducer from "./reducers/toggleSlice";
+import searchReducer from "./reducers/searchSlice";
 import { useMemo } from "react";
 
 const rootReducer = combineReducers({
 	[filmSphereApi.reducerPath]: filmSphereApi.reducer,
 	toggleReducer,
+	searchReducer,
 })
 
 let store: AppStore

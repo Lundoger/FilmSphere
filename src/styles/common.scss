@@ -53,12 +53,33 @@
 	}
 }
 //========================================================================================================================================================
-.modal-bg {
-	position: absolute;
+.modal {
+	position: fixed;
+	z-index: 12;
 	top: 0;
 	left: 0;
-	z-index: 11;
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.904);
+	background-color: rgba(#000, 0.95);
+	overflow-y: hidden;
+	overflow-y: scroll;
+	// opacity: 0;
+	&--done {
+		opacity: 1;
+	}
+	&__container {
+		max-width: rem(768);
+		margin-top: rem(100);
+		@media (max-width:$mobileSmall){
+			 margin-top: rem(70); 
+		}
+	}
+
+	&__button {
+		position: absolute;
+		@include adaptiveValue("top", 30, 15);
+		@include adaptiveValue("right", 30, 15);
+		width: rem(24);
+		height: rem(24);
+	}
 }
