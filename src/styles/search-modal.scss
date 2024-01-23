@@ -1,0 +1,31 @@
+.search-modal {
+	&__title {
+		@include adaptiveValue("margin-bottom", 40, 20);
+	}
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-auto-rows: 1fr;
+		gap: rem(20);
+	}
+	&__item {}
+}
+.search-item {
+	display: flex;
+	gap: rem(10);
+	&__image {
+		position: relative;
+		width: rem(50);
+		height: rem(50);
+	}
+
+	&__content {}
+
+	&__name {}
+
+	&__actions {}
+
+	&__year {}
+
+	&__rating {}
+}
