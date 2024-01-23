@@ -28,24 +28,16 @@ const Modal = ({ children, className, isOpen, handleClose }: ModalProps) => {
 	if (!isOpen) return null
 
 	return (
-		<CSSTransition
-			classNames={{
-				enterDone: 'modal--done',
-			}}
-			in={isOpen}
-			timeout={0}
-		>
-			<ReactPortal wrapperId="portal-modal-container">
-				<div className={clsx('modal', className)}>
-					<button onClick={handleClose} className='modal__button'>
-						<X color="#fbfffe"/>
-					</button>
-					<div className="modal__container">
-						{children}
-					</div>
+		<ReactPortal wrapperId="portal-modal-container">
+			<div className={clsx('modal',isOpen && 'modal--done', className)}>
+				<button onClick={handleClose} className='modal__button'>
+					<X color="#fbfffe"/>
+				</button>
+				<div className="modal__container">
+					{children}
 				</div>
-			</ReactPortal>
-		</CSSTransition>
+			</div>
+		</ReactPortal>
 	)
 }
 
