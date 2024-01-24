@@ -2,13 +2,15 @@ import Spinner from '@/shared/Spinner/Spinner';
 import { useGetSearchTitleQuery } from '@/api/filmSphereApi';
 import SearchModalItem from './SearchModalItem';
 import { useEffect, useState } from 'react';
+import { useAppSelector } from '@/hooks/useAppSelector';
 
 interface SearchModalListProps {
 	value: string,
 }
 
 export const SearchModalList = ({value}: SearchModalListProps) => {
-	const {isFetching, isError, data: response, refetch} = useGetSearchTitleQuery(value,{
+	const { search } = useAppSelector(state => state.searchReducer)
+	const {isFetching, isError, data: response} = useGetSearchTitleQuery(value,{
 		skip: value.trim().length === 0,
 	})
 	
@@ -20,7 +22,7 @@ export const SearchModalList = ({value}: SearchModalListProps) => {
 		setFilteredData(newFilteredData);
 	  }
 	}, [response]);
-	
+
 	return (
 		<div className="search-modal__content">
 			{isFetching && (
