@@ -10,16 +10,21 @@ const SearchModal = () => {
 	const { isSearchModalOpen } = useAppSelector(state => state.toggleReducer)
 	const { search } = useAppSelector(state => state.searchReducer)
 	const { searchModalToggle, setSearch } = useActions()
-	const inputRef = useRef<HTMLInputElement>(null)
 	const debounced = useDebounce(search.trim())
+	const inputRef = useRef<HTMLInputElement>(null)
 
 	useEffect(() => {
-		inputRef.current?.focus()
-	}, [isSearchModalOpen])
+		inputRef.current?.focus();
+	}, [])
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		inputRef.current?.blur()
+	}
+
+	const handleClose = () => {
+		setSearch('')
+		searchModalToggle(false)
 	}
 
 	const handleClear = () => {
@@ -28,19 +33,19 @@ const SearchModal = () => {
 	}
 
 	return (
-		<Modal isOpen={isSearchModalOpen} className='search-modal' handleClose={() => searchModalToggle(false)}>
-			<h1 className="search-modal__title title">Search</h1>
-			<form onSubmit={handleSubmit}>
-				<Input
-					placeholder='Movies, Serials, Anime...'
-					onClear={handleClear}
-					onChange={e => setSearch(e.target.value)}
-					value={search}
-					ref={inputRef}
-				/>
-			</form>
-			<SearchModalList value={debounced}/>
-		</Modal>
+			<Modal isOpen={isSearchModalOpen} className='search-modal' handleClose={handleClose}>
+				<h1 className="search-modal__title title">Search</h1>
+				<form className="search-modal__form" onSubmit={handleSubmit}>
+					<Input
+						placeholder='Movies, Serials, Anime...'
+						onClear={handleClear}
+						onChange={e => setSearch(e.target.value)}
+						value={search}
+						ref={inputRef}
+					/>
+				</form>
+				<SearchModalList value={debounced}/>
+			</Modal>
 	)
 }
 

@@ -11,7 +11,7 @@ const SearchModalItem = ({ item }: SearchModalItemProps) => {
 
 	return (
 		<li key={id} className="search-modal__item search-item">
-			<Link href={`/`}>
+			<Link className='search-item__link' href={`/`}>
 				<div className="search-item__image">
 					{poster && (
 						<Image
@@ -24,7 +24,7 @@ const SearchModalItem = ({ item }: SearchModalItemProps) => {
 					)}
 				</div>
 				<div className="search-item__content">
-					<h3 className="search-item__name">{name}</h3>
+					<h3 className="search-item__name">{name ? name : 'this title has no name*'}</h3>
 					<div className="search-item__actions">
 						<span className="search-item__year">{year}</span>
 						<span className="search-item__rating">{rating.toFixed(1)}</span>
