@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { CSSTransition } from 'react-transition-group'
 import ReactPortal from '@/shared/ReactPortal/ReactPortal'
 import { X } from 'lucide-react'
 import clsx from 'clsx'
@@ -29,22 +28,14 @@ const Modal = ({ children, className, isOpen, handleClose }: ModalProps) => {
 
 	return (
 		<ReactPortal wrapperId="portal-modal-container">
-			<CSSTransition
-				classNames={{
-					enterDone: 'modal--done',
-				}}
-				in={isOpen}
-				timeout={300}
-			>
-				<div className={clsx('modal', isOpen && 'modal--done', className)}>
-					<button onClick={handleClose} className='modal__button'>
-						<X color="#fbfffe" />
-					</button>
-					<div className="modal__container">
-						{children}
-					</div>
+			<div className={clsx('modal', className)}>
+				<button onClick={handleClose} className='modal__button'>
+					<X color="#fbfffe" />
+				</button>
+				<div className="modal__container">
+					{children}
 				</div>
-			</CSSTransition>
+			</div>
 		</ReactPortal>
 	)
 }

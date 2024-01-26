@@ -19,8 +19,14 @@ const Nav = () => {
 		{ href: '/cartoons', content: 'Cartoons',},
 	]
 
+	const handleModalOpen = () => {
+		const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+		document.getElementById('header')!.style.paddingRight = `${scrollbarWidth}px`
+		searchModalToggle(true)
+	}
+
 	return (
-		<header className={clsx(openedMenu && 'menu-open', 'header')}>
+		<header id='header' className={clsx(openedMenu && 'menu-open', 'header')}>
 			<div className="header__container">
 				<Link href="/" className="header__logo">
 					<Image
@@ -44,7 +50,7 @@ const Nav = () => {
 				</nav>
 				<Hamburger />
 				<div className="header__actions">
-					<SearchButton onClick={() => searchModalToggle(true)}/>
+					<SearchButton onClick={handleModalOpen}/>
 					<Link href="" className="header__account"><CircleUserRound color="#fbfffe" /><span>Sign in</span></Link>
 					<button onClick={() => menuToggle(!openedMenu)} type="button" className='menu__icon icon-menu'><span></span></button>
 				</div>
