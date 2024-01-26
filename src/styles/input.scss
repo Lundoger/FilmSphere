@@ -37,6 +37,8 @@
 	width: 100%;
 	padding: rem(25) rem(40) rem(8) rem(20);
 	font-size: rem(14);
+	outline: rem(3) solid #fff;
+	transition: outline 0.3s ease 0s;
 	&--focus {
 		color: var(--text-secondary);
 		outline: rem(3) solid var(--bg-secondary);

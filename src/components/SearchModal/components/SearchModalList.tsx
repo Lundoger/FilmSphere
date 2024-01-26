@@ -1,27 +1,27 @@
 import Spinner from '@/shared/Spinner/Spinner';
-import { useGetSearchTitleQuery } from '@/api/filmSphereApi';
 import SearchModalItem from './SearchModalItem';
-import { useEffect, useState } from 'react';
 import { useAppSelector } from '@/hooks/useAppSelector';
+import { useGetSearchTitleQuery } from '@/api/filmSphereApi';
+import { useDebounce } from '@/hooks/useDebounce';
+import { useEffect, useState } from 'react';
+import { useActions } from '@/hooks/useActions';
 
-interface SearchModalListProps {
-	value: string,
-}
-
-export const SearchModalList = ({value}: SearchModalListProps) => {
-	const { search } = useAppSelector(state => state.searchReducer)
-	const {isFetching, isError, data: response} = useGetSearchTitleQuery(value,{
-		skip: value.trim().length === 0,
+const SearchModalList = () => {
+	const { search, currentData } = useAppSelector(state => state.searchReducer)
+	const { setData } = useActions()
+	const debouncedSearch = useDebounce(search) 
+	const {isFetching, isError, data: response} = useGetSearchTitleQuery(debouncedSearch, {
+		skip: debouncedSearch.length < 1
 	})
-	
-	const [filteredData, setFilteredData] = useState(response?.docs);
 
 	useEffect(() => {
-	  if (response) {
-		const newFilteredData = response.docs.filter(item => item.poster !== null);
-		setFilteredData(newFilteredData);
-	  }
-	}, [response]);
+		if(response?.docs) {
+			const filteredData = response.docs.filter(item => item.poster !== null)
+			setData(filteredData)
+		}
+	}, [response])
+
+	const isSearchEmpty = search.length === 0
 
 	return (
 		<div className="search-modal__content">
@@ -35,7 +35,7 @@ export const SearchModalList = ({value}: SearchModalListProps) => {
 					Something went wrong...
 				</h1>
 			)}
-			{!isFetching && !isError && filteredData && filteredData.length === 0 && (
+			{!isSearchEmpty && !currentData.length && (
 				<>
 					<h1 className='title'>
 						No results found
@@ -45,9 +45,9 @@ export const SearchModalList = ({value}: SearchModalListProps) => {
 					</p>
 				</>
 			)}
-			{!isFetching && !isError && filteredData && (
+			{!isFetching && !isError && currentData && (
 				<ul className="search-modal__list">
-					{filteredData.map((item) => (
+					{currentData.map(item => (
 						<SearchModalItem item={item}/>
 					))}
 				</ul>
