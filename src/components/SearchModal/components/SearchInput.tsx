@@ -7,7 +7,7 @@ import { useLazyGetSearchTitleQuery } from '@/api/filmSphereApi';
 
 const SearchInput = () => {
 	const { search } = useAppSelector(state => state.searchReducer)
-	const { setSearch, setData } = useActions()
+	const { setSearch, setData, setHasMore } = useActions()
 	const inputRef = useRef<HTMLInputElement>(null)
 
 	useEffect(() => {
