@@ -3,11 +3,11 @@ import { useEffect, useRef } from 'react';
 import { Input } from '@/shared/Input/Input';
 import { useActions } from '@/hooks/useActions';
 import { useAppSelector } from '@/hooks/useAppSelector';
-import { useLazyGetSearchTitleQuery } from '@/api/filmSphereApi';
+import { useDebounce } from '@/hooks/useDebounce';
 
 const SearchInput = () => {
 	const { search } = useAppSelector(state => state.searchReducer)
-	const { setSearch, setData, setHasMore } = useActions()
+	const { setSearch } = useActions()
 	const inputRef = useRef<HTMLInputElement>(null)
 
 	useEffect(() => {
@@ -21,7 +21,6 @@ const SearchInput = () => {
 
 	const handleClear = () => {
 		setSearch('')
-		setData([])
 		inputRef.current?.focus()
 	}
 
@@ -30,7 +29,7 @@ const SearchInput = () => {
 			<Input
 				placeholder='Movies, Serials, Anime...'
 				onClear={handleClear}
-				onChange={e => setSearch(e.target.value)}
+				onInput={e => setSearch(e.currentTarget.value)}
 				value={search}
 				ref={inputRef}
 			/>

@@ -5,7 +5,7 @@
 .label {
 	display: block;
 	height: rem(50);
-	border-radius: rem(20);
+	border-radius: rem(10);
 	background-color: #fff;
 	border: rem(2) solid #e1e1e1;
 	&--error {
@@ -32,7 +32,7 @@
 
 .input {
 	height: 100%;
-	border-radius: rem(20);
+	border-radius: rem(10);
 	background-color: transparent;
 	width: 100%;
 	padding: rem(25) rem(40) rem(8) rem(20);
@@ -42,7 +42,6 @@
 	&--focus {
 		color: var(--text-secondary);
 		outline: rem(3) solid var(--bg-secondary);
-		
 	}
 }
 

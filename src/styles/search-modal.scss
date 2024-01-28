@@ -14,11 +14,16 @@
 		grid-auto-rows: 1fr;
 		gap: rem(20);
 		padding: rem(10);
+		margin-bottom: rem(20);
 		@media (max-width: em(550)){
 			grid-template-columns: 1fr;
 		}
 	}
 	&__item {}
+
+	&__load-more {
+		margin-bottom: rem(30);
+	}
 }
 .search-item {
 	@media (any-hover: hover){
