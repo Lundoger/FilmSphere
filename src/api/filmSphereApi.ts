@@ -1,5 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import {SearchMovies } from "@/models/Api";
+import { SearchMovieResponseDtoV14 } from "@/models/Api";
+
+interface getSearchTitleParams {
+	query: string;
+	page: number;
+	limit: number;
+}
 
 export const filmSphereApi = createApi({
 	reducerPath: "filmSphereApi",
@@ -7,9 +13,9 @@ export const filmSphereApi = createApi({
 		baseUrl: "https://api.kinopoisk.dev/",
 	}),
 	endpoints: (build) => ({
-		getSearchTitle: build.query<SearchMovies, string>({
-			query: (query: string, page: number = 1, limit: number = 20) => ({
-				url: "v1.2/movie/search",
+		getSearchTitle: build.query<SearchMovieResponseDtoV14, getSearchTitleParams>({
+			query: ({ query, page, limit }) => ({
+				url: "v1.4/movie/search",
 				method: "GET",
 				headers: {
 					accept: "application/json",
