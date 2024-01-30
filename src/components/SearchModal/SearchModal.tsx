@@ -10,7 +10,6 @@ const SearchModal = () => {
 
 	const handleClose = () => {
 		setSearch('')
-		setData([])
 		document.getElementById('header')!.style.paddingRight = `0`
 		searchModalToggle(false)
 	}
