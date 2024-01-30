@@ -10,7 +10,7 @@ const SearchModalList = () => {
 	//экшены и поля из стора
 	const { search, currentData, hasMore, currentPage } = useAppSelector(state => state.searchReducer)
 	const { setData, setHasMore, loadMoreData, nextPage, setPage } = useActions()
-	const { debounced, setDebounced } = useDebounce(search)
+	const { debounced } = useDebounce(search)
 
 	//состояние для отображения сообщения "Ничего не найдено"
 	const [searchPending, setSearchPending] = useState(false)
@@ -98,7 +98,7 @@ const SearchModalList = () => {
 						<Spinner />
 					</div>
 				)}
-				{hasMore && currentData.length > 0 && (
+				{hasMore && searchPending && currentData.length > 0 && (
 					<button
 						onClick={loadMore}
 						className="search-modal__load-more"
