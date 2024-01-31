@@ -1,9 +1,9 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-// import {SearchMovieEntity } from "@/models/Api";
+import {SearchMovieDtoV14 } from "@/models/Api";
 
 interface searchState {
 	search: string,
-	currentData: any[],
+	currentData: SearchMovieDtoV14[],
 	hasMore: boolean,
 	currentPage: number,
 }
@@ -22,13 +22,13 @@ export const searchSlice = createSlice({
 		setSearch(state, action: PayloadAction<string>) {
 			state.search = action.payload
 		},
-		setData(state, action: PayloadAction<any[]>) {
+		setData(state, action: PayloadAction<SearchMovieDtoV14[]>) {
 			state.currentData = action.payload
 		},
 		setHasMore(state, action: PayloadAction<boolean>) {
 			state.hasMore = action.payload
 		},
-		loadMoreData(state, action: PayloadAction<any[]>) {
+		loadMoreData(state, action: PayloadAction<SearchMovieDtoV14[]>) {
 			state.currentData = state.currentData.concat(action.payload)
 		},
 		nextPage(state) {
