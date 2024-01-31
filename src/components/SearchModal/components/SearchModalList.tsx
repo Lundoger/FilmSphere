@@ -51,13 +51,17 @@ const SearchModalList = () => {
 				page: currentPage,
 				limit: 30,
 			})
-			if (lazyResponse) {
-				const filteredData = lazyResponse.docs.filter(item => item.poster !== null && item.poster?.url !== null)
-				loadMoreData(filteredData)
-				lazyResponse.pages > currentPage ? setHasMore(true) : setHasMore(false)
-			}
 		}
 	}, [currentPage])
+
+	//useEffect для записи в стор полученных дозагруженных(по нажатию на load more) данных
+	useEffect(() => {
+		if (lazyResponse) {
+			const filteredData = lazyResponse.docs.filter(item => item.poster !== null && item.poster?.url !== null)
+			loadMoreData(filteredData)
+			lazyResponse.pages > currentPage ? setHasMore(true) : setHasMore(false)
+		}
+	}, [lazyResponse])
 
 	const loadMore = () => {
 		nextPage()
@@ -98,7 +102,7 @@ const SearchModalList = () => {
 						<Spinner />
 					</div>
 				)}
-				{hasMore && searchPending && currentData.length > 0 && (
+				{hasMore && currentData.length > 0 && (
 					<button
 						onClick={loadMore}
 						className="search-modal__load-more"
