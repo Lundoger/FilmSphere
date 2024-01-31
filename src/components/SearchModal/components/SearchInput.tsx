@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 import { Input } from '@/shared/Input/Input';
 import { useActions } from '@/hooks/useActions';
 import { useAppSelector } from '@/hooks/useAppSelector';
-import { useDebounce } from '@/hooks/useDebounce';
 
 const SearchInput = () => {
 	const { search } = useAppSelector(state => state.searchReducer)
@@ -29,7 +28,7 @@ const SearchInput = () => {
 			<Input
 				placeholder='Movies, Serials, Anime...'
 				onClear={handleClear}
-				onInput={e => setSearch(e.currentTarget.value)}
+				onChange={e => setSearch(e.currentTarget.value)}
 				value={search}
 				ref={inputRef}
 			/>
