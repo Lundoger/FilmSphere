@@ -12,10 +12,11 @@ const Hamburger = () => {
 	const { menuToggle } = useActions()
 	const { pathname, events } = useRouter()
 	const links = [
-		{ href: '/', content: 'Home', timeout: 100, },
-		{ href: '/movies', content: 'Movies', timeout: 150, },
-		{ href: '/serials', content: 'Serials', timeout: 200, },
-		{ href: '/cartoons', content: 'Cartoons', timeout: 250, },
+		{ href: '/', content: 'Главная', timeout: 100, },
+		{ href: '/movies', content: 'Фильмы', timeout: 150, },
+		{ href: '/serials', content: 'Сериалы', timeout: 200, },
+		{ href: '/cartoons', content: 'Мультфильмы', timeout: 250, },
+		{ href: '/anime', content: 'Аниме', timeout: 300, },
 	]
 
 	useEffect(() => {

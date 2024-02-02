@@ -4,17 +4,19 @@ import { createPortal } from "react-dom";
 interface ReactPortalProps {
 	children: React.ReactNode,
 	wrapperId: string,
+	elementId?: string,
 }
 
-const createWrapperAndAppendToBody = (wrapperId:string) => {
+const createWrapperAndAppendToElement = (wrapperId:string, elementId:string | null = null) => {
 	if(!document) return null;
 	const wrapperElement = document.createElement('div')
 	wrapperElement.setAttribute('id', wrapperId)
+	elementId ? document.getElementById(elementId)?.appendChild(wrapperElement) : 
 	document.body.appendChild(wrapperElement)
 	return wrapperElement
 }
 
-const ReactPortal = ({children, wrapperId}: ReactPortalProps) => {
+const ReactPortal = ({children, wrapperId, elementId}: ReactPortalProps) => {
 	const [wrapper, setWrapper] = useState<HTMLElement | null>(null)
 	
 	useLayoutEffect(() => {
@@ -23,7 +25,7 @@ const ReactPortal = ({children, wrapperId}: ReactPortalProps) => {
 
 		if(!element) {
 			systemCreated = true
-			element = createWrapperAndAppendToBody(wrapperId)
+			elementId ? element = createWrapperAndAppendToElement(wrapperId, elementId) : element = createWrapperAndAppendToElement(wrapperId) 
 		}
 		setWrapper(element)
 

@@ -13,10 +13,11 @@ const Nav = () => {
 	const { openedMenu } = useAppSelector((state) => state.toggleReducer);
 	const { pathname } = useRouter()
 	const links = [
-		{ href: '/', content: 'Home',},
-		{ href: '/movies', content: 'Movies',},
-		{ href: '/serials', content: 'Serials',},
-		{ href: '/cartoons', content: 'Cartoons',},
+		{ href: '/', content: 'Главная',},
+		{ href: '/movies', content: 'Фильмы',},
+		{ href: '/serials', content: 'Сериалы',},
+		{ href: '/cartoons', content: 'Мультфильмы',},
+		{ href: '/anime', content: 'Аниме',},
 	]
 
 	const handleModalOpen = () => {
