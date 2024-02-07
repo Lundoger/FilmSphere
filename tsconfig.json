@@ -19,6 +19,7 @@
     "plugins": [{ "name": "next" }],
 	"paths": {
 		"@/components/*": ["src/components/*"],
+		"@/screens/*": ["src/screens/*"],
 		"@/UI/*": ["src/components/UI/*"],
 		"@/store/*": ["src/store/*"],
 		"@/styles/*": ["src/styles/*"],

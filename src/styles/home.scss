@@ -1,3 +1,85 @@
 //====================================================================================================
+.hero {
+	&__slider {
+	}
+}
+.hero-slider {
+	&__container {
+		max-width: 57%;
+		@media (max-width: em(1260)){
+			max-width: 65%;
+		}
+		@media (max-width:$tablet){
+			max-width: 75%;		
+		}
+		@media (max-width:$mobile){
+			max-width: 100%;
+		}
+	}
 
+	&__swiper {
+		overflow: visible !important;
+	}
+}
+.hero-slide {
+	display: block;
+	position: relative;
+	width: 100%;
+	padding-bottom: 60%;
+	border-radius: rem(10);
+	overflow: hidden;
+	border: solid rem(1) hsla(0, 0%, 100%, 0.1);
+	@media (max-width:$mobileSmall){
+		padding-bottom: 80%;
+	}
+	&__image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+
+	&__content {
+		position: absolute;
+		bottom: 5%;
+		left: 5%;
+	}
+
+	&__name {
+		@include adaptiveValue("font-size", 24, 16);
+		font-weight: 700;
+		line-height: 1.5;
+		letter-spacing: rem(0.5);
+		margin-bottom: rem(15);
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+		gap: rem(10);
+		flex-wrap: wrap;
+	}
+
+	&__rating {
+		background-color: rgba(138, 136, 145, 0.32);
+		@include adaptiveValue("font-size", 16, 13);
+		border-radius: rem(5);
+		padding: rem(5);
+		letter-spacing: rem(0.5);
+		line-height: 1.2;
+	}
+
+	&__year {
+		@include adaptiveValue("font-size", 16, 13);
+		line-height: 1.3;
+		font-weight: 700;
+	}
+
+	&__genre {
+		@include adaptiveValue("font-size", 18, 14);
+		line-height: 1.3;
+		font-weight: 500;
+	}
+}
 //====================================================================================================
