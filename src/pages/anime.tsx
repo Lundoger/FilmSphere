@@ -1,8 +1,10 @@
-import React from 'react'
+import { Layout } from '@/components/Layout/Layout'
 
 const anime = () => {
 	return (
-		<div>anime</div>
+		<Layout>
+			<div>anime</div>
+		</Layout>
 	)
 }
 

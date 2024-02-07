@@ -200,6 +200,12 @@
 			width: 100%;
 			height: rem(2);
 			background-color: var(--text-primary);
+			opacity: 0.6;
+			@media (any-hover: hover){
+				&:hover{
+					opacity: 1;					
+				}
+			}
 		}
 		&::before {
 			top: 0;

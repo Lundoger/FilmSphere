@@ -7,6 +7,14 @@ interface getSearchTitleParams {
 	limit: number;
 }
 
+interface getRecommendTitleParams {
+	ratingValue?: number;
+	year?: number;
+	sortField?: string,
+	sortType?: number,
+	limit: number;
+}
+
 export const filmSphereApi = createApi({
 	reducerPath: "filmSphereApi",
 	baseQuery: fetchBaseQuery({
@@ -28,7 +36,28 @@ export const filmSphereApi = createApi({
 				},
 			}),
 		}),
+		getRecommendTitle: build.query<any, getRecommendTitleParams>({
+			query: ({ limit, ratingValue = '6-10', year = 2024}) => ({
+				url: "v1.4/movie",
+				method: "GET",
+				headers: {
+					accept: "application/json",
+					'X-API-KEY': process.env.NEXT_PUBLIC_API_KEY,
+				},
+				params: {
+					['rating.kp']: ratingValue,
+					year: year,
+					sortField: 'votes.filmCritics',
+					sortType: -1,
+					limit: limit,
+				},
+			}),
+		}),
 	}),
 })
 
-export const { useGetSearchTitleQuery, useLazyGetSearchTitleQuery } = filmSphereApi
+export const { 
+	useGetSearchTitleQuery, 
+	useLazyGetSearchTitleQuery,
+	useGetRecommendTitleQuery, 
+} = filmSphereApi
