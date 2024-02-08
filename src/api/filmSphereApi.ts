@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { SearchMovieResponseDtoV14 } from "@/models/Api";
+import { SearchMovieResponseDtoV14, MovieDocsResponseDtoV14 } from "@/models/Api";
 
 interface getSearchTitleParams {
 	query: string;
@@ -10,8 +10,6 @@ interface getSearchTitleParams {
 interface getRecommendTitleParams {
 	ratingValue?: number;
 	year?: number;
-	sortField?: string,
-	sortType?: number,
 	limit: number;
 }
 
@@ -36,8 +34,8 @@ export const filmSphereApi = createApi({
 				},
 			}),
 		}),
-		getRecommendTitle: build.query<any, getRecommendTitleParams>({
-			query: ({ limit, ratingValue = '6-10', year = 2024}) => ({
+		getRecommendTitle: build.query<MovieDocsResponseDtoV14, getRecommendTitleParams>({
+			query: ({ limit, ratingValue = '7-10', year = 2023}) => ({
 				url: "v1.4/movie",
 				method: "GET",
 				headers: {
@@ -45,8 +43,9 @@ export const filmSphereApi = createApi({
 					'X-API-KEY': process.env.NEXT_PUBLIC_API_KEY,
 				},
 				params: {
-					['rating.kp']: ratingValue,
+					['rating.imdb']: ratingValue,
 					year: year,
+					notNullFields: 'backdrop.url',
 					sortField: 'votes.filmCritics',
 					sortType: -1,
 					limit: limit,
