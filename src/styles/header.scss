@@ -14,11 +14,16 @@
 		justify-content: space-between;
 	}
 	&__logo {
-		position: relative;
-		display: inline-block;
-		width: rem(61);
-		height: rem(42);
-		flex: 0 0 rem(61);
+		// position: relative;
+		// display: inline-block;
+		// width: rem(61);
+		// height: rem(42);
+		// flex: 0 0 rem(61);
+		font-weight: 700;
+		@include adaptiveValue("font-size", 24, 18);
+		span {
+			color: var(--text-third);
+		}
 	}
 
 	&__menu {}
@@ -70,6 +75,7 @@
 	&__list {
 		height: 100%;
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		row-gap: rem(10);
 		@include adaptiveValue("column-gap", 30, 20, 0, 1500, 768);
@@ -88,7 +94,7 @@
 		position: relative;
 		display: inline-block;
 		line-height: rem(62);
-		font-size: rem(18);
+		@include adaptiveValue("font-size", 18, 16, 0, 1440, 768);
 		font-weight: 700;
 		opacity: 0.6;
 		transition: opacity 0.3s ease 0s;

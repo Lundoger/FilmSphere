@@ -128,7 +128,7 @@
 	}
 }
 .description {
-	color: var(--text-desc);
+	color: var(--text-accent);
 	line-height: 1.2;
 	@include adaptiveValue("font-size", 16, 13);
 }

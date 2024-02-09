@@ -30,12 +30,13 @@ const Nav = () => {
 		<header id='header' className={clsx(openedMenu && 'menu-open', 'header')}>
 			<div className="header__container">
 				<Link href="/" className="header__logo">
-					<Image
+					{/* <Image
 						fill
 						src="/assets/icons/logo.svg"
 						alt="FilmSphere"
 						priority={true}
-					/>
+					/> */}
+					Film<span>Sphere</span>
 				</Link>
 				<nav className="header__menu menu">
 					<ul className="menu__list">
@@ -52,7 +53,7 @@ const Nav = () => {
 				<Hamburger />
 				<div className="header__actions">
 					<SearchButton onClick={handleModalOpen}/>
-					<Link href="" className="header__account"><CircleUserRound color="#fbfffe" /><span>Sign in</span></Link>
+					<Link href="" className="header__account"><span>Войти</span><CircleUserRound color="#fbfffe" /></Link>
 					<button onClick={() => menuToggle(!openedMenu)} type="button" className='menu__icon icon-menu'><span></span></button>
 				</div>
 			</div>

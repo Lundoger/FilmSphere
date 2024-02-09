@@ -17,7 +17,7 @@
     "react-transition-group": "^4.4.5",
     "sass": "^1.69.7",
     "swagger-typescript-api": "^13.0.3",
-    "swiper": "^11.0.5"
+    "swiper": "^8.4.4"
   },
   "devDependencies": {
     "@types/node": "20.3.1",

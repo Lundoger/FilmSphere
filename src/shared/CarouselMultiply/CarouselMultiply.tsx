@@ -2,7 +2,7 @@ import 'swiper/css';
 import clsx from 'clsx';
 import { useCallback, type ReactNode } from 'react';
 import { SwiperOptions } from 'swiper/types';
-import { Navigation } from 'swiper/modules';
+import { Navigation } from 'swiper';
 import type { SwiperProps } from 'swiper/react';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import CarouselButton from './carousel-button/CarouselButton';
@@ -64,11 +64,11 @@ export const CarouselMultiply = <T, _>({
 			{navigation && (
 				<>
 					<CarouselButton
-						className={clsx('prev', prevBtnClass)}
+						className={clsx('slider-button__prev', prevBtnClass)}
 						ref={prevElRef}
 					/>
 					<CarouselButton
-						className={clsx('next', nextBtnClass)}
+						className={clsx('slider-button__next', nextBtnClass)}
 						ref={nextElRef}
 					/>
 				</>
