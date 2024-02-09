@@ -1,9 +1,7 @@
 //====================================================================================================
-.hero {
-	&__slider {
-	}
-}
 .hero-slider {
+	overflow: hidden;
+	position: relative;
 	&__container {
 		max-width: 57%;
 		@media (max-width: em(1260)){
@@ -13,8 +11,11 @@
 			max-width: 75%;		
 		}
 		@media (max-width:$mobile){
-			max-width: 100%;
+			max-width: 90%;
 		}
+	}
+
+	&__swiper-slide {
 	}
 }
 
@@ -24,18 +25,24 @@
 	width: 100%;
 	padding-bottom: 60%;
 	border-radius: rem(10);
-	overflow: hidden;
+	overflow: hidden;	
 	border: solid rem(1) hsla(0, 0%, 100%, 0.1);
-	@media (max-width:$mobileSmall){
-		padding-bottom: 80%;
-	}
-	&__image {
-		position: absolute;
+	&::before{
+		content:'';
 		display: block;
+		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
+		z-index: 20;
+		box-shadow: rgba(0, 0, 0, 0.753) rem(0) rem(-50) rem(200) rem(-28) inset;
+	}
+	@media (max-width:$mobileSmall){
+		padding-bottom: 80%;
+	}
+	&__image {
+		display: block;
 		object-fit: cover;
 	}
 
@@ -43,6 +50,7 @@
 		position: absolute;
 		bottom: 5%;
 		left: 5%;
+		z-index: 21;
 	}
 
 	&__name {

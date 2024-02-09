@@ -46,7 +46,7 @@ export const filmSphereApi = createApi({
 					['rating.imdb']: ratingValue,
 					year: year,
 					notNullFields: 'backdrop.url',
-					sortField: 'votes.filmCritics',
+					sortField: 'votes.filmCritics',	
 					sortType: -1,
 					limit: limit,
 				},

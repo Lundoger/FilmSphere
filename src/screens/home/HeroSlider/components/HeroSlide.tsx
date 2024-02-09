@@ -7,7 +7,7 @@ interface HeroSlideProps {
 }
 
 const HeroSlide = ({item}: HeroSlideProps) => {
-	const {poster, name, genres, rating, year, backdrop} = item
+	const {name, genres, rating, year, backdrop} = item
 
 	return (
 		<Link className='hero-slider__slide hero-slide' href={'#'}>
@@ -19,7 +19,7 @@ const HeroSlide = ({item}: HeroSlideProps) => {
 					priority
 					quality={100}	
 					sizes="100%"
-					src={backdrop?.url!}
+					src={backdrop.url}
 				/>
 			)}
 			<div className="hero-slide__content">

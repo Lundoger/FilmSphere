@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { ChevronLeft } from 'lucide-react';
 import type { ButtonHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
@@ -13,7 +14,7 @@ const CarouselButton = forwardRef<HTMLButtonElement, CarouselButtonProps>(
 			ref={ref}
 			{...props}
 		>
-			btn
+			<ChevronLeft size={30}/>
 		</button>
 	)
 )

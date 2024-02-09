@@ -3,6 +3,7 @@ import { useAppSelector } from '@/hooks/useAppSelector'
 import Modal from '@/shared/Modal/Modal'
 import SearchModalList from './components/SearchModalList'
 import SearchInput from './components/SearchInput'
+import SnowDecoration from '@/shared/SnowDecoration/SnowDecoration'
 
 const SearchModal = () => {
 	const { isSearchModalOpen } = useAppSelector(state => state.toggleReducer)
@@ -16,6 +17,7 @@ const SearchModal = () => {
 
 	return (
 		<Modal isOpen={isSearchModalOpen} className='search-modal' handleClose={handleClose}>
+			<SnowDecoration/>
 			<h1 className="search-modal__title title">Search</h1>
 			<SearchInput/>
 			<SearchModalList/>
