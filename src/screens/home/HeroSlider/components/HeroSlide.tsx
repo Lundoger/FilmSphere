@@ -24,10 +24,17 @@ const HeroSlide = ({item}: HeroSlideProps) => {
 			)}
 			<div className="hero-slide__content">
 				<h3 className="hero-slide__name">{name}</h3>
+				{genres && (
+					<ul className="hero-slide__genres genres-hero">
+						Жанры: 
+						{genres.map(genre => (
+							<li className="genres-hero__genre">{genre.name}</li>
+						))}
+					</ul>
+				)}
 				<div className="hero-slide__actions">
 					<span className="hero-slide__rating">{rating?.kp?.toFixed(1)}</span>
 					<span className="hero-slide__year">{year}</span>
-					<span className="hero-slide__genre">Romantic</span>
 				</div>
 			</div>
 		</Link>
