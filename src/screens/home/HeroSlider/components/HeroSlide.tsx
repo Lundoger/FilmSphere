@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { MovieDtoV14 } from '@/models/Api'
+import { Button } from '@/shared/Button/Button'
 
 interface HeroSlideProps {
 	item: MovieDtoV14
@@ -24,10 +25,24 @@ const HeroSlide = ({item}: HeroSlideProps) => {
 			)}
 			<div className="hero-slide__content">
 				<h3 className="hero-slide__name">{name}</h3>
+				{genres && (
+					<ul className="hero-slide__genres genres-hero">
+						Жанры: 
+						{genres.map(genre => (
+							<li className="genres-hero__genre">{genre.name}</li>
+						))}
+					</ul>
+				)}
 				<div className="hero-slide__actions">
-					<span className="hero-slide__rating">{rating?.kp?.toFixed(1)}</span>
+					<Button
+						className='hero-slide__rating'
+						rounded
+						size='small'
+						variant='gray'
+					>
+						{rating?.imdb?.toFixed(1)}
+					</Button>
 					<span className="hero-slide__year">{year}</span>
-					<span className="hero-slide__genre">Romantic</span>
 				</div>
 			</div>
 		</Link>
