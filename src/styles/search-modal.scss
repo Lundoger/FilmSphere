@@ -6,7 +6,8 @@
 		margin-bottom: rem(30);
 	}
 
-	&__content {}
+	&__content {
+	}
 
 	&__list {
 		display: grid;
@@ -46,9 +47,11 @@
 		flex: 0 0 rem(50);
 		border-radius: rem(10);
 		overflow: hidden;
+		border: rem(1) solid rgba(255, 255, 255, 0.178);
 	}
 
-	&__content {}
+	&__content {
+	}
 
 	&__name {
 		@include adaptiveValue("font-size", 16, 14);	
@@ -70,12 +73,7 @@
 		font-size: rem(15);
 		opacity: 0.5;
 	}
-
+	
 	&__rating {
-		font-size: rem(12);
-		background-color: rgba(255, 255, 255, 0.144);
-		padding: 0 rem(5);
-		border-radius: rem(10);
-		line-height: 1.8;
 	}
 }

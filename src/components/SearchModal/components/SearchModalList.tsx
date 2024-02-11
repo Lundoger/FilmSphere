@@ -5,6 +5,8 @@
 	import { useDebounce } from '@/hooks/useDebounce';
 	import React, { useCallback, useEffect, useState } from 'react';
 	import { useActions } from '@/hooks/useActions';
+	import { Button } from '@/shared/Button/Button';
+import { Search } from 'lucide-react';
 
 	const SearchModalList = () => {
 		//экшены и поля из стора
@@ -42,7 +44,7 @@
 			setPage(1)
 			if (response) {
 				setSearchPending(true)
-				const filteredData = response.docs.filter(item => item.poster !== null && item.poster?.url !== null)
+				const filteredData = response.docs.filter(item => item.poster !== null && item.poster?.url !== null && item.name !== '')
 				setData(filteredData)
 				response.pages > currentPage ? setHasMore(true) : setHasMore(false)
 			}
@@ -62,7 +64,7 @@
 		//useEffect для записи в стор полученных дозагруженных(по нажатию на load more) данных
 		useEffect(() => {
 			if (lazyResponse) {
-				const filteredData = lazyResponse.docs.filter(item => item.poster !== null && item.poster?.url !== null)
+				const filteredData = lazyResponse.docs.filter(item => item.poster !== null && item.poster?.url !== null && item.name !== '')
 				loadMoreData(filteredData)
 				lazyResponse.pages > currentPage ? setHasMore(true) : setHasMore(false)
 			}
@@ -108,12 +110,16 @@
 						</div>
 					)}
 					{hasMore && currentData.length > 0 && (
-						<button
+						<Button
 							onClick={loadMore}
-							className="search-modal__load-more"
+							className='search-modal__load-more'
+							rounded
+							// size='small'
+							variant='primary'
+
 						>
 							Показать больше
-						</button>
+						</Button>
 					)}
 				</>
 			</div>

@@ -92,8 +92,9 @@
 		display: flex;
 		justify-content: center;
 	}
-	&::before,&::after{
-		content:'';
+	&::before,
+	&::after {
+		content: "";
 		content: "";
 		box-sizing: border-box;
 		width: rem(48);
@@ -104,7 +105,7 @@
 		top: 0;
 		animation: rotation 2s ease-in-out infinite alternate;
 	}
-	&::after{
+	&::after {
 		border-color: var(--bg-secondary);
 		animation-direction: alternate-reverse;
 	}
@@ -131,4 +132,55 @@
 	color: var(--text-accent);
 	line-height: 1.2;
 	@include adaptiveValue("font-size", 16, 13);
+}
+//========================================================================================================================================================
+.button {
+	@include adaptiveValue("font-size", 16, 14);
+	padding: rem(10) rem(12);
+	text-align: center;
+	transition: all 0.3s ease 0s;
+	background-size: 200% auto;
+	color: var(--text-primary);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: rem(10);
+	flex-wrap: wrap;
+	&--small {
+		@include adaptiveValue("font-size", 14, 12);
+		padding: rem(7) rem(5);
+	}
+	&--medium {
+		@include adaptiveValue("font-size", 14, 12);
+		padding: rem(12) rem(15);
+	}
+	&--big {
+		@include adaptiveValue("font-size", 20, 18);
+		padding: rem(16) rem(24);
+	}
+	&--primary {
+		background-color: rgba(153,153,191,.2);
+		@media (any-hover: hover){
+			&:hover{
+				background-color: rgba(153,153,191,.4);
+			}
+		}
+	}
+	&--gray {
+		background-color: rgba(100, 100, 100, 0.726);
+	}
+	&--glass {
+		background: hsla(253, 4%, 55%, 0.144);
+	}
+	&--rounded {
+		border-radius: rem(8);
+	}
+	&--gradient {
+		background-image: linear-gradient(to right, #9d50bb 0%, #6e48aa 51%, #9d50bb 100%);
+		@media (any-hover: hover){
+			&:hover{
+				background-position: right center;
+			}
+		}
+	}
 }

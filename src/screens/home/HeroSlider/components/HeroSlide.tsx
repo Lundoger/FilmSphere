@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { MovieDtoV14 } from '@/models/Api'
+import { Button } from '@/shared/Button/Button'
 
 interface HeroSlideProps {
 	item: MovieDtoV14
@@ -33,7 +34,14 @@ const HeroSlide = ({item}: HeroSlideProps) => {
 					</ul>
 				)}
 				<div className="hero-slide__actions">
-					<span className="hero-slide__rating">{rating?.kp?.toFixed(1)}</span>
+					<Button
+						className='hero-slide__rating'
+						rounded
+						size='small'
+						variant='gray'
+					>
+						{rating?.imdb?.toFixed(1)}
+					</Button>
 					<span className="hero-slide__year">{year}</span>
 				</div>
 			</div>
