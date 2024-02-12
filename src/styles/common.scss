@@ -139,7 +139,6 @@
 	padding: rem(10) rem(12);
 	text-align: center;
 	transition: all 0.3s ease 0s;
-	background-size: 200% auto;
 	color: var(--text-primary);
 	display: inline-flex;
 	align-items: center;
@@ -177,6 +176,7 @@
 	}
 	&--gradient {
 		background-image: linear-gradient(to right, #9d50bb 0%, #6e48aa 51%, #9d50bb 100%);
+		background-size: 200% auto;
 		@media (any-hover: hover){
 			&:hover{
 				background-position: right center;

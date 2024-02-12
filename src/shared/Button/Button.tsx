@@ -3,7 +3,6 @@ import { forwardRef } from 'react';
 import type { ReactNode, ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-	href?: string;
 	rounded?: boolean;
 	gradient?: boolean;
 	size?: 'small' | 'regular' | 'medium' | 'big';

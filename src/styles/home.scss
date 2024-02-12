@@ -1,5 +1,6 @@
 //====================================================================================================
 .hero-slider {
+	margin-bottom: rem(30);
 	overflow: hidden;
 	position: relative;
 	&__container {
@@ -101,3 +102,49 @@
 	}
 }
 //====================================================================================================
+
+.filter-section {
+	position: relative;
+	&::before,&::after{
+		content:'';
+		
+	}
+	&__container {}
+
+	&__slider {
+	}
+
+	&__slide {}
+
+	&__swiper-slide {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-right", 20, 15);
+		}
+	}
+}
+
+.slide-filter {
+	@include adaptiveValue("font-size", 16, 12);
+	@include adaptiveValue("padding-top", 12, 8, 0, 1440, 480);
+	@include adaptiveValue("padding-bottom", 12, 8, 0, 1440, 480);
+	@include adaptiveValue("padding-left", 16, 10, 0, 1440, 480);
+	@include adaptiveValue("padding-right", 16, 10, 0, 1440, 480);
+	text-align: center;
+	transition: all 0.3s ease 0s;
+	color: var(--text-primary);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: rem(5);
+	flex-wrap: wrap;
+	background-color: rgba(153,153,191,.2);
+	border-radius: rem(8);
+	@media (any-hover: hover){
+		&:hover{
+			background-color: rgba(153,153,191,.4);
+		}
+	}
+	&__icon {}
+
+	&__text {}
+}
