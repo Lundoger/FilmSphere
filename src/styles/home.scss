@@ -1,17 +1,17 @@
 //====================================================================================================
 .hero-slider {
-	margin-bottom: rem(30);
+	@include adaptiveValue("margin-bottom", 30, 20, 0, 1440, 360);
 	overflow: hidden;
 	position: relative;
 	&__container {
 		max-width: 57%;
-		@media (max-width: em(1260)){
+		@media (max-width: em(1260)) {
 			max-width: 65%;
 		}
-		@media (max-width:$tablet){
-			max-width: 75%;		
+		@media (max-width: $tablet) {
+			max-width: 75%;
 		}
-		@media (max-width:$mobile){
+		@media (max-width: $mobile) {
 			max-width: 90%;
 		}
 	}
@@ -26,10 +26,10 @@
 	width: 100%;
 	padding-bottom: 60%;
 	border-radius: rem(10);
-	overflow: hidden;	
+	overflow: hidden;
 	border: solid rem(1) hsla(0, 0%, 100%, 0.1);
-	&::before{
-		content:'';
+	&::before {
+		content: "";
 		display: block;
 		position: absolute;
 		top: 0;
@@ -39,7 +39,7 @@
 		z-index: 20;
 		box-shadow: rgba(0, 0, 0, 0.753) rem(0) rem(-50) rem(200) rem(-28) inset;
 	}
-	@media (max-width:$mobileSmall){
+	@media (max-width: $mobileSmall) {
 		padding-bottom: 80%;
 	}
 	&__image {
@@ -95,8 +95,8 @@
 		font-weight: 500;
 		font-size: rem(16);
 		&:not(:last-child) {
-			&::after{
-				content:',';
+			&::after {
+				content: ",";
 			}
 		}
 	}
@@ -104,47 +104,106 @@
 //====================================================================================================
 
 .filter-section {
+	@include adaptiveValue("margin-bottom", 50, 25);
+	overflow: hidden;
 	position: relative;
-	&::before,&::after{
-		content:'';
-		
+	&::before,
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		bottom: 0;
+		box-shadow: 0 0 rem(55) rem(55) rgb(0, 0, 0);
+		transition: opacity 0.3s ease 0s;
+		@media (max-width: em(570)) {
+			box-shadow: 0 0 rem(48) rem(48) rgb(0, 0, 0);
+		}
 	}
-	&__container {}
+	&::before {
+		left: 0;
+		opacity: 0;
+	}
+	&::after {
+		right: 0;
+		opacity: 1;
+	}
+	&--start {
+		&:after {
+			opacity: 0;
+		}
+		&:before {
+			opacity: 1;
+		}
+	}
+	&--center {
+		&:after {
+			opacity: 1;
+		}
+		&:before {
+			opacity: 1;
+		}
+	}
+	&__container {
+		padding: 0 rem(60);
+		@media (max-width:$tablet){
+			padding: 0 rem(45);
+		}
+		@media (max-width:$mobile){
+			padding: 0 rem(30);
+		}
+		@media (max-width:$mobileSmall){
+			padding: 0 rem(15); 
+		}
+	}
 
 	&__slider {
 	}
 
-	&__slide {}
+	&__slide {
+	}
 
 	&__swiper-slide {
 		&:not(:last-child) {
-			@include adaptiveValue("margin-right", 20, 15);
+			@include adaptiveValue("margin-right", 15, 10);
 		}
 	}
 }
 
 .slide-filter {
 	@include adaptiveValue("font-size", 16, 12);
-	@include adaptiveValue("padding-top", 12, 8, 0, 1440, 480);
-	@include adaptiveValue("padding-bottom", 12, 8, 0, 1440, 480);
-	@include adaptiveValue("padding-left", 16, 10, 0, 1440, 480);
-	@include adaptiveValue("padding-right", 16, 10, 0, 1440, 480);
-	text-align: center;
+	@include adaptiveValue("padding-top", 15, 10, 0, 1440, 480);
+	@include adaptiveValue("padding-bottom", 15, 10, 0, 1440, 480);
+	@include adaptiveValue("padding-left", 20, 14, 0, 1440, 480);
+	@include adaptiveValue("padding-right", 20, 14, 0, 1440, 480);
 	transition: all 0.3s ease 0s;
 	color: var(--text-primary);
 	display: inline-flex;
 	align-items: center;
-	justify-content: center;
-	gap: rem(5);
+	@include adaptiveValue("gap", 10, 7);
 	flex-wrap: wrap;
-	background-color: rgba(153,153,191,.2);
+	background-color: rgba(34, 34, 37, 0.75);
 	border-radius: rem(8);
-	@media (any-hover: hover){
-		&:hover{
-			background-color: rgba(153,153,191,.4);
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: rgb(34, 34, 37);
 		}
 	}
-	&__icon {}
+	&__icon {
+		width: rem(24);
+		height: rem(24);
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+		@media (max-width: $mobileSmall) {
+			width: rem(20);
+			height: rem(20);
+		}
+	}
 
-	&__text {}
+	&__text {
+		white-space: nowrap;
+	}
 }

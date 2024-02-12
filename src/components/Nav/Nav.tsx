@@ -7,17 +7,18 @@ import clsx from "clsx"
 import Hamburger from "@/components/Nav/components/Hamburger"
 import { useRouter } from "next/router"
 import SearchButton from "@/components/Nav/components/SearchButton"
+import { paths } from "@/shared/routing/routing"
 
 const Nav = () => {
 	const { menuToggle, searchModalToggle } = useActions();
 	const { openedMenu } = useAppSelector((state) => state.toggleReducer);
 	const { pathname } = useRouter()
 	const links = [
-		{ href: '/', content: 'Главная',},
-		{ href: '/movies', content: 'Фильмы',},
-		{ href: '/serials', content: 'Сериалы',},
-		{ href: '/cartoons', content: 'Мультфильмы',},
-		{ href: '/anime', content: 'Аниме',},
+		{ href: paths.home, content: 'Главная',},
+		{ href: paths.movies, content: 'Фильмы',},
+		{ href: paths.series, content: 'Сериалы',},
+		{ href: paths.cartoons, content: 'Мультфильмы',},
+		{ href: paths.anime, content: 'Аниме',},
 	]
 
 	const handleModalOpen = () => {
@@ -29,13 +30,7 @@ const Nav = () => {
 	return (
 		<header id='header' className={clsx(openedMenu && 'menu-open', 'header')}>
 			<div className="header__container">
-				<Link href="/" className="header__logo">
-					{/* <Image
-						fill
-						src="/assets/icons/logo.svg"
-						alt="FilmSphere"
-						priority={true}
-					/> */}
+				<Link href={paths.home} className="header__logo">
 					Film<span>Sphere</span>
 				</Link>
 				<nav className="header__menu menu">

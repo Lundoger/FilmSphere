@@ -158,10 +158,10 @@
 		padding: rem(16) rem(24);
 	}
 	&--primary {
-		background-color: rgba(153,153,191,.2);
+		background-color: rgba(34,34,37,.75);
 		@media (any-hover: hover){
 			&:hover{
-				background-color: rgba(153,153,191,.4);
+				background-color: rgba(34, 34, 37, 0.404);
 			}
 		}
 	}
