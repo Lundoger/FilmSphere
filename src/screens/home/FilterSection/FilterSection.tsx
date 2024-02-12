@@ -33,8 +33,8 @@ const FilterSection = () => {
 					slidesPerView="auto"
 				>
 					{items.map((item, i) => (
-						<SwiperSlide style={{ width: 'auto' }} className='filter-section__swiper-slide'>
-							<FilterSectionItem key={i} item={item} />
+						<SwiperSlide key={i} style={{ width: 'auto' }} className='filter-section__swiper-slide'>
+							<FilterSectionItem item={item} />
 						</SwiperSlide>
 					))}
 				</Swiper>

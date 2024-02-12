@@ -28,8 +28,8 @@ const HeroSlide = ({item}: HeroSlideProps) => {
 				{genres && (
 					<ul className="hero-slide__genres genres-hero">
 						Жанры: 
-						{genres.map(genre => (
-							<li className="genres-hero__genre">{genre.name}</li>
+						{genres.map((genre, i) => (
+							<li key={i} className="genres-hero__genre">{genre.name}</li>
 						))}
 					</ul>
 				)}
