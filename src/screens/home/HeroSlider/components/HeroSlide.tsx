@@ -2,16 +2,17 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { MovieDtoV14 } from '@/models/Api'
 import { Button } from '@/shared/Button/Button'
+import { paths } from '@/shared/routing/routing'
 
 interface HeroSlideProps {
 	item: MovieDtoV14
 }
 
 const HeroSlide = ({item}: HeroSlideProps) => {
-	const {name, genres, rating, year, backdrop} = item
+	const {id, name, genres, rating, year, backdrop} = item
 
 	return (
-		<Link className='hero-slider__slide hero-slide' href={'#'}>
+		<Link className='hero-slider__slide hero-slide' href={paths.movie(id)}>
 			{backdrop?.url && (
 				<Image
 					className='hero-slide__image'

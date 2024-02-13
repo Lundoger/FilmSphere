@@ -52,6 +52,19 @@ export const filmSphereApi = createApi({
 				},
 			}),
 		}),
+		getMovieById: build.query<any, string | undefined>({
+			query: (id: string) => ({
+				url: "v1.4/movie",
+				method: "GET",
+				headers: {
+					accept: "application/json",
+					'X-API-KEY': process.env.NEXT_PUBLIC_API_KEY,
+				},
+				params: {
+					id: id,
+				},
+			}),
+		}),
 	}),
 })
 
