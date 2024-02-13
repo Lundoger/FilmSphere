@@ -4,7 +4,7 @@ import React from 'react'
 const Series = () => {
 	return (
 		<Layout>
-			<div>serials</div>
+			<div>series</div>
 		</Layout>
 	)
 }

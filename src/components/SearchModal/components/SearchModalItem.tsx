@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { SearchMovieDtoV14 } from '@/models/Api';
 import Link from 'next/link';
 import { Button } from '@/shared/Button/Button';
+import { paths } from '@/shared/routing/routing';
 
 interface SearchModalItemProps {
 	item: SearchMovieDtoV14,
@@ -12,7 +13,7 @@ const SearchModalItem = ({ item }: SearchModalItemProps) => {
 
 	return (
 		<li key={id} className="search-modal__item search-item">
-			<Link className='search-item__link' href={`/`}>
+			<Link className='search-item__link' href={paths.movie(id)}>
 				<div className="search-item__image">
 					{poster?.url && (
 						<Image
