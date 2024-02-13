@@ -1,14 +1,25 @@
+import { useGetMovieByIdQuery } from '@/api/filmSphereApi'
 import { useRouter } from 'next/router'
-import React from 'react'
+import { useEffect } from 'react'
 
 const Movie = () => {
 	const {
 		push,
-		query: { id },
-	} = useRouter();
+		query: {id},
+	} = useRouter()
+
+	const {data, isLoading, isError} = useGetMovieByIdQuery(id)
+
+	const {
+
+	} = data.
 
 	return (
-		<div>Movie {id}</div>
+		<section className="movie-hero">
+			<div className="movie-hero__container">
+				
+			</div>
+		</section>
 	)
 }
 

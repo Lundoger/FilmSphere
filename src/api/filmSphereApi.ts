@@ -52,7 +52,7 @@ export const filmSphereApi = createApi({
 				},
 			}),
 		}),
-		getMovieById: build.query<any, string | undefined>({
+		getMovieById: build.query<MovieDocsResponseDtoV14, string | string[] | undefined>({
 			query: (id: string) => ({
 				url: "v1.4/movie",
 				method: "GET",
@@ -71,5 +71,7 @@ export const filmSphereApi = createApi({
 export const { 
 	useGetSearchTitleQuery, 
 	useLazyGetSearchTitleQuery,
-	useGetRecommendTitleQuery, 
+	useGetRecommendTitleQuery,
+	useGetMovieByIdQuery,
+	useLazyGetMovieByIdQuery 
 } = filmSphereApi

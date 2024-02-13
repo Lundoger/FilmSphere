@@ -15,7 +15,7 @@ const FilmPage: NextPage = () => {
 export const getServerSideProps: GetServerSideProps = async (params) => {
 	const store = initStore()
 
-	await store.dispatch(filmSphereApi.endpoints.getMovieById.initiate(params.query.id as string | undefined))
+	await store.dispatch(filmSphereApi.endpoints.getMovieById.initiate(params.query.id))
 
 	return {props:{initialReduxState: store.getState()}}
 }
