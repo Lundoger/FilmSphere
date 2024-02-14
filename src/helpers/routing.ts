@@ -28,5 +28,5 @@ export const paths = {
 	movie: (id: Id): string => `/movie/${id}`,
 
 	// Get the URL for the person page
-	person: (id: Id): string => `/name/${id}`,
+	person: (id: Id): string => `/person/${id}`,
 }

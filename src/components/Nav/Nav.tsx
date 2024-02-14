@@ -7,7 +7,7 @@ import clsx from "clsx"
 import Hamburger from "@/components/Nav/components/Hamburger"
 import { useRouter } from "next/router"
 import SearchButton from "@/components/Nav/components/SearchButton"
-import { paths } from "@/shared/routing/routing"
+import { paths } from "@/helpers/routing"
 
 const Nav = () => {
 	const { menuToggle, searchModalToggle } = useActions();

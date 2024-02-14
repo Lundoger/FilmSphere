@@ -1,26 +1,26 @@
 import { useGetMovieByIdQuery } from '@/api/filmSphereApi'
+import { useActions } from '@/hooks/useActions'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import HeroSection from './HeroSection/HeroSection'
 
-const Movie = () => {
+const Hero = () => {
 	const {
 		push,
 		query: {id},
 	} = useRouter()
-
 	const {data, isLoading, isError} = useGetMovieByIdQuery(id)
+	const { setMovie } = useActions()
 
-	const {
-
-	} = data.
+	useEffect(() => {
+		if(data) setMovie(data)
+	}, [data])
 
 	return (
-		<section className="movie-hero">
-			<div className="movie-hero__container">
-				
-			</div>
-		</section>
+		<>
+			<HeroSection/>
+		</>
 	)
 }
 
-export default Movie
+export default Hero

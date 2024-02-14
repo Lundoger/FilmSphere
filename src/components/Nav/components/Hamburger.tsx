@@ -6,17 +6,18 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import SnowDecoration from '@/shared/SnowDecoration/SnowDecoration'
+import { paths } from '@/helpers/routing'
 
 const Hamburger = () => {
 	const { openedMenu } = useAppSelector(state => state.toggleReducer)
 	const { menuToggle } = useActions()
 	const { pathname, events } = useRouter()
 	const links = [
-		{ href: '/', content: 'Главная', timeout: 100, },
-		{ href: '/movies', content: 'Фильмы', timeout: 150, },
-		{ href: '/serials', content: 'Сериалы', timeout: 200, },
-		{ href: '/cartoons', content: 'Мультфильмы', timeout: 250, },
-		{ href: '/anime', content: 'Аниме', timeout: 300, },
+		{ href: paths.home, content: 'Главная', timeout: 100, },
+		{ href: paths.movies, content: 'Фильмы', timeout: 150, },
+		{ href: paths.series, content: 'Сериалы', timeout: 200, },
+		{ href: paths.cartoons, content: 'Мультфильмы', timeout: 250, },
+		{ href: paths.anime, content: 'Аниме', timeout: 300, },
 	]
 
 	useEffect(() => {

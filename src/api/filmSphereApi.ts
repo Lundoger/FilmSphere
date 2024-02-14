@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { SearchMovieResponseDtoV14, MovieDocsResponseDtoV14 } from "@/models/Api";
+import { SearchMovieResponseDtoV14, MovieDocsResponseDtoV14, MovieDtoV14 } from "@/models/Api";
 
 interface getSearchTitleParams {
 	query: string;
@@ -36,7 +36,7 @@ export const filmSphereApi = createApi({
 		}),
 		getRecommendTitle: build.query<MovieDocsResponseDtoV14, getRecommendTitleParams>({
 			query: ({ limit, ratingValue = '7-10', year = 2023}) => ({
-				url: "v1.4/movie",
+				url: "v1.4/movie?notNullFields=name&notNullFields=backdrop.url&notNullFields=rating.imdb&notNullFields=year",
 				method: "GET",
 				headers: {
 					accept: "application/json",
@@ -45,23 +45,19 @@ export const filmSphereApi = createApi({
 				params: {
 					['rating.imdb']: ratingValue,
 					year: year,
-					notNullFields: 'backdrop.url',
 					sortField: 'votes.filmCritics',	
 					sortType: -1,
 					limit: limit,
 				},
 			}),
 		}),
-		getMovieById: build.query<MovieDocsResponseDtoV14, string | string[] | undefined>({
+		getMovieById: build.query<MovieDtoV14, string | string[] | undefined>({
 			query: (id: string) => ({
-				url: "v1.4/movie",
+				url: `v1.4/movie/${id}`,
 				method: "GET",
 				headers: {
 					accept: "application/json",
 					'X-API-KEY': process.env.NEXT_PUBLIC_API_KEY,
-				},
-				params: {
-					id: id,
 				},
 			}),
 		}),
