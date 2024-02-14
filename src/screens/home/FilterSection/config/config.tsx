@@ -1,4 +1,4 @@
-import { paths } from '@/shared/routing/routing';
+import { paths } from '@/helpers/routing';
 import { Flame, Heart, Laugh, Sparkles, Trophy, Map, Axe, Fish, Shell, Music2 } from 'lucide-react';
 
 export const items = [

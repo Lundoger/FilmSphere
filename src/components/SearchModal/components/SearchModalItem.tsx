@@ -2,7 +2,8 @@ import Image from 'next/image';
 import { SearchMovieDtoV14 } from '@/models/Api';
 import Link from 'next/link';
 import { Button } from '@/shared/Button/Button';
-import { paths } from '@/shared/routing/routing';
+import { paths } from '@/helpers/routing';
+import { getTitleName } from '@/helpers/getTitleName';
 
 interface SearchModalItemProps {
 	item: SearchMovieDtoV14,
@@ -17,7 +18,7 @@ const SearchModalItem = ({ item }: SearchModalItemProps) => {
 				<div className="search-item__image">
 					{poster?.url && (
 						<Image
-							alt={name ?? 'this title has no name*'}
+							alt={getTitleName(name)}
 							fill
 							quality={100}
 							sizes="100%"
@@ -26,7 +27,7 @@ const SearchModalItem = ({ item }: SearchModalItemProps) => {
 					)}
 				</div>
 				<div className="search-item__content">
-					<h3 className="search-item__name">{name ? name : 'this title has no name*'}</h3>
+					<h3 className="search-item__name">{getTitleName(name)}</h3>
 					<div className="search-item__actions">
 						<span className="search-item__year">{year}</span>
 						<Button

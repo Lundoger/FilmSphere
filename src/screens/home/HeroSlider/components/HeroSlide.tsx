@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { MovieDtoV14 } from '@/models/Api'
 import { Button } from '@/shared/Button/Button'
-import { paths } from '@/shared/routing/routing'
+import { paths } from '@/helpers/routing'
 
 interface HeroSlideProps {
 	item: MovieDtoV14
