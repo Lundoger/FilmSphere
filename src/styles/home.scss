@@ -1,5 +1,6 @@
 //====================================================================================================
 .hero-slider {
+	@include adaptiveValue("margin-top", 75, 60, 0, 1440, 320);
 	@include adaptiveValue("margin-bottom", 30, 20, 0, 1440, 360);
 	overflow: hidden;
 	position: relative;
