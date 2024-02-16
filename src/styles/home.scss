@@ -177,19 +177,7 @@
 	@include adaptiveValue("padding-bottom", 15, 10, 0, 1440, 480);
 	@include adaptiveValue("padding-left", 20, 14, 0, 1440, 480);
 	@include adaptiveValue("padding-right", 20, 14, 0, 1440, 480);
-	transition: all 0.3s ease 0s;
-	color: var(--text-primary);
-	display: inline-flex;
-	align-items: center;
 	@include adaptiveValue("gap", 10, 7);
-	flex-wrap: wrap;
-	background-color: rgba(34, 34, 37, 0.75);
-	border-radius: rem(8);
-	@media (any-hover: hover) {
-		&:hover {
-			background-color: rgb(34, 34, 37);
-		}
-	}
 	&__icon {
 		width: rem(24);
 		height: rem(24);

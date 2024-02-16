@@ -1,8 +1,8 @@
 import { useActions } from '@/hooks/useActions'
 import { useAppSelector } from '@/hooks/useAppSelector'
 import Modal from '@/shared/Modal/Modal'
-import SearchModalList from './components/SearchModalList'
-import SearchInput from './components/SearchInput'
+import SearchModalList from './SearchModalList/SearchModalList'
+import SearchInput from './SearchInput/SearchInput'
 import SnowDecoration from '@/shared/SnowDecoration/SnowDecoration'
 
 const SearchModal = () => {

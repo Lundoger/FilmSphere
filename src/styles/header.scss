@@ -17,11 +17,6 @@
 		}
 	}
 	&__logo {
-		// position: relative;
-		// display: inline-block;
-		// width: rem(61);
-		// height: rem(42);
-		// flex: 0 0 rem(61);
 		font-weight: 700;
 		@include adaptiveValue("font-size", 24, 18);
 		span {
@@ -110,7 +105,7 @@
 				left: -25%;
 				width: 150%;
 				height: rem(2);
-				background: linear-gradient(270deg,transparent .17%,#2253b2 15%,#fff 50%,#2253b2 85%,transparent);
+				background: linear-gradient(270deg,transparent .17%,#664ea1 15%,#3a276a 50%,#664ea1 85%,transparent); 
 			}
 		}
 		@media (any-hover: hover){

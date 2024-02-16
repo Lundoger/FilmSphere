@@ -5,8 +5,8 @@ import type { ReactNode, ButtonHTMLAttributes } from 'react';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	rounded?: boolean;
 	gradient?: boolean;
-	size?: 'small' | 'regular' | 'medium' | 'big';
-	variant?: 'primary' | 'gray' | 'glass';
+	size?: 'regular';
+	variant?: 'primary';
 	startIcon?: ReactNode;
 	endIcon?: ReactNode;
 }

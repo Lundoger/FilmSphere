@@ -4,7 +4,7 @@ import type SwiperClass from 'swiper';
 import { FreeMode } from 'swiper';
 import clsx from 'clsx';
 import { items } from './config/config';
-import FilterSectionItem from './components/FilterSectionItem'
+import FilterSectionItem from './FilterSectionItem/FilterSectionItem'
 
 const FilterSection = () => {
 	const [isStart, setIsStart] = useState<boolean>(false);
