@@ -1,5 +1,5 @@
 	import Spinner from '@/shared/Spinner/Spinner';
-	import SearchModalItem from './SearchModalItem';
+	import SearchModalItem from '../SearchModalItem/SearchModalItem';
 	import { useAppSelector } from '@/hooks/useAppSelector';
 	import { useGetSearchTitleQuery, useLazyGetSearchTitleQuery } from '@/api/filmSphereApi';
 	import { useDebounce } from '@/hooks/useDebounce';
@@ -27,6 +27,7 @@ import { Search } from 'lucide-react';
 		})
 		const [getSearchTitle, { data: lazyResponse, isFetching: isLazyFetching, isError: isLazyError }] = useLazyGetSearchTitleQuery()
 
+		//useEffect для запросов при изменении значения в инпуте и/или очистке даты
 		useEffect(() => {
 			if (debounced.length < 2) {
 				setSearchPending(false)
@@ -70,6 +71,7 @@ import { Search } from 'lucide-react';
 			}
 		}, [lazyResponse])
 
+		//функция "следующая страница"
 		const loadMore = useCallback(() => {
 			nextPage()
 		}, [nextPage])

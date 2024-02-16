@@ -9,7 +9,7 @@ const FilterSectionItem = ({item}: FilterSectionItemProps) => {
 	const {content, icon, href} = item
 
 	return (
-		<Link className="filter-section__slide slide-filter" href={href}>
+		<Link className="filter-section__slide slide-filter button button--rounded button--primary" href={href}>
 			<span className="slide-filter__icon">{icon}</span>
 			<span className="slide-filter__text">{content}</span>
 		</Link>

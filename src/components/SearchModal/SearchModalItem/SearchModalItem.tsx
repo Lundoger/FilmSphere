@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { SearchMovieDtoV14 } from '@/models/Api';
 import Link from 'next/link';
-import { Button } from '@/shared/Button/Button';
 import { paths } from '@/helpers/routing';
 import { getTitleName } from '@/helpers/getTitleName';
+import { MovieRating } from '@/shared/MovieRating/MovieRating';
 
 interface SearchModalItemProps {
 	item: SearchMovieDtoV14,
@@ -30,14 +30,12 @@ const SearchModalItem = ({ item }: SearchModalItemProps) => {
 					<h3 className="search-item__name">{getTitleName(name)}</h3>
 					<div className="search-item__actions">
 						<span className="search-item__year">{year}</span>
-						<Button
+						<MovieRating
 							className='search-item__rating'
 							size='small'
-							variant='glass'
-							rounded
 						>
 							{rating?.imdb?.toFixed(1)}
-						</Button>
+						</MovieRating>
 					</div>
 				</div>
 			</Link>

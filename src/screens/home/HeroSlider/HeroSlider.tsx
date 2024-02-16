@@ -1,6 +1,6 @@
 import { useGetRecommendTitleQuery } from '@/api/filmSphereApi';
 import { CarouselMultiply } from '@/shared/CarouselMultiply/CarouselMultiply';
-import HeroSlide from './components/HeroSlide';
+import HeroSlide from './HeroSlide/HeroSlide';
 
 const HeroSlider = () => {
 	const {data, isLoading, isError} = useGetRecommendTitleQuery({limit: 10})
