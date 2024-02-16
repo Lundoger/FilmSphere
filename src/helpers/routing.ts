@@ -5,7 +5,7 @@ type CatalogParams = {
 	sort?: string;
 }
 
-type Id = number | null | undefined;
+type Id = number | string | null | undefined;
 
 export const paths = {
 	home: '/',
@@ -25,7 +25,7 @@ export const paths = {
 	},
 
 	// Get the URL for the movie page
-	movie: (id: Id): string => `/movie/${id}`,
+	movie: (id: Id): string => `/title/${id}`,
 
 	// Get the URL for the person page
 	person: (id: Id): string => `/person/${id}`,

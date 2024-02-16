@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { paths } from '@/helpers/routing';
 import { getTitleName } from '@/helpers/getTitleName';
 import { MovieRating } from '@/shared/MovieRating/MovieRating';
+import { getRating } from '@/helpers/getRating';
 
 interface SearchModalItemProps {
 	item: SearchMovieDtoV14,
@@ -34,7 +35,7 @@ const SearchModalItem = ({ item }: SearchModalItemProps) => {
 							className='search-item__rating'
 							size='small'
 						>
-							{rating?.imdb?.toFixed(1)}
+							{getRating(rating)}
 						</MovieRating>
 					</div>
 				</div>

@@ -1,0 +1,210 @@
+.movie-hero {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			90deg,
+			#000 3.31%,
+			rgba(0, 0, 0, 0.99) 7.71%,
+			rgba(0, 0, 0, 0.96) 12.11%,
+			rgba(0, 0, 0, 0.91) 16.51%,
+			rgba(0, 0, 0, 0.85) 20.91%,
+			rgba(0, 0, 0, 0.76) 25.31%,
+			rgba(0, 0, 0, 0.67) 29.71%,
+			rgba(0, 0, 0, 0.55) 34.11%,
+			rgba(0, 0, 0, 0.44) 38.52%,
+			rgba(0, 0, 0, 0.33) 42.92%,
+			rgba(0, 0, 0, 0.23) 47.32%,
+			rgba(0, 0, 0, 0.15) 51.72%,
+			rgba(0, 0, 0, 0.08) 56.12%,
+			rgba(0, 0, 0, 0.03) 60.52%,
+			rgba(0, 0, 0, 0.01) 64.92%,
+			transparent 69.32%
+		);
+		@media (max-width:$mobile){
+			background: linear-gradient(
+				90deg,
+				#000 13.31%,
+				rgba(0, 0, 0, 0.99) 17.71%,
+				rgba(0, 0, 0, 0.96) 22.11%,
+				rgba(0, 0, 0, 0.91) 26.51%,
+				rgba(0, 0, 0, 0.85) 30.91%,
+				rgba(0, 0, 0, 0.76) 35.31%,
+				rgba(0, 0, 0, 0.67) 39.71%,
+				rgba(0, 0, 0, 0.55) 44.11%,
+				rgba(0, 0, 0, 0.44) 48.52%,
+				rgba(0, 0, 0, 0.33) 52.92%,
+				rgba(0, 0, 0, 0.23) 57.32%,
+				rgba(0, 0, 0, 0.15) 61.72%,
+				rgba(0, 0, 0, 0.08) 66.12%,
+				rgba(0, 0, 0, 0.03) 70.52%,
+				rgba(0, 0, 0, 0.01) 74.92%,
+				transparent 79.32%
+			);
+		}
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		top: rem(100);
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			180deg,
+			transparent 50%,
+			transparent 52.63%,
+			rgba(0, 0, 0, 0.03) 55.25%,
+			rgba(0, 0, 0, 0.08) 57.88%,
+			rgba(0, 0, 0, 0.14) 60.51%,
+			rgba(0, 0, 0, 0.23) 63.13%,
+			rgba(0, 0, 0, 0.33) 65.76%,
+			rgba(0, 0, 0, 0.44) 68.39%,
+			rgba(0, 0, 0, 0.55) 71.01%,
+			rgba(0, 0, 0, 0.66) 73.64%,
+			rgba(0, 0, 0, 0.77) 76.27%,
+			rgba(0, 0, 0, 0.85) 78.89%,
+			rgba(0, 0, 0, 0.92) 81.52%,
+			rgba(0, 0, 0, 0.96) 84.15%,
+			rgba(0, 0, 0, 0.99) 86.77%,
+			#000 89.4%
+		);
+	}
+	&__container {
+		display: flex;
+		height: 100%;
+		align-items: center;
+	}
+
+	&__content {
+		position: relative;
+		z-index: 2;
+		max-width: rem(500);
+	}
+
+	&__logo {
+		display: flex;
+		width: 100%;
+		height: rem(150);
+		position: relative;
+		margin-bottom: rem(20);
+		@include adaptiveValue("font-size", 40, 25);
+		font-weight: 700;
+		span {
+			display: flex;
+			align-self: end;	
+		}
+		img {
+			object-fit: contain;
+			object-position: bottom left;
+		}
+	}
+
+	&__info {
+		display: flex;
+		align-items: center;
+		gap: rem(20);
+		@include adaptiveValue("margin-bottom", 25, 20);
+		&>:not(:last-child) {
+			position: relative;
+			&::after{
+				content:'';
+				position: absolute;
+				top: 50%;
+				right: rem(-10);
+				transform: translate(50%, -50%);
+				width: rem(3);
+				height: rem(3);
+				border-radius: 50%;
+				background-color: var(--bg-inverse);
+				opacity: .5;
+			}	
+		}
+	}
+
+	&__info-item {
+		opacity: .6;
+	}
+
+	&__desc	{
+		@include adaptiveValue("font-size", 16, 14);
+		line-height: 1.3;
+		@include adaptiveValue("margin-bottom", 25, 20);
+		letter-spacing: rem(0.5);
+		color: var(--text-primary);
+	}
+
+	&__persons {}
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+	}
+}
+.persons-movie-hero {
+	@include adaptiveValue("margin-bottom", 25, 20);
+	&>:not(:last-child) {
+		@include adaptiveValue("margin-bottom", 20, 15);	
+	}
+	&__row {
+		display: flex;
+		align-items: flex-start;
+	}
+
+	&__label {
+		flex-shrink: 0;
+		line-height: 1.3;
+		opacity: .6;
+		@include adaptiveValue("font-size", 18, 15);
+		margin-right: rem(10);
+	}
+
+	&__list {
+		display: flex;
+		font-weight: 500;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: rem(10);
+	}
+
+	&__item {
+		font-weight: 300;
+		position: relative;
+		line-height: 1.3;
+		&::before{
+			content:'';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: rem(1);
+			background-color: rgba(114, 114, 114, 0.459);
+			z-index: -1;
+			transition: height 0.3s ease 0s;
+		}
+		&:not(:last-child) {
+			&::after{
+				content:',';
+			}
+		}
+		@media (any-hover: hover){
+			&:hover{
+				&::before{
+					height: 100%;					
+				}
+			}
+		}
+	}
+}
+

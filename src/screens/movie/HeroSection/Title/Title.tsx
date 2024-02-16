@@ -7,7 +7,7 @@ const Title = () => {
 
 	return (
 		<div className="movie-hero__logo">
-			{/* {movie?.logo?.url ? (
+			{movie?.logo?.url ? (
 				<Image
 					alt={movie?.name ?? 'Без названия'}
 					fill
@@ -17,7 +17,7 @@ const Title = () => {
 				/>
 			) : (
 				<span>{getTitleName(movie?.name)}</span>
-			)} */}
+			)}
 		</div>
 	)
 }
