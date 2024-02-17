@@ -1,23 +1,24 @@
 //====================================================================================================
 .hero-slider {
-    @include adaptiveValue("margin-bottom", 30, 20, 0, 1440, 360);
-    overflow: hidden;
-    position: relative;
-    &__container {
-        max-width: 57%;
-        @media (max-width: em(1260)) {
-            max-width: 65%;
-        }
-        @media (max-width: $tablet) {
-            max-width: 75%;
-        }
-        @media (max-width: $mobile) {
-            max-width: 90%;
-        }
-    }
+	@include adaptiveValue("margin-top", 75, 60, 0, 1440, 320);
+	@include adaptiveValue("margin-bottom", 30, 20, 0, 1440, 360);
+	overflow: hidden;
+	position: relative;
+	&__container {
+		max-width: 57%;
+		@media (max-width: em(1260)) {
+			max-width: 65%;
+		}
+		@media (max-width: $tablet) {
+			max-width: 75%;
+		}
+		@media (max-width: $mobile) {
+			max-width: 90%;
+		}
+	}
 
-    &__swiper-slide {
-    }
+	&__swiper-slide {
+	}
 }
 
 .hero-slide {

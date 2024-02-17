@@ -9,7 +9,7 @@ const Hero = () => {
 		push,
 		query: {id},
 	} = useRouter()
-	const {data, isLoading, isError} = useGetMovieByIdQuery(id)
+	const {data} = useGetMovieByIdQuery(id)
 	const { setMovie } = useActions()
 
 	useEffect(() => {
