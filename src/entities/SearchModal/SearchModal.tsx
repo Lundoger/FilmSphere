@@ -7,7 +7,7 @@ import SnowDecoration from '@/shared/SnowDecoration/SnowDecoration'
 
 const SearchModal = () => {
 	const { isSearchModalOpen } = useAppSelector(state => state.toggleReducer)
-	const { searchModalToggle, setSearch, setData } = useActions()
+	const { searchModalToggle, setSearch } = useActions()
 
 	const handleClose = () => {
 		setSearch('')

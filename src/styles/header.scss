@@ -1,12 +1,19 @@
 //====================================================================================================
 .header {
-	position: absolute;
+	position: sticky;
 	width: 100%;
 	top: 0;
 	left: 0;
 	z-index: 9;
-	box-shadow: inset 0 rem(50) rem(50) rem(-50) rgba(0, 0, 0, 0.671);
-	// background-color: var(--bg-primary);
+	background-color: var(--bg-primary);
+	transition: transform 0.3s ease 0s;
+	&--movie {
+		background: transparent;
+		backdrop-filter: blur(rem(10));
+	}
+	&--fixed {
+		transform: translateY(-100%);
+	}
 	&__container {
 		height: rem(62);
 		display: flex;

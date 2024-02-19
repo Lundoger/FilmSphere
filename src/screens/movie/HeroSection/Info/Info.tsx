@@ -13,6 +13,7 @@ const Info = () => {
 	
 	const items = [
 		movie?.year,
+		movie?.countries ? movie?.countries[movie?.countries.length - 1].name : null,
 		movie?.ageRating ? `${movie.ageRating}+` : null,
 		movie?.genres ? movie.genres[0].name : null,
 		length,

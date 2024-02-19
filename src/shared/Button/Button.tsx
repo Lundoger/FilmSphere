@@ -5,8 +5,8 @@ import type { ReactNode, ButtonHTMLAttributes } from 'react';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	rounded?: boolean;
 	gradient?: boolean;
-	size?: 'regular';
-	variant?: 'primary';
+	size?: 'regular' | 'big';
+	variant?: 'primary' | 'glass';
 	startIcon?: ReactNode;
 	endIcon?: ReactNode;
 }
@@ -39,9 +39,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				ref={ref}
 				{...props}
 			>
-				{startIcon && <div className={''}>{startIcon}</div>}
+				{startIcon && <div className={'button__icon button__icon--start'}>{startIcon}</div>}
 				{children && <span className="button__content">{children}</span>}
-				{endIcon && <div className={''}>{endIcon}</div>}
+				{endIcon && <div className={'button__icon button__icon--end'}>{endIcon}</div>}
 			</button>
 		)
 	}

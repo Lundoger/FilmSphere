@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 import SnowDecoration from '@/shared/SnowDecoration/SnowDecoration'
 import { paths } from '@/helpers/routing'
 
-const Hamburger = () => {
+const BurgerMenu = () => {
 	const { openedMenu } = useAppSelector(state => state.toggleReducer)
 	const { menuToggle } = useActions()
 	const { pathname, events } = useRouter()
@@ -20,10 +20,12 @@ const Hamburger = () => {
 		{ href: paths.anime, content: 'Аниме', timeout: 300, },
 	]
 
+	//при переходе на какуюто страницу закрываем бургер и тоглим стейт в 'false'
 	useEffect(() => {
 		events.on('routeChangeComplete', () => menuToggle(false));
 	}, [])
 
+	//додаем или забираем класс .lock(блокировка скролла и прочее) при открытии/закрытии бургера
 	useEffect(() => {
 		if (openedMenu) document.body.classList.add('lock')
 		else document.body.classList.remove('lock')
@@ -54,4 +56,4 @@ const Hamburger = () => {
 	)
 }
 
-export default Hamburger
+export default BurgerMenu

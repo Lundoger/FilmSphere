@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from "next";
-import { Layout } from "@/components/Layout/Layout";
+import { Layout } from "@/widgets/Layout/Layout";
 import { initStore } from "@/store/store";
 import Home from "@/screens/home/Home";
 

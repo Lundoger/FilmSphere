@@ -1,4 +1,4 @@
-import { Layout } from '@/components/Layout/Layout'
+import { Layout } from '@/widgets/Layout/Layout'
 import React from 'react'
 
 const Series = () => {

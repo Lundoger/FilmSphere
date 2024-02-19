@@ -2,7 +2,7 @@ import { GetServerSideProps, NextPage } from 'next';
 import Movie from '@/screens/movie/Movie';
 import { filmSphereApi } from '@/api/filmSphereApi';
 import { initStore } from '@/store/store';
-import { Layout } from '@/components/Layout/Layout';
+import { Layout } from '@/widgets/Layout/Layout';
 
 const FilmPage: NextPage = () => {
 	return (

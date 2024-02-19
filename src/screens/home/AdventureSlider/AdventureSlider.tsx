@@ -3,11 +3,12 @@ import { paths } from "@/helpers/routing";
 import { useGetRecommendTitleQuery } from "@/api/filmSphereApi";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { FreeMode, Navigation } from "swiper";
 
 const AdventureSlider = () => {
     const { data, isLoading, isError } = useGetRecommendTitleQuery({
         limit: 10,
-    });
+    })
 
     return (
         <section className="category-section">
@@ -25,14 +26,10 @@ const AdventureSlider = () => {
                     <CarouselMultiply
                         className="category-section__swiper"
                         items={data.docs}
-                        options={{
-                            loop: false,
-                            initialSlide: 0,
-                        }}
-                        renderItem={(item) => {
-                            console.log(item);
-                            return <div key={item.id}>Films</div>;
-                        }}
+						slideClassName="category-section__swiper-slide"
+						freeMode={{ momentumBounceRatio: 0 }}
+                        modules={[FreeMode, Navigation]}
+                        renderItem={(item) => <div className="category-section__slide" key={item.id}>Films</div>}
                     />
                 )}
             </div>

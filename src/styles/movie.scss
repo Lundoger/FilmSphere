@@ -1,4 +1,6 @@
 .movie-hero {
+	@include adaptiveValue("margin-top", -62, -50);
+	@include adaptiveValue("margin-bottom", 30, 20);
 	position: relative;
 	width: 100vw;
 	height: 100vh;
@@ -28,7 +30,7 @@
 			rgba(0, 0, 0, 0.01) 64.92%,
 			transparent 69.32%
 		);
-		@media (max-width:$mobile){
+		@media (max-width: $mobile) {
 			background: linear-gradient(
 				90deg,
 				#000 13.31%,
@@ -48,6 +50,9 @@
 				rgba(0, 0, 0, 0.01) 74.92%,
 				transparent 79.32%
 			);
+		}
+		@media (max-width: $mobileSmall) {
+			display: none;
 		}
 	}
 	&::after {
@@ -77,16 +82,30 @@
 			#000 89.4%
 		);
 	}
+	@media (max-width: $tablet) {
+		&::before,
+		&::after {
+			display: none;
+		}
+	}
+	@media (max-width: $tablet) {
+		height: fit-content;
+	}
 	&__container {
 		display: flex;
 		height: 100%;
 		align-items: center;
+		@media (max-width:$tablet){
+			padding-top: 44%;
+		}
 	}
 
 	&__content {
 		position: relative;
 		z-index: 2;
-		max-width: rem(500);
+		@media (min-width: $mobile) {
+			max-width: rem(500);
+		}
 	}
 
 	&__logo {
@@ -99,41 +118,48 @@
 		font-weight: 700;
 		span {
 			display: flex;
-			align-self: end;	
+			align-self: end;
 		}
 		img {
 			object-fit: contain;
 			object-position: bottom left;
 		}
+		@media (max-width: $mobile) {
+			height: rem(100);
+		}
 	}
 
 	&__info {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
-		gap: rem(20);
+		column-gap: rem(20);
+		row-gap: rem(10);
 		@include adaptiveValue("margin-bottom", 25, 20);
-		&>:not(:last-child) {
+		& > :not(:last-child) {
 			position: relative;
-			&::after{
-				content:'';
-				position: absolute;
-				top: 50%;
-				right: rem(-10);
-				transform: translate(50%, -50%);
-				width: rem(3);
-				height: rem(3);
-				border-radius: 50%;
-				background-color: var(--bg-inverse);
-				opacity: .5;
-			}	
+			@media (min-width:$mobileSmall){
+				&::after {
+					content: "";
+					position: absolute;
+					top: 50%;
+					right: rem(-10);
+					transform: translate(50%, -50%);
+					width: rem(3);
+					height: rem(3);
+					border-radius: 50%;
+					background-color: var(--bg-inverse);
+					opacity: 0.5;
+				} 
+			}
 		}
 	}
 
 	&__info-item {
-		opacity: .6;
+		opacity: 0.6;
 	}
 
-	&__desc	{
+	&__desc {
 		@include adaptiveValue("font-size", 16, 14);
 		line-height: 1.3;
 		@include adaptiveValue("margin-bottom", 25, 20);
@@ -141,7 +167,39 @@
 		color: var(--text-primary);
 	}
 
-	&__persons {}
+	&__persons {
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+		gap: rem(15);
+		flex-wrap: wrap;
+		@media (max-width:$mobileSmall){
+			justify-content: center;
+			row-gap: rem(20);
+			column-gap: rem(30);
+			&>:first-child {
+				width: 100%;
+			}
+		}
+	}
+
+	&__actions-button {
+		&--trailer {
+			font-size: rem(16);
+			@media (min-width:$mobileSmall){
+				.button__icon {
+					display: none;
+				} 
+			}
+			@media (max-width:$mobileSmall){
+				span {
+					display: none;
+				}
+			}
+		}
+	}
 
 	&__bg {
 		position: absolute;
@@ -150,12 +208,50 @@
 		width: 100%;
 		height: 100%;
 		z-index: -1;
+		background-repeat: no-repeat;
+		background-position: 50% top;
+		background-size: cover;
+		@media (max-width: $tablet) {
+			height: fit-content;
+			padding-bottom: 56.5%;
+			&::after {
+				content: "";
+				position: absolute;
+				bottom: rem(-1);
+				left: 0;
+				right: 0;
+				z-index: -1;
+				height: 100%;
+				background: linear-gradient(
+					180deg,
+					transparent 50%,
+					transparent 52.63%,
+					rgba(0, 0, 0, 0.03) 55.25%,
+					rgba(0, 0, 0, 0.08) 57.88%,
+					rgba(0, 0, 0, 0.14) 60.51%,
+					rgba(0, 0, 0, 0.23) 63.13%,
+					rgba(0, 0, 0, 0.33) 65.76%,
+					rgba(0, 0, 0, 0.44) 68.39%,
+					rgba(0, 0, 0, 0.55) 71.01%,
+					rgba(0, 0, 0, 0.66) 73.64%,
+					rgba(0, 0, 0, 0.77) 76.27%,
+					rgba(0, 0, 0, 0.85) 78.89%,
+					rgba(0, 0, 0, 0.92) 81.52%,
+					rgba(0, 0, 0, 0.96) 84.15%,
+					rgba(0, 0, 0, 0.99) 86.77%,
+					#000 89.4%
+				);
+			}
+		}
 	}
 }
 .persons-movie-hero {
+	@media (max-width:$mobileSmall){
+		display: none; 
+	}
 	@include adaptiveValue("margin-bottom", 25, 20);
-	&>:not(:last-child) {
-		@include adaptiveValue("margin-bottom", 20, 15);	
+	& > :not(:last-child) {
+		@include adaptiveValue("margin-bottom", 20, 15);
 	}
 	&__row {
 		display: flex;
@@ -165,7 +261,7 @@
 	&__label {
 		flex-shrink: 0;
 		line-height: 1.3;
-		opacity: .6;
+		opacity: 0.6;
 		@include adaptiveValue("font-size", 18, 15);
 		margin-right: rem(10);
 	}
@@ -182,8 +278,8 @@
 		font-weight: 300;
 		position: relative;
 		line-height: 1.3;
-		&::before{
-			content:'';
+		&::before {
+			content: "";
 			position: absolute;
 			bottom: 0;
 			left: 0;
@@ -194,17 +290,16 @@
 			transition: height 0.3s ease 0s;
 		}
 		&:not(:last-child) {
-			&::after{
-				content:',';
+			&::after {
+				content: ",";
 			}
 		}
-		@media (any-hover: hover){
-			&:hover{
-				&::before{
-					height: 100%;					
+		@media (any-hover: hover) {
+			&:hover {
+				&::before {
+					height: 100%;
 				}
 			}
 		}
 	}
 }
-
