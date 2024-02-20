@@ -1,0 +1,47 @@
+.category-section {
+	@include adaptiveValue("margin-bottom", 70, 35);
+	position: relative;
+	&__title {
+		@include adaptiveValue("font-size", 30, 18);
+		@include adaptiveValue("margin-bottom", 25, 15);
+		font-weight: 500;
+		display: inline-flex;
+		align-items: center;
+		gap: rem(10);
+		@media (any-hover: hover) {
+			&:hover {
+				span {
+					transform: translateX(rem(5));
+				}
+			}
+		}
+	}
+
+	&__swiper-slide {
+		width: 19% !important;
+		@media (max-width: em(1260)) {
+			width: 22% !important;
+		}
+		@media (max-width: $tablet) {
+			width: 25% !important;
+		}
+		@media (max-width: $mobile) {
+			width: 30% !important;
+		}
+		@media (max-width: $mobileSmall) {
+			width: 40% !important;
+		}
+	}
+
+	&__icon {
+		display: inline-block;
+		width: rem(24);
+		height: rem(24);
+		transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s;
+		svg {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+}
