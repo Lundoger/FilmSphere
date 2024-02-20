@@ -1,13 +1,21 @@
-import { useGetRecommendTitleQuery } from "@/api/filmSphereApi";
+import { useGetGenreTitleQuery } from "@/api/filmSphereApi";
+import Category from "@/widgets/Category/Category";
+import { paths } from "@/helpers/routing";
 
 const CartoonsSlider = () => {
-    const { data, isLoading, isError } = useGetRecommendTitleQuery({
-        limit: 10,
-    })
+  const { data, isLoading } = useGetGenreTitleQuery({
+    limit: 10,
+    genre: "мультфильм",
+  });
 
-    return (
-		<></>
-    )
-}
+  return (
+    <Category
+      title="Мультфильмы"
+      href={paths.catalog({ genre: "мультфильм" })}
+      data={data}
+      isLoading={isLoading}
+    />
+  );
+};
 
 export default CartoonsSlider;
