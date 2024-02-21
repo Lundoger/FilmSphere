@@ -1,11 +1,11 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import {MovieDtoV14 } from "@/models/Api";
 
-interface searchState {
+interface movieState {
 	movie: MovieDtoV14 | null,
 }
 
-const initialState:searchState = {
+const initialState:movieState = {
 	movie: null,
 }
 

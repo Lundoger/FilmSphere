@@ -22,9 +22,11 @@ const MovieItem = ({item, className}: MovieItemProps) => {
 		? getSeasonsLength(item?.seasonsInfo.length)
 		: minutesToHour(item?.movieLength ?? 0)
 		
+	const filteredLength = length !== '0' ? null : length
+
 	const items = [
 		item?.year,
-		length,
+		filteredLength,
 	]
 
 	return (
