@@ -66,7 +66,7 @@ export const filmSphereApi = createApi({
 				params: {
 					['rating.imdb']: ratingValue,
 					['genres.name']: genre,
-					sortField: 'votes.filmCritics',
+					sortField: 'votes.imdb',
 					sortType: -1,
 					year: year,
 					limit: limit,
