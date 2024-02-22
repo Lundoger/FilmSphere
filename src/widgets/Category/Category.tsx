@@ -1,5 +1,5 @@
 import MovieItem from '@/entities/MovieItem/MovieItem'
-import { MovieDocsResponseDtoV14 } from '@/models/Api'
+import { MovieDtoV14 } from '@/models/Api'
 import { CarouselMultiply } from '@/shared/CarouselMultiply/CarouselMultiply'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
@@ -8,8 +8,7 @@ import { FreeMode, Navigation } from 'swiper'
 interface CategoryProps {
 	href: string,
 	title: string,
-	// isLoading: boolean,
-	data: MovieDocsResponseDtoV14 | null | undefined
+	data: MovieDtoV14[] | null | undefined
 } 
 
 const Category = ({href, title, data}: CategoryProps) => {
@@ -29,7 +28,7 @@ const Category = ({href, title, data}: CategoryProps) => {
 						</Link>
 						<CarouselMultiply
 							className="category-section__swiper"
-							items={data.docs}
+							items={data}
 							slideClassName="category-section__swiper-slide"
 							freeMode={{ momentumBounceRatio: 0 }}
 							modules={[FreeMode, Navigation]}

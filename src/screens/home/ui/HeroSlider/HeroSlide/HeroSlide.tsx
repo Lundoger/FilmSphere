@@ -4,33 +4,40 @@ import { MovieDtoV14 } from '@/models/Api'
 import { paths } from '@/helpers/routing'
 import { MovieRating } from '@/shared/MovieRating/MovieRating'
 
+type HeroSlide = {
+	id: number,
+	year: number,
+	rating: string,
+	title: string,
+	genres: string[],
+	image: string,
+}
+
 interface HeroSlideProps {
-	item: MovieDtoV14
+	item: HeroSlide
 }
 
 const HeroSlide = ({item}: HeroSlideProps) => {
-	const {id, name, genres, rating, year, backdrop} = item
+	const {id, title, genres, rating, year, image} = item
 
 	return (
 		<Link className='hero-slider__slide hero-slide' href={paths.movie(id)}>
-			{backdrop?.url && (
-				<Image
-					className='hero-slide__image'
-					alt={name ?? ''}
-					fill
-					priority
-					quality={100}	
-					sizes="100%"
-					src={backdrop.url}
-				/>
-			)}
+			<Image
+				className='hero-slide__image'
+				alt={title}
+				fill
+				priority
+				quality={100}	
+				sizes="100%"
+				src={image}
+			/>
 			<div className="hero-slide__content">
-				<h3 className="hero-slide__name">{name}</h3>
+				<h3 className="hero-slide__name">{title}</h3>
 				{genres && (
 					<ul className="hero-slide__genres genres-hero">
 						Жанры: 
 						{genres.map((genre, i) => (
-							<li key={i} className="genres-hero__genre">{genre.name}</li>
+							<li key={i} className="genres-hero__genre">{genre}</li>
 						))}
 					</ul>
 				)}
@@ -39,7 +46,7 @@ const HeroSlide = ({item}: HeroSlideProps) => {
 						size='medium'
 						className='hero-slide__rating'
 					>
-						{rating?.imdb?.toFixed(1)}
+						{rating}
 					</MovieRating>
 					<span className="hero-slide__year">{year}</span>
 				</div>

@@ -38,23 +38,6 @@ export const filmSphereApi = createApi({
 				},
 			}),
 		}),
-		getRecommendTitle: build.query<MovieDocsResponseDtoV14, getRecommendTitleParams>({
-			query: ({ limit, ratingValue = '7-10', year = 2023}) => ({
-				url: "v1.4/movie?notNullFields=name&notNullFields=backdrop.url&notNullFields=rating.imdb&notNullFields=year",
-				method: "GET",
-				headers: {
-					accept: "application/json",
-					'X-API-KEY': process.env.NEXT_PUBLIC_API_KEY,
-				},
-				params: {
-					['rating.imdb']: ratingValue,
-					year: year,
-					sortField: 'votes.filmCritics',	
-					sortType: -1,
-					limit: limit,
-				},
-			}),
-		}),
 		getGenreTitle: build.query<MovieDocsResponseDtoV14, getGenreTitleParams>({
 			query: ({ limit, genre, ratingValue = '7-10', year='2016-2024'}) => ({
 				url: "v1.4/movie?notNullFields=name&notNullFields=poster.url&notNullFields=year",
@@ -89,7 +72,6 @@ export const filmSphereApi = createApi({
 export const { 
 	useGetSearchTitleQuery, 
 	useLazyGetSearchTitleQuery,
-	useGetRecommendTitleQuery,
 	useGetMovieByIdQuery,
 	useLazyGetMovieByIdQuery,
 	useGetGenreTitleQuery,
