@@ -13,10 +13,7 @@ interface getCategoryDataProps {
 
 export function getCategoryData({genre, action}: getCategoryDataProps) {
 	const {data, isError, isLoading} = useGetGenreTitleQuery({limit: 10, genre: genre})
-	
-	useEffect(() => {
-		if(data?.docs) action(data.docs)
-	}, [data])
+	if(data?.docs) action(data.docs)
 
 	return {
 		isError, 
