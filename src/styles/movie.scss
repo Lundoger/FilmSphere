@@ -4,6 +4,7 @@
 	position: relative;
 	width: 100vw;
 	height: 100vh;
+	overflow: hidden;
 	&::before {
 		content: "";
 		position: absolute;
