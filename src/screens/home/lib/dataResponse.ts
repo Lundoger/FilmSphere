@@ -1,6 +1,5 @@
 import { useGetGenreTitleQuery } from '@/api/filmSphereApi';
 import { MovieDtoV14 } from '@/models/Api';
-import { useEffect } from 'react'
 
 type ActionFunction = {
     (data: MovieDtoV14[]): void;

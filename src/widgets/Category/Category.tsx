@@ -1,31 +1,54 @@
 import MovieItem from '@/entities/MovieItem/MovieItem'
 import { MovieDtoV14 } from '@/models/Api'
 import { CarouselMultiply } from '@/shared/CarouselMultiply/CarouselMultiply'
+import Spinner from '@/shared/Spinner/Spinner'
+import clsx from 'clsx'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import { FreeMode, Navigation } from 'swiper'
 
+const Loader = () => {
+	return (
+		<div className='loader--container'>
+			<Spinner />
+		</div>
+	)
+}
+
 interface CategoryProps {
 	href: string,
 	title: string,
-	data: MovieDtoV14[] | null | undefined
+	data: MovieDtoV14[] | null | undefined,
+	isLoading: boolean,
+	isError: boolean,
+	className?: string,
+	containerClassName?: string,
 } 
 
-const Category = ({href, title, data}: CategoryProps) => {
+const Category = ({
+	href, 
+	title, 
+	data, 
+	isError,
+	isLoading,
+	className,
+	containerClassName
+}: CategoryProps) => {
 	return (
-		<section className="category-section">
-			<div className="category-section__container">
-				{data && (
-					<>
-						<Link
-							href={href}
-							className="category-section__title"
-						>
-							{title}
-							<span className="category-section__icon">
-								<ChevronRight />
-							</span>
-						</Link>
+		<section className={clsx('category-section', className)}>
+			<div className={clsx('category-section__container', containerClassName)}>
+					<Link
+						href={href}
+						className="category-section__title"
+					>
+						{title}
+						<span className="category-section__icon">
+							<ChevronRight />
+						</span>
+					</Link>
+					{isLoading && <Loader/>}
+					{!isLoading && isError && <p>{'Something went wrong...'}</p> } 
+					{!isError && data && (
 						<CarouselMultiply
 							className="category-section__swiper"
 							items={data}
@@ -34,8 +57,7 @@ const Category = ({href, title, data}: CategoryProps) => {
 							modules={[FreeMode, Navigation]}
 							renderItem={(item) => <MovieItem item={item} />}
 						/>
-					</>
-				)}
+					)}
 			</div>
 		</section>
 	)

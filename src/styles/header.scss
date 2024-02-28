@@ -109,7 +109,7 @@
 			&::before{
 				content:'';
 				position: absolute;
-				bottom: 0;
+				bottom: rem(1);
 				left: -25%;
 				width: 150%;
 				height: rem(2);
