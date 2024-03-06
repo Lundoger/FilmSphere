@@ -1,28 +1,44 @@
-import { useActions } from '@/hooks/useActions'
-import { useAppSelector } from '@/hooks/useAppSelector'
-import Modal from '@/shared/Modal/Modal'
-import SearchModalList from './SearchModalList/SearchModalList'
-import SearchInput from './SearchInput/SearchInput'
-import SnowDecoration from '@/shared/SnowDecoration/SnowDecoration'
+import { useActions } from "@/hooks/useActions"
+import { useAppSelector } from "@/hooks/useAppSelector"
+import Modal from "@/shared/Modal/Modal"
+import SearchModalList from "./SearchModalList/SearchModalList"
+import SearchInput from "./SearchInput/SearchInput"
+import SnowDecoration from "@/shared/SnowDecoration/SnowDecoration"
+import { useRouter } from "next/router"
+import { useDebounce } from "@/hooks/useDebounce"
+import { useEffect } from "react"
 
 const SearchModal = () => {
-	const { isSearchModalOpen } = useAppSelector(state => state.toggleReducer)
-	const { searchModalToggle, setSearch } = useActions()
+    const { isSearchModalOpen } = useAppSelector(state => state.toggleReducer)
+    const { search } = useAppSelector(state => state.searchReducer)
+    const { searchModalToggle, setSearch } = useActions()
+    const router = useRouter()
+    const { debounced } = useDebounce(search)
 
-	const handleClose = () => {
-		setSearch('')
-		document.getElementById('header')!.style.paddingRight = `0`
-		searchModalToggle(false)
-	}
+    const handleClose = () => {
+        setSearch("")
+        document.body.style.paddingRight = `0`
+        searchModalToggle(false)
+    }
 
-	return (
-		<Modal isOpen={isSearchModalOpen} className='search-modal' handleClose={handleClose}>
-			<SnowDecoration/>
-			<h1 className="search-modal__title title">Search</h1>
-			<SearchInput/>
-			<SearchModalList/>
-		</Modal>
-	)
+    useEffect(() => {
+        router.events.on("routeChangeStart", handleClose)
+
+        return () => {
+            router.events.off("routeChangeStart", handleClose)
+        }
+    }, [])
+
+    return (
+        <Modal isOpen={isSearchModalOpen} className="search-modal" handleClose={handleClose}>
+            <div className="search-modal__container">
+                <SnowDecoration />
+                <h1 className="search-modal__title title">Search</h1>
+                <SearchInput />
+                {debounced.length > 2 && <SearchModalList />}
+            </div>
+        </Modal>
+    )
 }
 
 export default SearchModal

@@ -1,18 +1,30 @@
-import React from 'react'
+import React from "react"
 
 const Footer = () => {
-	return (
-		<footer className="footer">
-			<div className="footer__container">
-				<div className="footer__content">
-					<h2 className="footer__title title">FilmSphere - Lorem ipsum dolor sit amet.</h2>
-					<p className="footer__desc description">
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi, eligendi tempora! Tenetur eveniet quis consectetur officia consequatur odit animi quisquam, expedita nihil, natus magnam laboriosam cupiditate rerum? Consequatur quod dicta expedita fugit repellendus voluptatibus culpa excepturi, unde sed deleniti asperiores ducimus fugiat modi temporibus voluptas placeat, totam laboriosam ipsam nulla.
-					</p>
-				</div>
-			</div>
-		</footer>
-	)
+    return (
+        <footer className="footer">
+            <div className="footer__container">
+                <div className="footer__content">
+                    <h2 className="footer__title title">
+                        Добро пожаловать в FilmSphere - ваш онлайн кинотеатр с огромным выбором
+                        фильмов, мультфильмов, сериалов и аниме!
+                    </h2>
+                    <p className="footer__desc description">
+                        Мы стремимся сделать ваш поиск контента максимально удобным и быстрым
+                        благодаря интуитивно понятному поиску. Независимо от того, любите ли вы
+                        классику киноискусства, захватывающие мультфильмы, увлекательные сериалы или
+                        захватывающие аниме, у нас есть что-то для каждого. От захватывающих драм до
+                        адреналиновых боевиков, от веселых мультфильмов до глубоких сериальных
+                        сюжетов, мы предлагаем широкий спектр жанров и направлений, чтобы
+                        удовлетворить самые разнообразные вкусы. FilmSphere позволяет вам
+                        наслаждаться просмотром вашего любимого контента в высоком качестве в любое
+                        время и в любом месте. Регистрируйтесь прямо сейчас на нашем сайте и
+                        окунитесь в захватывающий мир кино, мультфильмов, сериалов и аниме!
+                    </p>
+                </div>
+            </div>
+        </footer>
+    )
 }
 
 export default Footer

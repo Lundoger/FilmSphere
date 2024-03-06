@@ -64,14 +64,6 @@
 	background-color: rgba(#000, 0.95);
 	overflow-x: hidden;
 	overflow-y: auto;
-	&__container {
-		max-width: rem(768);
-		margin-top: rem(100);
-		@media (max-width: $mobileSmall) {
-			margin-top: rem(70);
-		}
-	}
-
 	&__button {
 		position: absolute;
 		@include adaptiveValue("top", 30, 15);
@@ -124,7 +116,7 @@
 	@include adaptiveValue("font-size", 40, 20);
 	line-height: 1.3;
 	font-weight: 700;
-	letter-spacing: rem(1);
+	letter-spacing: rem(0.5);
 	&--error {
 		color: var(--text-error);
 	}
@@ -166,19 +158,19 @@
 		padding: rem(14) rem(24);
 	}
 	&--primary {
-		background-color: rgba(34,34,37,.75);
-		@media (any-hover: hover){
-			&:hover{
+		background-color: rgba(34, 34, 37, 0.75);
+		@media (any-hover: hover) {
+			&:hover {
 				background-color: rgb(34, 34, 37);
 			}
 		}
 	}
 	&--glass {
 		backdrop-filter: blur(rem(20));
-		background-color: rgba(153, 153, 191, .2);
+		background-color: rgba(153, 153, 191, 0.2);
 		transition: background-color 0.3s ease 0s;
-		@media (any-hover: hover){
-			&:hover{
+		@media (any-hover: hover) {
+			&:hover {
 				background-color: rgba(198, 198, 214, 0.219);
 			}
 		}
@@ -189,8 +181,8 @@
 	&--gradient {
 		background-image: var(--bg-accent);
 		background-size: 200% auto;
-		@media (any-hover: hover){
-			&:hover{
+		@media (any-hover: hover) {
+			&:hover {
 				background-position: right center;
 			}
 		}
@@ -225,15 +217,16 @@
 	border-radius: rem(8);
 	border: rem(1) solid rgba(144, 146, 153, 0.151);
 	background-color: rgba(83, 84, 87, 0.267);
-	@media (any-hover: hover){
-		&:hover{
-			.title-item__bg::before{
-				opacity: 1;				
+	@media (any-hover: hover) {
+		&:hover {
+			.title-item__bg::before {
+				opacity: 1;
 			}
 			.title-item__content {
 				opacity: 1;
 			}
-			.title-item__rating, .title-item__info {
+			.title-item__rating,
+			.title-item__info {
 				transform: translateY(0);
 			}
 		}
