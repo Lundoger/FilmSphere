@@ -96,7 +96,7 @@
 		display: flex;
 		height: 100%;
 		align-items: center;
-		@media (max-width:$tablet){
+		@media (max-width: $tablet) {
 			padding-top: 44%;
 		}
 	}
@@ -139,7 +139,7 @@
 		@include adaptiveValue("margin-bottom", 25, 20);
 		& > :not(:last-child) {
 			position: relative;
-			@media (min-width:$mobileSmall){
+			@media (min-width: $mobileSmall) {
 				&::after {
 					content: "";
 					position: absolute;
@@ -151,7 +151,7 @@
 					border-radius: 50%;
 					background-color: var(--bg-inverse);
 					opacity: 0.5;
-				} 
+				}
 			}
 		}
 	}
@@ -176,11 +176,11 @@
 		align-items: center;
 		gap: rem(15);
 		flex-wrap: wrap;
-		@media (max-width:$mobileSmall){
+		@media (max-width: $mobileSmall) {
 			justify-content: center;
 			row-gap: rem(20);
 			column-gap: rem(30);
-			&>:first-child {
+			& > :first-child {
 				width: 100%;
 			}
 		}
@@ -189,12 +189,12 @@
 	&__actions-button {
 		&--trailer {
 			font-size: rem(16);
-			@media (min-width:$mobileSmall){
+			@media (min-width: $mobileSmall) {
 				.button__icon {
 					display: none;
-				} 
+				}
 			}
-			@media (max-width:$mobileSmall){
+			@media (max-width: $mobileSmall) {
 				span {
 					display: none;
 				}
@@ -246,9 +246,10 @@
 		}
 	}
 }
+//========================================================================================================================================================
 .persons-movie-hero {
-	@media (max-width:$mobileSmall){
-		display: none; 
+	@media (max-width: $mobileSmall) {
+		display: none;
 	}
 	@include adaptiveValue("margin-bottom", 25, 20);
 	& > :not(:last-child) {
@@ -302,5 +303,23 @@
 				}
 			}
 		}
+	}
+}
+//========================================================================================================================================================
+.movie-trailer-modal {
+	&__container {
+		height: 100vh;
+		max-width: rem(1100);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__iframe {
+		width: 100%;
+		min-height: rem(200);
+		height: 60vh;
+		border: none;
+		outline: none;
 	}
 }
