@@ -30,7 +30,7 @@ const SearchModalList = () => {
             limit: 30,
         },
         {
-            skip: debounced.length < 2,
+            skip: debounced.length < 1,
         }
     )
     const [

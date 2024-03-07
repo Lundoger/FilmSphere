@@ -35,7 +35,7 @@ const SearchModal = () => {
                 <SnowDecoration />
                 <h1 className="search-modal__title title">Search</h1>
                 <SearchInput />
-                {debounced.length > 2 && <SearchModalList />}
+                {debounced.length > 1 && <SearchModalList />}
             </div>
         </Modal>
     )

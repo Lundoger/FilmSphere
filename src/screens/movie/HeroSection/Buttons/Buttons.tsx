@@ -1,11 +1,10 @@
 import { useActions } from "@/hooks/useActions"
 import { Button } from "@/shared/Button/Button"
-import { Bookmark, MonitorPlay, PlayCircle, Star } from "lucide-react"
+import { Bookmark, MonitorPlay, PlayCircle, Share2, Star } from "lucide-react"
 import React from "react"
 
 const Buttons = () => {
     const { trailerModalToggle } = useActions()
-
     const handleTrailerModalOpen = () => {
         //получаем ширину скролл бара  и при открытии модалки даем отступ хедеру что бы не было прыжка при открытии
         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
@@ -45,6 +44,12 @@ const Buttons = () => {
                 className="movie-hero__actions-button"
                 rounded
                 endIcon={<Star />}
+                variant="glass"
+            ></Button>
+            <Button
+                className="movie-hero__actions-button"
+                rounded
+                endIcon={<Share2 />}
                 variant="glass"
             ></Button>
         </div>
