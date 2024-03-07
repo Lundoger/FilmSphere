@@ -4,6 +4,8 @@ import { useRouter } from "next/router"
 import { useEffect } from "react"
 import HeroSection from "./HeroSection/HeroSection"
 import TrailerModal from "./ui/TrailerModal/TrailerModal"
+import Tabs from "./ui/Tabs/Tabs"
+import Similar from "./ui/Similar/Similar"
 
 const Hero = () => {
     const {
@@ -20,6 +22,8 @@ const Hero = () => {
     return (
         <>
             <HeroSection />
+            <Tabs />
+            <Similar />
             <TrailerModal />
         </>
     )

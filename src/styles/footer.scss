@@ -4,19 +4,16 @@
 	}
 
 	&__content {
-		@media (max-width: $mobileSmall) {
-			text-align: center;
-		}
 	}
 
 	&__title {
-		@include adaptiveValue("font-size", 24, 20);
+		@include adaptiveValue("font-size", 24, 17);
 		margin-bottom: rem(20);
 	}
 
 	&__desc {
 		max-width: rem(1000);
-		line-height: 1.5;
+		line-height: 1.7;
 		@include adaptiveValue("font-size", 15, 12);
 	}
 }
