@@ -17,8 +17,6 @@
 		}
 	}
 
-	&__swiper-slide {
-	}
 }
 
 .hero-slide {
@@ -157,12 +155,6 @@
         @media (max-width: $mobileSmall) {
             padding: 0 rem(15);
         }
-    }
-
-    &__slider {
-    }
-
-    &__slide {
     }
 
     &__swiper-slide {

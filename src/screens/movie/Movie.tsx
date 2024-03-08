@@ -2,11 +2,11 @@ import { useGetMovieByIdQuery } from "@/api/filmSphereApi"
 import { useActions } from "@/hooks/useActions"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
-import HeroSection from "./HeroSection/HeroSection"
 import TrailerModal from "./ui/TrailerModal/TrailerModal"
 import Tabs from "./ui/Tabs/Tabs"
 import Similar from "./ui/Similar/Similar"
 import Persons from "./ui/Persons/Persons"
+import HeroSection from "./ui/HeroSection/HeroSection"
 
 const Hero = () => {
     const {

@@ -167,9 +167,6 @@
 		color: var(--text-primary);
 	}
 
-	&__persons {
-	}
-
 	&__actions {
 		display: flex;
 		align-items: center;
@@ -374,9 +371,6 @@
 //========================================================================================================================================================
 .movie-tabs {
 	@include adaptiveValue("margin-bottom", 70, 50);
-	&__container {
-	}
-
 	&__titles {
 		display: flex;
 		align-items: center;
@@ -442,8 +436,6 @@
 		}
 	}
 
-	&__images {
-	}
 }
 //========================================================================================================================================================
 .movie-similar {
@@ -456,15 +448,11 @@
 //========================================================================================================================================================
 .movie-persons {
 	@include adaptiveValue("margin-bottom", 70, 50);
-	&__container {
-	}
 
 	&__title {
 		@include adaptiveValue("margin-bottom", 40, 25);
 	}
 
-	&__swiper {
-	}
 	&__swiper-slide {
 		width: 11% !important;
 		@media (max-width: em(1170)){

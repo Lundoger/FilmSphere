@@ -1,6 +1,6 @@
 import { Tab, TabList, TabPanel, Tabs as ReactTabs } from "react-tabs"
-import Description from "./ui/Description"
-import Images from "./ui/Images"
+import Description from "./ui/Description/Description"
+import Images from "./ui/Images/Images"
 
 const Tabs = () => {
     const tabs = [
