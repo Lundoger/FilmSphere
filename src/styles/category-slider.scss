@@ -2,9 +2,7 @@
 	@include adaptiveValue("margin-bottom", 70, 35);
 	position: relative;
 	&__title {
-		@include adaptiveValue("font-size", 30, 18);
 		@include adaptiveValue("margin-bottom", 25, 15);
-		font-weight: 500;
 		display: inline-flex;
 		align-items: center;
 		gap: rem(10);

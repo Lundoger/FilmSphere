@@ -113,9 +113,8 @@
 }
 //=TITLE & DESCRITION=======================================================================================================================================================
 .title {
-	@include adaptiveValue("font-size", 40, 20);
-	line-height: 1.3;
-	font-weight: 700;
+	@include adaptiveValue("font-size", 30, 18);
+	font-weight: 500;
 	letter-spacing: rem(0.5);
 	&--error {
 		color: var(--text-error);
@@ -139,6 +138,7 @@
 	gap: rem(10);
 	flex-wrap: wrap;
 	line-height: rem(24);
+	outline: none;
 	&__icon {
 		width: rem(24);
 		height: rem(24);
@@ -179,7 +179,7 @@
 		border-radius: rem(8);
 	}
 	&--gradient {
-		background-image: var(--bg-accent);
+		background-image: var(--bg-gradient);
 		background-size: 200% auto;
 		@media (any-hover: hover) {
 			&:hover {

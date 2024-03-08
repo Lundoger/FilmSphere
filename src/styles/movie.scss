@@ -1,10 +1,8 @@
 .movie-hero {
 	@include adaptiveValue("margin-top", -62, -50);
-	@include adaptiveValue("margin-bottom", 80, 50);
 	position: relative;
 	width: 100vw;
 	height: 100vh;
-	overflow: hidden;
 	&::before {
 		content: "";
 		position: absolute;
@@ -59,8 +57,9 @@
 	&::after {
 		content: "";
 		position: absolute;
-		top: rem(100);
+		top: rem(60);
 		left: 0;
+		bottom: rem(-1);
 		width: 100%;
 		height: 100%;
 		background: linear-gradient(
@@ -84,13 +83,12 @@
 		);
 	}
 	@media (max-width: $tablet) {
+		height: fit-content;
+		@include adaptiveValue("margin-bottom", 40, 30, 0, 992, 320);
 		&::before,
 		&::after {
 			display: none;
 		}
-	}
-	@media (max-width: $tablet) {
-		height: fit-content;
 	}
 	&__container {
 		display: flex;
@@ -98,6 +96,7 @@
 		align-items: center;
 		@media (max-width: $tablet) {
 			padding-top: 44%;
+			padding-bottom: rem(30);
 		}
 	}
 
@@ -176,9 +175,9 @@
 		align-items: center;
 		gap: rem(15);
 		flex-wrap: wrap;
-		@media (max-width: $mobileSmall) {
+		@media (max-width: em(520)) {
 			justify-content: space-around;
-			row-gap: rem(30);
+			@include adaptiveValue("row-gap", 30, 20, 0, 520, 320);
 			& > :first-child {
 				width: 100%;
 			}
@@ -186,16 +185,60 @@
 	}
 
 	&__actions-button {
+		&:not(:first-child) {
+			position: relative;
+			@include adaptiveValue("padding-top", 14, 12, 0, 520, 320);
+			@include adaptiveValue("padding-bottom", 14, 12, 0, 520, 320);
+			@include adaptiveValue("padding-left", 16, 12, 0, 520, 320);
+			@include adaptiveValue("padding-right", 16, 12, 0, 520, 320);
+			@media (max-width: em(520)) {
+				border-radius: 50%;
+				&::after {
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					@include adaptiveValue("font-size", 16, 12, 0, 520, 320);
+				}
+			}
+		}
 		&--trailer {
 			font-size: rem(16);
-			@media (min-width: $mobileSmall) {
+			@media (min-width: em(521)) {
 				.button__icon {
 					display: none;
 				}
 			}
-			@media (max-width: $mobileSmall) {
+			@media (max-width: em(520)) {
 				span {
 					display: none;
+				}
+				&::after {
+					content: "Трейлер";
+					transform: translate(-10%, calc(100% + rem(5)));
+				}
+			}
+		}
+		&--save {
+			@media (max-width: em(520)) {
+				&::after {
+					content: "Сохранить";
+					transform: translate(-15%, calc(100% + rem(5)));
+				}
+			}
+		}
+		&--rating {
+			@media (max-width: em(520)) {
+				&::after {
+					content: "Оценить";
+					transform: translate(0, calc(100% + rem(5)));
+				}
+			}
+		}
+		&--share {
+			@media (max-width: em(520)) {
+				&::after {
+					content: "Поделиться";
+					transform: translate(-15%, calc(100% + rem(5)));
 				}
 			}
 		}
@@ -321,7 +364,7 @@
 
 	&__iframe {
 		width: 100%;
-		@include adaptiveValue("height", 600, 200, 0, 1440, 320);
+		@include adaptiveValue("height", 600, 180, 0, 1440, 320);
 		border: none;
 		outline: none;
 		@media (max-width: $mobileSmall) {
@@ -363,6 +406,7 @@
 		position: relative;
 		cursor: pointer;
 		letter-spacing: rem(1);
+		outline: none;
 		&::before {
 			content: "";
 			position: absolute;
@@ -401,13 +445,75 @@
 	&__images {
 	}
 }
-
+//========================================================================================================================================================
 .movie-similar {
 	position: relative;
 	@include adaptiveValue("margin-bottom", 70, 50);
 	&__title {
-		@include adaptiveValue("font-size", 30, 18);
 		@include adaptiveValue("margin-bottom", 25, 15);
+	}
+}
+//========================================================================================================================================================
+.movie-persons {
+	@include adaptiveValue("margin-bottom", 70, 50);
+	&__container {
+	}
+
+	&__title {
+		@include adaptiveValue("margin-bottom", 40, 25);
+	}
+
+	&__swiper {
+	}
+	&__swiper-slide {
+		width: 11% !important;
+		@media (max-width: em(1170)){
+			width: 17% !important; 
+		}
+		@media (max-width: em(820)){
+			width: 23% !important; 
+		}
+		@media (max-width: em(610)){
+			width: 30% !important;
+		}
+		@media (max-width:$mobileSmall){
+			width: 40% !important;
+		}
+		@media (max-width: em(365)){
+			width: 46% !important;	  
+		}
+	}
+}
+
+.item-movie-person {
+	padding: 0 rem(10);
+	display: block;
+	&__image {
+		border-radius: 50%;
+		background-color: var(--bg-load);
+		border: rem(1) solid var(--bg-item-border);
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+		padding-bottom: 100%;
+		margin-bottom: rem(15);
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
 		font-weight: 500;
+		text-align: center;
+	}
+
+	&__name {
+		font-size: rem(18);
+		flex: 1 1 100%;
+	}
+
+	&__profession {
+		font-size: rem(14);
+		opacity: 0.5;
 	}
 }
