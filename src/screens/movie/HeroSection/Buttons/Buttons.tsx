@@ -35,19 +35,19 @@ const Buttons = () => {
                 Трейлер
             </Button>
             <Button
-                className="movie-hero__actions-button"
+                className="movie-hero__actions-button movie-hero__actions-button--save"
                 rounded
                 endIcon={<Bookmark />}
                 variant="glass"
             ></Button>
             <Button
-                className="movie-hero__actions-button"
+                className="movie-hero__actions-button movie-hero__actions-button--rating"
                 rounded
                 endIcon={<Star />}
                 variant="glass"
             ></Button>
             <Button
-                className="movie-hero__actions-button"
+                className="movie-hero__actions-button movie-hero__actions-button--share"
                 rounded
                 endIcon={<Share2 />}
                 variant="glass"

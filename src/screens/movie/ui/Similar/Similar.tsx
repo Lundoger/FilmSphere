@@ -12,11 +12,11 @@ const Similar = () => {
             {movie?.similarMovies && (
                 <section className="movie-similar">
                     <div className="movie-similar__container">
-                        <div className="movie-similar__title">Похожее</div>
+                        <div className="movie-similar__title title">Похожее</div>
                         <CarouselMultiply
-                            className="category-section__swiper"
+                            className="movie-similar__swiper"
                             items={movie?.similarMovies}
-                            slideClassName="category-section__swiper-slide"
+                            slideClassName="movie-similar__swiper-slide category-section__swiper-slide"
                             freeMode={{ momentumBounceRatio: 0 }}
                             modules={[FreeMode, Navigation]}
                             renderItem={item => <MovieItem item={item} />}

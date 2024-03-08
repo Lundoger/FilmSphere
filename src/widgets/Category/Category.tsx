@@ -37,7 +37,7 @@ const Category = ({
     return (
         <section className={clsx("category-section", className)}>
             <div className={clsx("category-section__container", containerClassName)}>
-                <Link href={href} className="category-section__title">
+                <Link href={href} className="category-section__title title">
                     {title}
                     <span className="category-section__icon">
                         <ChevronRight />

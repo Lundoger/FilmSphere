@@ -6,10 +6,10 @@ import HeroSection from "./HeroSection/HeroSection"
 import TrailerModal from "./ui/TrailerModal/TrailerModal"
 import Tabs from "./ui/Tabs/Tabs"
 import Similar from "./ui/Similar/Similar"
+import Persons from "./ui/Persons/Persons"
 
 const Hero = () => {
     const {
-        push,
         query: { id },
     } = useRouter()
     const { data } = useGetMovieByIdQuery(id)
@@ -24,6 +24,7 @@ const Hero = () => {
             <HeroSection />
             <Tabs />
             <Similar />
+            <Persons />
             <TrailerModal />
         </>
     )
