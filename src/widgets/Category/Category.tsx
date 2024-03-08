@@ -18,7 +18,7 @@ const Loader = () => {
 interface CategoryProps {
     href: string
     title: string
-    data: MovieDtoV14[] | undefined
+    data: MovieDtoV14[] | null | undefined
     isLoading: boolean
     isError: boolean
     className?: string

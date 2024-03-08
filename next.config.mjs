@@ -4,7 +4,7 @@ const nextConfig = {
 		domains: ['st.kp.yandex.net', 'avatars.mds.yandex.net', 'themoviedb.org'],
 	},
 	env: {
-		NEXT_PUBLIC_API_KEY: process.env.NEXT_PUBLIC_API_KEY,
+		API_KEY: process.env.API_KEY,
 	},
 	reactStrictMode: true,
 }
