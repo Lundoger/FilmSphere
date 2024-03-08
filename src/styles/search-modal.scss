@@ -17,8 +17,6 @@
 		margin-bottom: rem(30);
 	}
 
-	&__content {
-	}
 
 	&__list {
 		display: grid;
@@ -30,8 +28,6 @@
 		@media (max-width: em(550)) {
 			grid-template-columns: 1fr;
 		}
-	}
-	&__item {
 	}
 
 	&__load-more {
@@ -62,9 +58,6 @@
 		background-color: rgba(34, 34, 37, 0.75);
 	}
 
-	&__content {
-	}
-
 	&__name {
 		@include adaptiveValue("font-size", 16, 14);
 		font-weight: 700;
@@ -84,8 +77,5 @@
 		font-weight: 500;
 		font-size: rem(15);
 		opacity: 0.5;
-	}
-
-	&__rating {
 	}
 }

@@ -1,10 +1,5 @@
 .footer {
 	padding: rem(20) 0;
-	&__container {
-	}
-
-	&__content {
-	}
 
 	&__title {
 		@include adaptiveValue("font-size", 24, 17);

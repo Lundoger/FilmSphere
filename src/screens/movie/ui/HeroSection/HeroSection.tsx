@@ -1,10 +1,10 @@
-import Title from "./Title/Title"
-import Description from "./Description/Description"
-import Persons from "./Persons/Persons"
-import Info from "./Info/Info"
 import { useAppSelector } from "@/hooks/useAppSelector"
 import { CSSProperties } from "react"
-import Buttons from "./Buttons/Buttons"
+import Title from "./ui/Title/Title"
+import Info from "./ui/Info/Info"
+import Description from "./ui/Description/Description"
+import Persons from "./ui/Persons/Persons"
+import Buttons from "./ui/Buttons/Buttons"
 
 const Hero = () => {
     const { movie } = useAppSelector(state => state.movieReducer)

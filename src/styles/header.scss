@@ -32,9 +32,6 @@
 		}
 	}
 
-	&__menu {}
-	&__burger-menu {}
-
 	&__actions {
 		display: flex;
 		align-items: center;
@@ -231,9 +228,6 @@
 		.menu-open & {
 			span {
 				width: 0;
-			}
-			&::before,
-			&::after {
 			}
 			&::before {
 				top: calc(50% - rem(1));
