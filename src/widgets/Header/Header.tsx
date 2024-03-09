@@ -10,36 +10,34 @@ import useHeaderFixed from "./lib/useHeaderFixed"
 import { useRouter } from "next/router"
 
 const Header = () => {
-	const { openedMenu } = useAppSelector((state) => state.toggleReducer)
-	const { isFixed } = useHeaderFixed()
-	const { pathname }  = useRouter()
+    const { openedMenu } = useAppSelector(state => state.toggleReducer)
+    const { isFixed } = useHeaderFixed()
+    const { pathname } = useRouter()
 
-	const isMoviePage = pathname === '/title/[id]'
+    const isMoviePage = pathname === "/film/[id]"
 
-	return (
-		<header 
-			id='header' 
-			className={
-				clsx(
-					openedMenu && 'menu-open', 
-					isFixed && 'header--fixed', 
-					isMoviePage && 'header--movie', 
-					'header'
-				)
-			}
-			>
-			<div className="header__container">
-				<Logo/>
-				<Menu/>
-				<div className="header__actions">
-					<SearchButton/>
-					<Account/>
-					<BurgerButton/>
-				</div>
-			</div>
-			<BurgerMenu />
-		</header>
-	)
+    return (
+        <header
+            id="header"
+            className={clsx(
+                openedMenu && "menu-open",
+                isFixed && "header--fixed",
+                isMoviePage && "header--movie",
+                "header"
+            )}
+        >
+            <div className="header__container">
+                <Logo />
+                <Menu />
+                <div className="header__actions">
+                    <SearchButton />
+                    <Account />
+                    <BurgerButton />
+                </div>
+            </div>
+            <BurgerMenu />
+        </header>
+    )
 }
 
-export default Header;
+export default Header

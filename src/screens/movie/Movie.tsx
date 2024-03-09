@@ -7,6 +7,7 @@ import Tabs from "./ui/Tabs/Tabs"
 import Similar from "./ui/Similar/Similar"
 import Persons from "./ui/Persons/Persons"
 import HeroSection from "./ui/HeroSection/HeroSection"
+import Facts from "./ui/Facts/Facts"
 
 const Hero = () => {
     const {
@@ -25,6 +26,7 @@ const Hero = () => {
             <Tabs />
             <Similar />
             <Persons />
+            <Facts />
             <TrailerModal />
         </>
     )
