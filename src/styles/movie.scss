@@ -476,6 +476,12 @@
 .item-movie-person {
 	padding: 0 rem(10);
 	display: block;
+	transition: transform 0.3s ease 0s;
+	@media (any-hover: hover){
+		&:hover{
+			transform: translateY(rem(-10));
+		}
+	}
 	&__image {
 		border-radius: 50%;
 		background-color: var(--bg-load);
@@ -503,5 +509,57 @@
 	&__profession {
 		font-size: rem(14);
 		opacity: 0.5;
+	}
+}
+//========================================================================================================================================================
+.movie-facts {
+	&__title {
+		@include adaptiveValue("margin-bottom", 30, 20);
+	}
+
+	&__list {
+	}
+
+}
+.item-movie-facts {
+	@include adaptiveValue("font-size", 16, 13);
+	line-height: 1.2;
+	letter-spacing: rem(0.5);
+	position: relative;
+	@include adaptiveValue("padding-top", 20, 15);
+	@include adaptiveValue("padding-bottom", 20, 15);
+	&:not(:last-child) {
+		&::before{
+			content:'';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: rem(2);
+			background-color: var(--bg-inverse);
+			opacity: 0.2;
+		}
+	}
+	&>a {
+		position: relative;
+		padding: rem(1) rem(3);
+		&::before{
+			content:'';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: rem(1);
+			background-color: var(--bg-inverse);
+			transition: height 0.3s ease 0s;
+			opacity: 0.3;
+		}
+		@media (any-hover: hover){
+			&:hover{
+				&::before{
+					height: 100%;					
+				}
+			}
+		}
 	}
 }
