@@ -17,7 +17,6 @@ const SearchModal = () => {
 
     const handleClose = () => {
         setSearch("")
-        document.body.style.paddingRight = `0`
         searchModalToggle(false)
     }
 
