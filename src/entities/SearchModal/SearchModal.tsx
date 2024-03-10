@@ -3,7 +3,6 @@ import { useAppSelector } from "@/hooks/useAppSelector"
 import Modal from "@/shared/Modal/Modal"
 import SearchModalList from "./SearchModalList/SearchModalList"
 import SearchInput from "./SearchInput/SearchInput"
-import SnowDecoration from "@/shared/SnowDecoration/SnowDecoration"
 import { useRouter } from "next/router"
 import { useDebounce } from "@/hooks/useDebounce"
 import { useEffect } from "react"
@@ -31,7 +30,6 @@ const SearchModal = () => {
     return (
         <Modal isOpen={isSearchModalOpen} className="search-modal" handleClose={handleClose}>
             <div className="search-modal__container">
-                <SnowDecoration />
                 <h1 className="search-modal__title">Поиск</h1>
                 <SearchInput />
                 {debounced.length > 1 && <SearchModalList />}

@@ -6,11 +6,10 @@ export function useBodyLock(locked = false) {
             return
         }
 
-        const scrollBarWidth = window.innerWidth - document.body.offsetWidth
+        const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth
 
         document.body.style.paddingRight = `${scrollBarWidth}px`
 
-        // Lock body scroll
         document.body.classList.add("lock")
 
         return () => {
