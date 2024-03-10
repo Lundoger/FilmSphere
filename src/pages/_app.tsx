@@ -31,7 +31,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
                     content="watch movies online in excellent quality without SMS cinema video watch new movie online cinema 2012 2013 view video clips"
                 />
                 <meta name="apple-mobile-web-app-capable" content="yes" />
-                <meta name="theme-color" content="#1a1a1a" />
+                <meta name="theme-color" content="#000000" />
             </Head>
             <NextNProgress
                 color="var(--bg-secondary)"
