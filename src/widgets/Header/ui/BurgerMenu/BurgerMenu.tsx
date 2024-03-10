@@ -5,7 +5,6 @@ import clsx from "clsx"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useCallback, useEffect } from "react"
-import SnowDecoration from "@/shared/SnowDecoration/SnowDecoration"
 import { links } from "./config/config"
 import { useBodyLock } from "@/hooks/useBodyLock"
 
@@ -27,7 +26,6 @@ const BurgerMenu = () => {
 
     return (
         <nav className="burger-menu">
-            <SnowDecoration />
             <ul className="burger-menu__list">
                 {links.map((link, i) => {
                     const isCurrentPage = pathname === link.href
