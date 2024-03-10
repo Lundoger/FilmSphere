@@ -1,7 +1,8 @@
-import { useEffect } from "react"
+import { useCallback, useEffect } from "react"
 import ReactPortal from "@/shared/ReactPortal/ReactPortal"
 import { X } from "lucide-react"
 import clsx from "clsx"
+import { useBodyLock } from "@/hooks/useBodyLock"
 
 interface ModalProps {
     children: React.ReactNode
@@ -11,18 +12,23 @@ interface ModalProps {
 }
 
 const Modal = ({ children, className, isOpen, handleClose }: ModalProps) => {
+    const closeOnEscape = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === "Escape") {
+                handleClose()
+            }
+        },
+        [handleClose]
+    )
+
     useEffect(() => {
-        const closeOnEscape = (e: KeyboardEvent) => (e.key === "Escape" ? handleClose() : null)
         document.body.addEventListener("keydown", closeOnEscape)
         return () => {
             document.body.removeEventListener("keydown", closeOnEscape)
         }
-    }, [handleClose])
+    }, [closeOnEscape])
 
-    useEffect(() => {
-        if (isOpen) document.body.classList.add("lock")
-        else document.body.classList.remove("lock")
-    }, [isOpen])
+    useBodyLock(isOpen)
 
     if (!isOpen) return null
 
