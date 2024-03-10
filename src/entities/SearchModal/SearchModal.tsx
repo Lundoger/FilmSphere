@@ -33,7 +33,7 @@ const SearchModal = () => {
         <Modal isOpen={isSearchModalOpen} className="search-modal" handleClose={handleClose}>
             <div className="search-modal__container">
                 <SnowDecoration />
-                <h1 className="search-modal__title">Search</h1>
+                <h1 className="search-modal__title">Поиск</h1>
                 <SearchInput />
                 {debounced.length > 1 && <SearchModalList />}
             </div>
