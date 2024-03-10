@@ -7,6 +7,7 @@ import { useRouter } from "next/router"
 import { useCallback, useEffect } from "react"
 import SnowDecoration from "@/shared/SnowDecoration/SnowDecoration"
 import { links } from "./config/config"
+import { useBodyLock } from "@/hooks/useBodyLock"
 
 const BurgerMenu = () => {
     const { openedMenu } = useAppSelector(state => state.toggleReducer)
@@ -22,19 +23,7 @@ const BurgerMenu = () => {
         events.on("routeChangeComplete", handleRouteChange)
     }, [])
 
-    //додаем или забираем класс .lock(блокировка скролла и прочее) при открытии/закрытии бургера
-    useEffect(() => {
-        const body = document.body
-        if (openedMenu) {
-            body.classList.add("lock")
-        } else {
-            body.classList.remove("lock")
-        }
-
-        return () => {
-            body.classList.remove("lock")
-        }
-    }, [openedMenu])
+    useBodyLock(openedMenu)
 
     return (
         <nav className="burger-menu">
