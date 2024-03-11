@@ -3,10 +3,16 @@ import { useAppSelector } from "@/hooks/useAppSelector"
 import Modal from "@/shared/Modal/Modal"
 import React from "react"
 import { socialLinks } from "./config/config"
+import { Link2 } from "lucide-react"
 
 const ShareModal = () => {
     const { isShareModalOpen } = useAppSelector(state => state.toggleReducer)
     const { shareModalToggle } = useActions()
+
+    const handleCloseShareModal = () => {
+        shareModalToggle(false)
+        navigator.clipboard.writeText(window.location.href)
+    }
 
     if (!isShareModalOpen) return null
 
@@ -32,6 +38,17 @@ const ShareModal = () => {
                             )
                         })}
                     </div>
+                    <button
+                        onClick={handleCloseShareModal}
+                        className="share-modal__copy copy-share-modal"
+                    >
+                        <div className="copy-share-modal__content">
+                            <span className="copy-share-modal__icon">
+                                <Link2 />
+                            </span>
+                            <span className="copy-share-modal__text">Копировать ссылку</span>
+                        </div>
+                    </button>
                 </div>
             </div>
         </Modal>
