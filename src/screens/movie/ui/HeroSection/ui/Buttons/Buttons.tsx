@@ -4,15 +4,7 @@ import { Bookmark, MonitorPlay, PlayCircle, Share2, Star } from "lucide-react"
 import React from "react"
 
 const Buttons = () => {
-    const { trailerModalToggle } = useActions()
-    const handleTrailerModalOpen = () => {
-        //получаем ширину скролл бара  и при открытии модалки даем отступ хедеру что бы не было прыжка при открытии
-        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-        document.body.style.paddingRight = `${scrollbarWidth}px`
-
-        //тоглим стейт в 'true' когда модалка открыта
-        trailerModalToggle(true)
-    }
+    const { trailerModalToggle, shareModalToggle } = useActions()
 
     return (
         <div className="movie-hero__actions">
@@ -30,7 +22,7 @@ const Buttons = () => {
                 rounded
                 variant="glass"
                 endIcon={<PlayCircle />}
-                onClick={handleTrailerModalOpen}
+                onClick={() => trailerModalToggle(true)}
             >
                 Трейлер
             </Button>
@@ -51,6 +43,7 @@ const Buttons = () => {
                 rounded
                 endIcon={<Share2 />}
                 variant="glass"
+                onClick={() => shareModalToggle(true)}
             ></Button>
         </div>
     )

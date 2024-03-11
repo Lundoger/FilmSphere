@@ -8,6 +8,7 @@ import Similar from "./ui/Similar/Similar"
 import Persons from "./ui/Persons/Persons"
 import HeroSection from "./ui/HeroSection/HeroSection"
 import Facts from "./ui/Facts/Facts"
+import ShareModal from "./ui/ShareModal/ShareModal"
 
 const Hero = () => {
     const {
@@ -28,6 +29,7 @@ const Hero = () => {
             <Persons />
             <Facts />
             <TrailerModal />
+            <ShareModal />
         </>
     )
 }

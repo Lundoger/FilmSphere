@@ -4,12 +4,14 @@ interface toggleState {
     openedMenu: boolean
     isSearchModalOpen: boolean
     isTrailerModalOpen: boolean
+    isShareModalOpen: boolean
 }
 
 const initialState: toggleState = {
     openedMenu: false,
     isSearchModalOpen: false,
     isTrailerModalOpen: false,
+    isShareModalOpen: false,
 }
 
 export const toggleSlice = createSlice({
@@ -25,9 +27,13 @@ export const toggleSlice = createSlice({
         trailerModalToggle(state, action: PayloadAction<boolean>) {
             state.isTrailerModalOpen = action.payload
         },
+        shareModalToggle(state, action: PayloadAction<boolean>) {
+            state.isShareModalOpen = action.payload
+        },
     },
 })
 
-export const { menuToggle, searchModalToggle, trailerModalToggle } = toggleSlice.actions
+export const { menuToggle, searchModalToggle, trailerModalToggle, shareModalToggle } =
+    toggleSlice.actions
 
 export default toggleSlice.reducer
