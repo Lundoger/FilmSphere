@@ -12,16 +12,11 @@ const TrailerModal = () => {
     const { movie } = useAppSelector(state => state.movieReducer)
     const trailer = getTrailer(movie?.videos)
 
-    const handleClose = () => {
-        document.body.style.paddingRight = `0`
-        trailerModalToggle(false)
-    }
-
     return (
         <Modal
             className="movie-hero__trailer movie-trailer-modal"
             isOpen={isTrailerModalOpen}
-            handleClose={handleClose}
+            handleClose={() => trailerModalToggle(false)}
         >
             <div className="movie-trailer-modal__container">
                 {isLoading && <Spinner />}

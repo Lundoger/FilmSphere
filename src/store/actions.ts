@@ -1,4 +1,9 @@
-import { menuToggle, searchModalToggle, trailerModalToggle } from "@/store/reducers/toggleSlice"
+import {
+    menuToggle,
+    searchModalToggle,
+    trailerModalToggle,
+    shareModalToggle,
+} from "@/store/reducers/toggleSlice"
 import { setMovie } from "@/store/reducers/movieSlice"
 import {
     setSearch,
@@ -21,6 +26,7 @@ export {
     menuToggle,
     searchModalToggle,
     trailerModalToggle,
+    shareModalToggle,
     setSearch,
     setData,
     setHasMore,
