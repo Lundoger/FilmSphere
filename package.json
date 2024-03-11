@@ -10,6 +10,7 @@
     "clsx": "^2.1.0",
     "lucide-react": "^0.306.0",
     "next": "latest",
+    "next-seo": "^6.5.0",
     "next-share": "^0.27.0",
     "nextjs-progressbar": "^0.0.16",
     "nprogress": "^0.2.0",

@@ -565,7 +565,7 @@
 }
 //========================================================================================================================================================
 .share-modal {
-	background-color:rgba(0, 0, 0, 0.589);	
+	background-color:rgba(0, 0, 0, 0.589);
 	&__container {
 		max-width: rem(650);
 		height: 100%;
@@ -574,14 +574,16 @@
 	}
 
 	&__content {
-		background-color: rgb(60, 62, 71);
-		border-radius: rem(10);
+		background-color: rgb(35, 35, 37);
+		border-radius: rem(20);
 		width: 100%;
-		@include adaptiveValue("padding", 25, 15);
+		@include adaptiveValue("padding-top", 25, 15);
+		overflow: hidden;
 	}
 
 	&__title {
-		margin-bottom: rem(30);
+		@include adaptiveValue("margin-bottom", 15, 5);
+		padding: 0 rem(15);
 	}
 }
 
@@ -591,7 +593,9 @@
 	gap: rem(25);
 	justify-content: space-between;
 	overflow: auto;
-	padding-bottom: rem(10);
+	padding: rem(15);
+	position: relative;
+	margin-bottom: rem(10);
 	&>button {
 		flex-shrink: 0;
 		@include adaptiveValue("width", 60, 45, 0, 1440, 320);
@@ -616,6 +620,34 @@
 				transform: translateY(rem(-10));
 			}
 		}
+	}
+}
+
+.copy-share-modal {
+	width: 100%;
+	padding: rem(20) rem(15);
+	border-top: rem(1) solid rgb(54, 55, 58);
+	outline: none;
+	&__content {
+		display: flex;
+		align-items: center;
+		gap: rem(10);
+	}
+
+	&__icon {
+		width: rem(50);
+		height: rem(50);
+		border-radius: 50%;
+		background-color: #3b3b3b;
+		padding: rem(10);
+		&>svg {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	&__text {
 	}
 }
 //========================================================================================================================================================
