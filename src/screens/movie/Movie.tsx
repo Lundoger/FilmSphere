@@ -36,22 +36,24 @@ const Hero = () => {
 
     return (
         <>
-            <NextSeo
-                nofollow
-                noindex
-                title={title}
-                description={description}
-                openGraph={{
-                    title,
-                    description,
-                    images: [
-                        {
-                            url: movie?.poster?.url ?? "",
-                            alt: name,
-                        },
-                    ],
-                }}
-            />
+            {movie && (
+                <NextSeo
+                    title={title}
+                    description={description}
+                    nofollow
+                    noindex
+                    openGraph={{
+                        title,
+                        description,
+                        images: [
+                            {
+                                url: movie?.poster?.url ?? "",
+                                alt: name,
+                            },
+                        ],
+                    }}
+                />
+            )}
             <HeroSection />
             <Tabs />
             <Similar />
