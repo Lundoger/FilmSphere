@@ -10,10 +10,9 @@ import HeroSection from "./ui/HeroSection/HeroSection"
 import Facts from "./ui/Facts/Facts"
 import ShareModal from "./ui/ShareModal/ShareModal"
 import { NextSeo } from "next-seo"
-import { useAppSelector } from "@/hooks/useAppSelector"
 import { getTitleName } from "@/helpers/getTitleName"
 
-const Hero = () => {
+const Movie = () => {
     const {
         query: { id },
     } = useRouter()
@@ -24,36 +23,32 @@ const Hero = () => {
         if (data) setMovie(data)
     }, [data])
 
-    const { movie } = useAppSelector(state => state.movieReducer)
-
-    const year = movie?.year ? `(${movie.year})` : ""
-    const name = getTitleName(movie?.name)
+    const year = data?.year ? `(${data.year})` : ""
+    const name = getTitleName(data?.name)
     const description =
-        movie?.shortDescription ??
-        movie?.description?.slice(0, 100) + "..." ??
+        data?.shortDescription ??
+        data?.description?.slice(0, 100) + "..." ??
         "Описание отсутсвует (╥_╥)"
-    const title = movie ? `${name} ${year} смотреть онлайн в хорошем качестве` : "Загрука..."
+    const title = data ? `${name} ${year} смотреть онлайн в хорошем качестве` : "Загрука..."
 
     return (
         <>
-            {movie && (
-                <NextSeo
-                    title={title}
-                    description={description}
-                    nofollow
-                    noindex
-                    openGraph={{
-                        title,
-                        description,
-                        images: [
-                            {
-                                url: movie?.poster?.url ?? "",
-                                alt: name,
-                            },
-                        ],
-                    }}
-                />
-            )}
+            <NextSeo
+                title={title}
+                description={description}
+                nofollow
+                noindex
+                openGraph={{
+                    title,
+                    description,
+                    images: [
+                        {
+                            url: data?.poster?.url ?? "",
+                            alt: name,
+                        },
+                    ],
+                }}
+            />
             <HeroSection />
             <Tabs />
             <Similar />
@@ -65,4 +60,4 @@ const Hero = () => {
     )
 }
 
-export default Hero
+export default Movie
