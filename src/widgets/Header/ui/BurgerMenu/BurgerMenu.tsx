@@ -19,13 +19,17 @@ const BurgerMenu = () => {
 
     //при переходе на какуюто страницу закрываем бургер и тоглим стейт в 'false'
     useEffect(() => {
-        events.on("routeChangeComplete", handleRouteChange)
+        events.on("routeChangeStart", handleRouteChange)
+
+        return () => {
+            events.off("routeChangeStart", handleRouteChange)
+        }
     }, [])
 
     useBodyLock(openedMenu)
 
     return (
-        <nav className="burger-menu">
+        <nav className={clsx("burger-menu", openedMenu && "burger-menu--opened")}>
             <ul className="burger-menu__list">
                 {links.map((link, i) => {
                     const isCurrentPage = pathname === link.href

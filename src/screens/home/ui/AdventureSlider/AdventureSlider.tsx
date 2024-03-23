@@ -1,24 +1,18 @@
 import { paths } from "@/helpers/routing"
 import Category from "@/widgets/Category/Category"
-import { useAppSelector } from "@/hooks/useAppSelector"
-import { useActions } from "@/hooks/useActions"
-import { getCategoryData } from "../../lib/dataResponse"
+import { useGetGenreTitleQuery } from "@/api/filmSphereApi"
 
 const AdventureSlider = () => {
-    const { setAdventureData } = useActions()
-    const { adventureData } = useAppSelector(state => state.categoryReducer)
+    const { data, isError, isFetching } = useGetGenreTitleQuery({ limit: 10, genre: "приключения" })
 
-    const { isLoading, isError } = getCategoryData({
-        genre: "приключения",
-        action: setAdventureData,
-    })
+    if (!data?.docs) return null
 
     return (
         <Category
             title="Приключения"
             href={paths.catalog({ genre: "приключения", sort: "year" })}
-            data={adventureData}
-            isLoading={isLoading}
+            data={data.docs}
+            isLoading={isFetching}
             isError={isError}
         />
     )

@@ -11,7 +11,7 @@ const SearchInput = () => {
 
     useEffect(() => {
         inputRef.current?.focus()
-    }, [])
+    }, [inputRef])
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()

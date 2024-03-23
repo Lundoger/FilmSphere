@@ -1,6 +1,5 @@
 import { paths } from "@/helpers/routing"
 import { PersonInMovie } from "@/models/Api"
-import { UserRound } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
