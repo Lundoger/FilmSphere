@@ -43,7 +43,7 @@ const Category = ({
                         <ChevronRight />
                     </span>
                 </Link>
-                {isLoading && !isError && !data && <Loader />}
+                {isLoading && !isError && <Loader />}
                 {!isLoading && isError && <p>{"Something went wrong..."}</p>}
                 {!isError && !isLoading && data && (
                     <CarouselMultiply

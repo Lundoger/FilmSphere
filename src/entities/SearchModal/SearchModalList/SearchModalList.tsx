@@ -3,9 +3,10 @@ import SearchModalItem from "../SearchModalItem/SearchModalItem"
 import { useAppSelector } from "@/hooks/useAppSelector"
 import { useGetSearchTitleQuery, useLazyGetSearchTitleQuery } from "@/api/filmSphereApi"
 import { useDebounce } from "@/hooks/useDebounce"
-import React, { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { useActions } from "@/hooks/useActions"
 import { Button } from "@/shared/Button/Button"
+import { filterData } from "./lib/filterData"
 
 const SearchModalList = () => {
     //экшены и поля из стора
@@ -23,16 +24,11 @@ const SearchModalList = () => {
         data: response,
         isFetching,
         isError,
-    } = useGetSearchTitleQuery(
-        {
-            query: debounced,
-            page: 1,
-            limit: 30,
-        },
-        {
-            skip: debounced.length < 1,
-        }
-    )
+    } = useGetSearchTitleQuery({
+        query: debounced,
+        page: 1,
+        limit: 30,
+    })
     const [
         getSearchTitle,
         { data: lazyResponse, isFetching: isLazyFetching, isError: isLazyError },
@@ -43,9 +39,7 @@ const SearchModalList = () => {
         setPage(1)
         if (response) {
             setSearchPending(true)
-            const filteredData = response.docs.filter(
-                item => item.poster !== null && item.poster?.url !== null && item.name !== ""
-            )
+            const filteredData = filterData(response)
             setData(filteredData)
             response.pages > currentPage ? setHasMore(true) : setHasMore(false)
         }
@@ -65,9 +59,7 @@ const SearchModalList = () => {
     //useEffect для записи в стор полученных дозагруженных(по нажатию на load more) данных
     useEffect(() => {
         if (lazyResponse) {
-            const filteredData = lazyResponse.docs.filter(
-                item => item.poster !== null && item.poster?.url !== null && item.name !== ""
-            )
+            const filteredData = filterData(lazyResponse)
             loadMoreData(filteredData)
             lazyResponse.pages > currentPage ? setHasMore(true) : setHasMore(false)
         }
@@ -87,7 +79,8 @@ const SearchModalList = () => {
             )}
             {isError && isLazyError && (
                 <h1 className="title title--error">
-                    Something went wrong... <br />
+                    Упс.. Что-то пошло не так (⌣̩̩́_⌣̩̩̀)
+                    <br />
                 </h1>
             )}
             {searchPending && !isFetching && !isError && currentData.length === 0 && (

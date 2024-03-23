@@ -33,7 +33,7 @@ const Modal = ({ children, className, isOpen, handleClose }: ModalProps) => {
     if (!isOpen) return null
 
     return (
-        <ReactPortal wrapperId="portal-modal-container">
+        <ReactPortal wrapperId="#modal">
             <div className={clsx("modal", className)}>
                 <button onClick={handleClose} className="modal__button">
                     <X color="#fbfffe" />

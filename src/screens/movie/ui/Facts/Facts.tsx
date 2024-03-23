@@ -10,8 +10,9 @@ const Facts = () => {
             <div className="movie-facts__container">
                 <h2 className="movie-facts__title title">Знаете ли вы что...</h2>
                 <ul className="movie-facts__list">
-                    {movie.facts.map(fact => (
+                    {movie.facts.map((fact, i) => (
                         <li
+                            key={i}
                             className="movie-facts__item item-movie-facts"
                             dangerouslySetInnerHTML={{ __html: fact.value ?? "" }}
                         />

@@ -1,4 +1,3 @@
-import { useAppSelector } from "@/hooks/useAppSelector"
 import clsx from "clsx"
 import BurgerMenu from "./ui/BurgerMenu/BurgerMenu"
 import SearchButton from "./ui/SearchButton/SearchButton"
@@ -10,7 +9,6 @@ import useHeaderFixed from "./lib/useHeaderFixed"
 import { useRouter } from "next/router"
 
 const Header = () => {
-    const { openedMenu } = useAppSelector(state => state.toggleReducer)
     const { isFixed } = useHeaderFixed()
     const { pathname } = useRouter()
 
@@ -19,12 +17,7 @@ const Header = () => {
     return (
         <header
             id="header"
-            className={clsx(
-                openedMenu && "menu-open",
-                isFixed && "header--fixed",
-                isMoviePage && "header--movie",
-                "header"
-            )}
+            className={clsx(isFixed && "header--fixed", isMoviePage && "header--movie", "header")}
         >
             <div className="header__container">
                 <Logo />

@@ -13,14 +13,6 @@ import {
     nextPage,
     setPage,
 } from "@/store/reducers/searchSlice"
-import {
-    setAdventureData,
-    setAnimeData,
-    setCartoonData,
-    setComedyData,
-    setFantasyData,
-    setRomanceData,
-} from "@/store/reducers/categorySlice"
 
 export {
     menuToggle,
@@ -34,10 +26,4 @@ export {
     nextPage,
     setPage,
     setMovie,
-    setAdventureData,
-    setAnimeData,
-    setCartoonData,
-    setComedyData,
-    setFantasyData,
-    setRomanceData,
 }

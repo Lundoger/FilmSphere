@@ -1,26 +1,20 @@
-import { paths } from "@/helpers/routing";
-import { useActions } from "@/hooks/useActions";
-import { useAppSelector } from "@/hooks/useAppSelector";
-import Category from "@/widgets/Category/Category";
-import { getCategoryData } from "../../lib/dataResponse";
+import { paths } from "@/helpers/routing"
+import Category from "@/widgets/Category/Category"
+import { useGetGenreTitleQuery } from "@/api/filmSphereApi"
 
 const RomanceSlider = () => {
-	const { setRomanceData } = useActions()
-	const { romanceData } = useAppSelector(state => state.categoryReducer)
+    const { data, isError, isFetching } = useGetGenreTitleQuery({ limit: 10, genre: "мелодрама" })
 
-	const {isLoading, isError} = getCategoryData({
-		genre:'мелодрама', 
-		action: setRomanceData
-	})
+    if (!data?.docs) return null
 
     return (
-		<Category
-			title="Романтика"
-			href={paths.catalog({ genre: "мелодрама" })}
-			data={romanceData}
-			isLoading={isLoading}
-			isError={isError}
-		/>
+        <Category
+            title="Романтика"
+            href={paths.catalog({ genre: "мелодрама" })}
+            data={data.docs}
+            isLoading={isFetching}
+            isError={isError}
+        />
     )
 }
 

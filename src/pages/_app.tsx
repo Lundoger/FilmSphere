@@ -12,15 +12,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <Provider store={store}>
             <Head>
                 <title>
-                    Online Cinema FilmSphere - Watch Movies, TV Shows, and Cartoons Online for Free
-                    in High Quality
+                    Онлайн кинотеатр FilmSphere - Смотрите фильмы, сериалы и мультфильмы онлайн
+                    бесплатно в высоком качестве
                 </title>
-                <link rel="icon" href="/favicon.ico" />
                 <meta
                     name="viewport"
                     content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
                 />
-                <meta name="theme-color" content="#000000" />
             </Head>
             <NextNProgress
                 color="var(--bg-secondary)"

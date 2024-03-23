@@ -1,27 +1,21 @@
-import Category from "@/widgets/Category/Category";
-import { paths } from "@/helpers/routing";
-import { useAppSelector } from "@/hooks/useAppSelector";
-import { useActions } from "@/hooks/useActions";
-import { getCategoryData } from "../../lib/dataResponse";
+import Category from "@/widgets/Category/Category"
+import { paths } from "@/helpers/routing"
+import { useGetGenreTitleQuery } from "@/api/filmSphereApi"
 
 const ComedySlider = () => {
-	const { setComedyData } = useActions()
-	const { comedyData } = useAppSelector(state => state.categoryReducer)
+    const { data, isError, isFetching } = useGetGenreTitleQuery({ limit: 10, genre: "комедия" })
 
-	const {isLoading, isError} = getCategoryData({
-		genre:'комедия', 
-		action: setComedyData
-	})
+    if (!data?.docs) return null
 
-	return (
-		<Category
-			title="Комедия"
-			href={paths.catalog({ genre: "комедия" })}
-			data={comedyData}
-			isLoading={isLoading}
-			isError={isError}
-		/>
-	)
+    return (
+        <Category
+            title="Комедия"
+            href={paths.catalog({ genre: "комедия" })}
+            data={data.docs}
+            isLoading={isFetching}
+            isError={isError}
+        />
+    )
 }
 
-export default ComedySlider;
+export default ComedySlider
