@@ -43,8 +43,8 @@ const Category = ({
                         <ChevronRight />
                     </span>
                 </Link>
-                {isLoading && !isError && <Loader />}
-                {!isLoading && isError && <p>{"Something went wrong..."}</p>}
+                {isLoading && <Loader />}
+                {isError && <p className="title--error">Упс.. Что-то пошло не так (⌣̩̩́_⌣̩̩̀)</p>}
                 {!isError && !isLoading && data && (
                     <CarouselMultiply
                         className="category-section__swiper"

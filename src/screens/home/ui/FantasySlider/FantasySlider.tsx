@@ -5,13 +5,11 @@ import { useGetGenreTitleQuery } from "@/api/filmSphereApi"
 const FantasySlider = () => {
     const { data, isError, isFetching } = useGetGenreTitleQuery({ limit: 10, genre: "фэнтези" })
 
-    if (!data?.docs) return null
-
     return (
         <Category
             title="Фэнтези"
             href={paths.catalog({ genre: "фэнтези" })}
-            data={data.docs}
+            data={data?.docs}
             isLoading={isFetching}
             isError={isError}
         />
