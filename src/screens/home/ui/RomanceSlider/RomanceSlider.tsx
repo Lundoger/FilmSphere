@@ -5,13 +5,11 @@ import { useGetGenreTitleQuery } from "@/api/filmSphereApi"
 const RomanceSlider = () => {
     const { data, isError, isFetching } = useGetGenreTitleQuery({ limit: 10, genre: "мелодрама" })
 
-    if (!data?.docs) return null
-
     return (
         <Category
             title="Романтика"
             href={paths.catalog({ genre: "мелодрама" })}
-            data={data.docs}
+            data={data?.docs}
             isLoading={isFetching}
             isError={isError}
         />
