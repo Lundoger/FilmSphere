@@ -5,22 +5,16 @@ import { paths } from "@/helpers/routing"
 import { getTitleName } from "@/helpers/getTitleName"
 import { MovieRating } from "@/shared/MovieRating/MovieRating"
 import { getRating } from "@/helpers/getRating"
-import { useActions } from "@/hooks/useActions"
 
 interface SearchModalItemProps {
     item: SearchMovieDtoV14
 }
 
 const SearchModalItem = ({ item }: SearchModalItemProps) => {
-    // const { searchModalToggle } = useActions()
     const { poster, name, id, year, rating } = item
 
     return (
-        <li
-            key={id}
-            className="search-modal__item search-item"
-            // onClick={() => searchModalToggle(false)}
-        >
+        <li key={id} className="search-modal__item search-item">
             <Link className="search-item__link" href={paths.movie(id)}>
                 <div className="search-item__image">
                     {poster?.url && (

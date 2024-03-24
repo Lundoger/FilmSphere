@@ -24,11 +24,16 @@ const SearchModalList = () => {
         data: response,
         isFetching,
         isError,
-    } = useGetSearchTitleQuery({
-        query: debounced,
-        page: 1,
-        limit: 30,
-    })
+    } = useGetSearchTitleQuery(
+        {
+            query: debounced,
+            page: 1,
+            limit: 30,
+        },
+        {
+            skip: debounced.length < 1,
+        }
+    )
     const [
         getSearchTitle,
         { data: lazyResponse, isFetching: isLazyFetching, isError: isLazyError },
@@ -70,6 +75,8 @@ const SearchModalList = () => {
         nextPage()
     }, [nextPage])
 
+    if (!debounced.length) return null
+
     return (
         <div className="search-modal__content">
             {isFetching && (
@@ -78,12 +85,9 @@ const SearchModalList = () => {
                 </div>
             )}
             {isError && isLazyError && (
-                <h1 className="title title--error">
-                    Упс.. Что-то пошло не так (⌣̩̩́_⌣̩̩̀)
-                    <br />
-                </h1>
+                <h1 className="title title--error">Упс.. Что-то пошло не так (⌣̩̩́_⌣̩̩̀)</h1>
             )}
-            {searchPending && !isFetching && !isError && currentData.length === 0 && (
+            {searchPending && currentData.length === 0 && !isFetching && !isError && (
                 <>
                     <h1 className="title">Ничего не найдено</h1>
                     <p className="description">Может быть, вы ищете то, чего пока нет в каталоге</p>
@@ -102,7 +106,7 @@ const SearchModalList = () => {
                         <Spinner />
                     </div>
                 )}
-                {hasMore && currentData.length > 0 && (
+                {!isFetching && hasMore && currentData.length > 0 && (
                     <Button
                         onClick={loadMore}
                         className="search-modal__load-more"
