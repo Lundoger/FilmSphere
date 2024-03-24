@@ -1,9 +1,9 @@
-import "@/styles/style.scss"
 import type { AppProps } from "next/app"
 import { useStore } from "@/store/store"
 import { Provider } from "react-redux"
 import Head from "next/head"
 import NextNProgress from "nextjs-progressbar"
+import "@/styles/style.scss"
 
 export default function MyApp({ Component, pageProps }: AppProps) {
     const store = useStore(pageProps.initialReduxState)
