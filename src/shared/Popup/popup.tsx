@@ -11,6 +11,11 @@ interface ModalProps {
     handleClose: () => void
 }
 
+interface CloseProps {
+    onClick: () => void
+    className?: string
+}
+
 const Popup = ({ children, className, isOpen, handleClose }: ModalProps) => {
     const closeOnEscape = useCallback(
         (e: KeyboardEvent) => {
@@ -34,14 +39,21 @@ const Popup = ({ children, className, isOpen, handleClose }: ModalProps) => {
 
     return (
         <ReactPortal wrapperId="#modal">
-            <div className={clsx("modal", className)}>
-                <button onClick={handleClose} className="modal__button">
-                    <X color="#fbfffe" />
-                </button>
-                {children}
+            <div onClick={handleClose} className={clsx("popup", className)}>
+                <div onClick={e => e.stopPropagation()} className="popup--container">
+                    {children}
+                </div>
             </div>
         </ReactPortal>
     )
 }
+
+const ClosePopup = ({ onClick, className }: CloseProps) => (
+    <button onClick={onClick} className={clsx("popup__button", className)}>
+        <X color="#fbfffe" />
+    </button>
+)
+
+Popup.Close = ClosePopup
 
 export default Popup
