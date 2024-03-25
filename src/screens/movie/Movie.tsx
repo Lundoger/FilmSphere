@@ -11,25 +11,28 @@ import Facts from "./ui/Facts/Facts"
 import ShareModal from "./ui/ShareModal/ShareModal"
 import { NextSeo } from "next-seo"
 import { getTitleName } from "@/helpers/getTitleName"
+import Spinner from "@/shared/Spinner/Spinner"
 
 const Movie = () => {
     const {
         query: { id },
     } = useRouter()
-    const { data } = useGetMovieByIdQuery(id)
+    const { data, isLoading } = useGetMovieByIdQuery(id)
     const { setMovie } = useActions()
 
     useEffect(() => {
         if (data) setMovie(data)
     }, [data])
 
+    if (isLoading) return <Spinner />
+
     const year = data?.year ? `(${data.year})` : ""
     const name = getTitleName(data?.name)
     const description =
-        data?.shortDescription ??
-        data?.description?.slice(0, 100) + "..." ??
-        "Описание отсутсвует (╥_╥)"
-    const title = data ? `${name} ${year} смотреть онлайн в хорошем качестве` : "Загрука..."
+        data?.shortDescription ?? data?.description?.slice(0, 100) ?? "Описание отсутсвует (╥_╥)"
+    const title = data
+        ? `${name} ${year} смотреть онлайн в хорошем качестве`
+        : "Без названия смотреть онлайн в хорошем качестве"
 
     return (
         <>

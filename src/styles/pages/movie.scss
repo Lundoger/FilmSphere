@@ -566,15 +566,10 @@
 }
 //========================================================================================================================================================
 .share-modal {
-	background-color:rgba(0, 0, 0, 0.589);
-	&__container {
-		max-width: rem(650);
-		height: 100%;
-		display: flex;
-		align-items: center;
-	}
-
 	&__content {
+		cursor: default;
+		position: relative;
+		@include adaptiveValue("max-width", 650, 290, 0, 680, 320);
 		background-color: rgb(35, 35, 37);
 		border-radius: rem(20);
 		width: 100%;
@@ -583,6 +578,7 @@
 	}
 
 	&__title {
+		text-align: left;
 		@include adaptiveValue("margin-bottom", 15, 5);
 		padding: 0 rem(15);
 	}

@@ -4,7 +4,7 @@ import clsx from "clsx"
 
 const BurgerButton = () => {
     const { menuToggle } = useActions()
-    const { openedMenu } = useAppSelector(state => state.toggleReducer)
+    const openedMenu = useAppSelector(state => state.toggleReducer.openedMenu)
 
     return (
         <button

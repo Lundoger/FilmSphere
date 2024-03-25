@@ -1,0 +1,19 @@
+//=======MODAL WINDOW=================================================================================================================================================
+.modal {
+	position: fixed;
+	z-index: 12;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: rgba(0, 0, 0, .95);
+	&__button {
+		position: absolute;
+		@include adaptiveValue("top", 30, 15);
+		@include adaptiveValue("right", 30, 15);
+		width: rem(24);
+		height: rem(24);
+	}
+}

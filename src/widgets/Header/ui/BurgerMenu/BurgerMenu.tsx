@@ -9,7 +9,7 @@ import { links } from "./config/config"
 import { useBodyLock } from "@/hooks/useBodyLock"
 
 const BurgerMenu = () => {
-    const { openedMenu } = useAppSelector(state => state.toggleReducer)
+    const openedMenu = useAppSelector(state => state.toggleReducer.openedMenu)
     const { menuToggle } = useActions()
     const { pathname, events } = useRouter()
 
