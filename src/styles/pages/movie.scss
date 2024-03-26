@@ -491,6 +491,9 @@
 		width: 100%;
 		padding-bottom: 100%;
 		margin-bottom: rem(15);
+		img {
+			object-fit: cover;
+		}
 	}
 
 	&__content {
@@ -523,9 +526,6 @@
 
 }
 .item-movie-facts {
-	@include adaptiveValue("font-size", 16, 13);
-	line-height: 1.2;
-	letter-spacing: rem(0.5);
 	position: relative;
 	@include adaptiveValue("padding-top", 20, 15);
 	@include adaptiveValue("padding-bottom", 20, 15);
@@ -541,6 +541,32 @@
 			opacity: 0.2;
 		}
 	}
+	&--spoiler {
+		&::after{
+			content:'Спойлер, кликните что бы показать';
+			color: #8c8d8d;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: 3;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+	&__content {
+		@include adaptiveValue("font-size", 16, 13);
+		line-height: 1.2;
+		letter-spacing: rem(0.5);
+		&--spoiler {
+			filter: blur(rem(6));
+    		opacity: .8;
+		}
+	}
+
 	&>a {
 		position: relative;
 		padding: rem(1) rem(3);
@@ -569,7 +595,7 @@
 	&__content {
 		cursor: default;
 		position: relative;
-		@include adaptiveValue("max-width", 650, 290, 0, 680, 320);
+		@include adaptiveValue("width", 650, 290, 0, 700, 320);
 		background-color: rgb(35, 35, 37);
 		border-radius: rem(20);
 		width: 100%;
@@ -595,7 +621,7 @@
 	margin-bottom: rem(10);
 	&>button {
 		flex-shrink: 0;
-		@include adaptiveValue("width", 60, 45, 0, 1440, 320);
+		@include adaptiveValue("width", 60, 45, 0, 700, 320);
 		display: flex;
 		flex-direction: column;
 		gap: rem(15);

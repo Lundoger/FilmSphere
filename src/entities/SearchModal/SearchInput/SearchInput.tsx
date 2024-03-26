@@ -5,7 +5,7 @@ import { useActions } from "@/hooks/useActions"
 import { useAppSelector } from "@/hooks/useAppSelector"
 
 const SearchInput = () => {
-    const { search } = useAppSelector(state => state.searchReducer)
+    const search = useAppSelector(state => state.searchReducer.search)
     const { setSearch } = useActions()
     const inputRef = useRef<HTMLInputElement>(null)
 
