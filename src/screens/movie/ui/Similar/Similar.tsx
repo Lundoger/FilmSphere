@@ -5,7 +5,7 @@ import React from "react"
 import { FreeMode, Navigation } from "swiper"
 
 const Similar = () => {
-    const { movie } = useAppSelector(state => state.movieReducer)
+    const movie = useAppSelector(state => state.movieReducer.movie)
 
     if (!movie?.similarMovies) return null
 

@@ -516,6 +516,7 @@
 }
 //========================================================================================================================================================
 .movie-facts {
+	transition: all 0.3s ease 0s;
 	@include adaptiveValue("margin-bottom", 50, 30);
 	&__title {
 		@include adaptiveValue("margin-bottom", 30, 20);
@@ -565,26 +566,25 @@
 			filter: blur(rem(6));
     		opacity: .8;
 		}
-	}
-
-	&>a {
-		position: relative;
-		padding: rem(1) rem(3);
-		&::before{
-			content:'';
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			height: rem(1);
-			background-color: var(--bg-inverse);
-			transition: height 0.3s ease 0s;
-			opacity: 0.3;
-		}
-		@media (any-hover: hover){
-			&:hover{
-				&::before{
-					height: 100%;					
+		&>a {
+			position: relative;
+			padding: rem(1) rem(3);
+			&::before{
+				content:'';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: rem(1);
+				background-color: var(--bg-inverse);
+				transition: height 0.3s ease 0s;
+				opacity: 0.3;
+			}
+			@media (any-hover: hover){
+				&:hover{
+					&::before{
+						height: 100%;					
+					}
 				}
 			}
 		}

@@ -11,20 +11,17 @@ import Facts from "./ui/Facts/Facts"
 import ShareModal from "./ui/ShareModal/ShareModal"
 import { NextSeo } from "next-seo"
 import { getTitleName } from "@/helpers/getTitleName"
-import Spinner from "@/shared/Spinner/Spinner"
 
 const Movie = () => {
     const {
         query: { id },
     } = useRouter()
-    const { data, isLoading } = useGetMovieByIdQuery(id)
+    const { data } = useGetMovieByIdQuery(id)
     const { setMovie } = useActions()
 
     useEffect(() => {
         if (data) setMovie(data)
     }, [data])
-
-    if (isLoading) return <Spinner />
 
     const year = data?.year ? `(${data.year})` : ""
     const name = getTitleName(data?.name)

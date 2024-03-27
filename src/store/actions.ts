@@ -4,7 +4,7 @@ import {
     trailerModalToggle,
     shareModalToggle,
 } from "@/store/reducers/toggleSlice"
-import { setMovie } from "@/store/reducers/movieSlice"
+import { setMovie, setMoreFacts } from "@/store/reducers/movieSlice"
 import {
     setSearch,
     setData,
@@ -26,4 +26,5 @@ export {
     nextPage,
     setPage,
     setMovie,
+    setMoreFacts,
 }
