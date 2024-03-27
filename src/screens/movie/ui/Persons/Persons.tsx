@@ -5,7 +5,7 @@ import { FreeMode } from "swiper"
 import PersonItem from "./ui/PersonItem/PersonItem"
 
 const Persons = () => {
-    const { movie } = useAppSelector(state => state.movieReducer)
+    const movie = useAppSelector(state => state.movieReducer.movie)
 
     if (!movie?.persons?.length) return null
 

@@ -9,7 +9,7 @@ const TrailerModal = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const { trailerModalToggle } = useActions()
     const { isTrailerModalOpen } = useAppSelector(state => state.toggleReducer)
-    const { movie } = useAppSelector(state => state.movieReducer)
+    const movie = useAppSelector(state => state.movieReducer.movie)
     const trailer = getTrailer(movie?.videos)
 
     return (

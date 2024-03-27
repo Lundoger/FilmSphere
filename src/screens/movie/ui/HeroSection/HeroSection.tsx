@@ -7,7 +7,7 @@ import Persons from "./ui/Persons/Persons"
 import Buttons from "./ui/Buttons/Buttons"
 
 const Hero = () => {
-    const { movie } = useAppSelector(state => state.movieReducer)
+    const movie = useAppSelector(state => state.movieReducer.movie)
 
     return (
         <section className="movie-hero">
