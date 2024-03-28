@@ -6,6 +6,13 @@ import React from "react"
 const Buttons = () => {
     const { trailerModalToggle, shareModalToggle } = useActions()
 
+    const scrollToPlayer = () => {
+        window.scrollTo({
+            top: 1000,
+            behavior: "smooth",
+        })
+    }
+
     return (
         <div className="movie-hero__actions">
             <Button
@@ -14,6 +21,7 @@ const Buttons = () => {
                 rounded
                 size="big"
                 endIcon={<MonitorPlay />}
+                onClick={scrollToPlayer}
             >
                 Смотреть
             </Button>

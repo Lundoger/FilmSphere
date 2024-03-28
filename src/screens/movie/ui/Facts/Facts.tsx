@@ -9,7 +9,7 @@ const Facts = () => {
     const { movie } = useAppSelector(state => state.movieReducer)
     const [isAllFacts, setIsAllFacts] = useState<boolean>(false)
 
-    if (!movie?.facts.length) return null
+    if (!movie?.facts || !movie?.facts.length) return null
 
     const factsToShow = isAllFacts ? movie.facts : movie.facts.slice(0, MAX_FACTS)
 

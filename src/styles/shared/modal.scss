@@ -15,5 +15,6 @@
 		@include adaptiveValue("right", 30, 15);
 		width: rem(24);
 		height: rem(24);
+		z-index: 13;	
 	}
 }

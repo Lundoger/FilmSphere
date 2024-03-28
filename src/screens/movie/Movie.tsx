@@ -11,6 +11,7 @@ import Facts from "./ui/Facts/Facts"
 import ShareModal from "./ui/ShareModal/ShareModal"
 import { NextSeo } from "next-seo"
 import { getTitleName } from "@/helpers/getTitleName"
+import Player from "./ui/Player/Player"
 
 const Movie = () => {
     const {
@@ -51,6 +52,7 @@ const Movie = () => {
             />
             <HeroSection />
             <Tabs />
+            <Player />
             <Similar />
             <Persons />
             <Facts />

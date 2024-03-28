@@ -7,7 +7,7 @@ import { FreeMode, Navigation } from "swiper"
 const Similar = () => {
     const movie = useAppSelector(state => state.movieReducer.movie)
 
-    if (!movie?.similarMovies) return null
+    if (!movie?.similarMovies || !movie?.similarMovies.length) return null
 
     return (
         <section className="movie-similar">
