@@ -3,6 +3,7 @@ import { filmSphereApi } from "@/api/filmSphereApi"
 import toggleReducer from "./reducers/toggleSlice"
 import searchReducer from "./reducers/searchSlice"
 import movieReducer from "./reducers/movieSlice"
+import personReducer from "./reducers/personSLice"
 import { useMemo } from "react"
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
     toggleReducer,
     searchReducer,
     movieReducer,
+    personReducer,
 })
 
 let store: AppStore

@@ -1,5 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import { SearchMovieResponseDtoV14, MovieDocsResponseDtoV14, MovieDtoV14 } from "@/models/Api"
+import {
+    SearchMovieResponseDtoV14,
+    MovieDocsResponseDtoV14,
+    MovieDtoV14,
+    Person,
+} from "@/models/Api"
 
 interface getSearchTitleParams {
     query: string
@@ -66,6 +71,16 @@ export const filmSphereApi = createApi({
                 },
             }),
         }),
+        getPersonById: build.query<Person, string | string[] | undefined>({
+            query: (id: string) => ({
+                url: `v1.4/person/${id}`,
+                method: "GET",
+                headers: {
+                    accept: "application/json",
+                    "X-API-KEY": process.env.API_KEY,
+                },
+            }),
+        }),
     }),
 })
 
@@ -75,4 +90,5 @@ export const {
     useGetMovieByIdQuery,
     useLazyGetMovieByIdQuery,
     useGetGenreTitleQuery,
+    useGetPersonByIdQuery,
 } = filmSphereApi
