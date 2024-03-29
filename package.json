@@ -8,6 +8,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "1.9.5",
     "clsx": "^2.1.0",
+    "dayjs": "^1.11.10",
     "lucide-react": "^0.306.0",
     "next": "latest",
     "next-seo": "^6.5.0",
