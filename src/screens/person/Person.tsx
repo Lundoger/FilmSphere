@@ -1,8 +1,10 @@
 import { useGetPersonByIdQuery } from "@/api/filmSphereApi"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
-import Info from "./ui/Info"
+import Info from "./ui/Info/Info"
 import { useActions } from "@/hooks/useActions"
+import MovieList from "./ui/MovieList/MovieList"
+import Facts from "@/widgets/Facts/Facts"
 
 const Person = () => {
     const {
@@ -18,6 +20,8 @@ const Person = () => {
     return (
         <>
             <Info />
+            <MovieList />
+            <Facts className="person-facts" facts={data?.facts ?? []} />
         </>
     )
 }

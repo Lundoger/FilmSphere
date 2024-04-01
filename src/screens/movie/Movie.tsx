@@ -7,11 +7,11 @@ import Tabs from "./ui/Tabs/Tabs"
 import Similar from "./ui/Similar/Similar"
 import Persons from "./ui/Persons/Persons"
 import HeroSection from "./ui/HeroSection/HeroSection"
-import Facts from "./ui/Facts/Facts"
 import ShareModal from "./ui/ShareModal/ShareModal"
 import { NextSeo } from "next-seo"
 import { getTitleName } from "@/helpers/getTitleName"
 import Player from "./ui/Player/Player"
+import Facts from "@/widgets/Facts/Facts"
 
 const Movie = () => {
     const {
@@ -55,7 +55,7 @@ const Movie = () => {
             <Player />
             <Similar />
             <Persons />
-            <Facts />
+            <Facts facts={data?.facts ?? []} />
             <TrailerModal />
             <ShareModal />
         </>

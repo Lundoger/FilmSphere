@@ -1,0 +1,75 @@
+.facts {
+	transition: all 0.3s ease 0s;
+	@include adaptiveValue("margin-bottom", 50, 30);
+	&__title {
+		@include adaptiveValue("margin-bottom", 30, 20);
+	}
+
+	&__list {
+	}
+
+}
+.item-facts {
+	position: relative;
+	@include adaptiveValue("padding-top", 20, 15);
+	@include adaptiveValue("padding-bottom", 20, 15);
+	&:not(:last-child) {
+		&::before{
+			content:'';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: rem(2);
+			background-color: var(--bg-inverse);
+			opacity: 0.2;
+		}
+	}
+	&--spoiler {
+		&::after{
+			content:'Спойлер, кликните что бы показать';
+			color: #8c8d8d;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: 3;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+	&__content {
+		@include adaptiveValue("font-size", 16, 13);
+		line-height: 1.2;
+		letter-spacing: rem(0.5);
+		&--spoiler {
+			filter: blur(rem(6));
+    		opacity: .8;
+		}
+		&>a {
+			position: relative;
+			padding: rem(1) rem(3);
+			&::before{
+				content:'';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: rem(1);
+				background-color: var(--bg-inverse);
+				transition: height 0.3s ease 0s;
+				opacity: 0.3;
+			}
+			@media (any-hover: hover){
+				&:hover{
+					&::before{
+						height: 100%;					
+					}
+				}
+			}
+		}
+	}
+}

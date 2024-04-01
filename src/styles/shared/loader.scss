@@ -1,0 +1,36 @@
+.loader {
+	width: rem(48);
+	height: rem(48);
+	display: inline-block;
+	position: relative;
+	&--container {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	&::before,
+	&::after {
+		content: "";
+		content: "";
+		box-sizing: border-box;
+		width: rem(48);
+		height: rem(48);
+		border: rem(2) solid var(--bg-inverse);
+		position: absolute;
+		left: 0;
+		top: 0;
+		animation: rotation 2s ease-in-out infinite alternate;
+	}
+	&::after {
+		border-color: var(--bg-secondary);
+		animation-direction: alternate-reverse;
+	}
+}
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

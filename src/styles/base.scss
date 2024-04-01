@@ -14,3 +14,16 @@
 		object-fit: contain;
 	}
 }
+.title {
+	@include adaptiveValue("font-size", 30, 18);
+	font-weight: 500;
+	letter-spacing: rem(0.5);
+	&--error {
+		color: var(--text-error);
+	}
+}
+.description {
+	color: var(--text-accent);
+	line-height: 1.2;
+	@include adaptiveValue("font-size", 16, 13);
+}

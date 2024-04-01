@@ -106,18 +106,21 @@ body {
 
 // Підключення базових стилів, шаблонів (заготівель) та допоміжних класів
 @import "base";
-// Підключення стилів загальних елементів проекту
-@import "common";
 // Підключення стилів окремих блоків
 @import "header";
 @import "footer";
 @import "search-modal";
 @import "category-slider";
-//Підключення стилів пере
+// Підключення стилів загальних елементів проекту
 @import "shared/slider";
 @import "shared/modal";
 @import "shared/input";
 @import "shared/popup";
+@import "shared/facts";
+@import "shared/movie-item";
+@import "shared/button";
+@import "shared/loader";
+@import "shared/rating";
 // Підключення стилів окремих сторінок
 @import "pages/home";
 @import "pages/movie";
