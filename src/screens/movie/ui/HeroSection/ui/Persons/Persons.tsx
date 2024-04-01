@@ -32,7 +32,7 @@ const Persons = () => {
                     ))}
                 </div>
             ) : (
-                <span>Нет информации об участниках тайтла (ಥ﹏ಥ)</span>
+                <div className="persons-movie-hero">Нет информации об участниках тайтла (ಥ﹏ಥ)</div>
             )}
         </>
     )
