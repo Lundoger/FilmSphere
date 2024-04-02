@@ -3,16 +3,17 @@ import { useAppSelector } from "@/hooks/useAppSelector"
 import { Button } from "@/shared/Button/Button"
 import { useState } from "react"
 
-const MAX_MOVIES = 20
-
 const MovieList = () => {
     const person = useAppSelector(state => state.personReducer.person)
-    const [allMovies, setAllMovies] = useState<boolean>(false)
+    const [maxMovies, setMaxMovies] = useState<number>(20)
 
     if (!person?.movies) return null
 
-    const filteredMovies = person.movies.filter(movie => movie.rating)
-    const movieToShow = allMovies ? filteredMovies : filteredMovies.slice(0, MAX_MOVIES)
+    const filteredMovies = person?.movies?.filter(movie => movie.rating)
+
+    const hasMore = filteredMovies.length > maxMovies
+
+    const movieToShow = filteredMovies.slice(0, maxMovies)
 
     return (
         <section className="person-movie-list">
@@ -27,13 +28,13 @@ const MovieList = () => {
                         />
                     ))}
                 </div>
-                {MAX_MOVIES < filteredMovies.length && (
+                {hasMore && (
                     <Button
-                        onClick={() => setAllMovies(prev => !prev)}
+                        onClick={() => setMaxMovies(prev => prev + 20)}
                         className="person-movie-list__load-more"
                         rounded
                     >
-                        <span>{allMovies ? "Скрыть" : "Показать все"}</span>
+                        <span>Показать ёще</span>
                     </Button>
                 )}
             </div>

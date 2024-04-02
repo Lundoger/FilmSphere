@@ -600,12 +600,25 @@
 //========================================================================================================================================================
 .player {
 	margin-bottom: rem(50);
-	&__container {
+	position: relative;
+	&__loader {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
-
 	&__iframe {
 		width: 100%;
 		@include adaptiveValue("height", 700, 250, 0, 1440, 320);
+		opacity: 0;
+		transition: opacity 0.3s ease 0s;
+		&--loaded {
+			opacity: 1;
+		}
 	}
 }
 //========================================================================================================================================================
