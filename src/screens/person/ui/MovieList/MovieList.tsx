@@ -20,8 +20,9 @@ const MovieList = () => {
             <div className="person-movie-list__container">
                 <h2 className="person-movie-list__title title">Фильмография</h2>
                 <div className="person-movie-list__grid">
-                    {movieToShow.map(({ rating, ...movie }) => (
+                    {movieToShow.map(({ rating, ...movie }, i) => (
                         <MovieItem
+                            key={i}
                             item={movie}
                             rating={rating}
                             className="person-movie-list__item"

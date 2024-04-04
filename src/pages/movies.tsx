@@ -1,12 +1,12 @@
-import { Layout } from '@/widgets/Layout/Layout'
-import React from 'react'
+import Movies from "@/screens/movies/Movies"
+import { Layout } from "@/widgets/Layout/Layout"
 
-const Films = () => {
-	return (
-		<Layout>
-			<div>movies</div>
-		</Layout>
-	)
+const MoviesPage = () => {
+    return (
+        <Layout>
+            <Movies />
+        </Layout>
+    )
 }
 
-export default Films
+export default MoviesPage

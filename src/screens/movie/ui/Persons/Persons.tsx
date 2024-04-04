@@ -20,7 +20,7 @@ const Persons = () => {
                     freeMode={{ momentumBounceRatio: 0 }}
                     modules={[FreeMode]}
                     navigation={false}
-                    renderItem={item => <PersonItem item={item} />}
+                    renderItem={(item, i) => <PersonItem key={i} item={item} />}
                 />
             </div>
         </section>
