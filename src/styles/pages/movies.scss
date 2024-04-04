@@ -1,0 +1,27 @@
+.catalog {
+
+	&__container {
+	}
+	&__title {
+		@include adaptiveValue("font-size", 40, 28);
+		font-weight: 700;
+		line-height: 1.2;
+		letter-spacing: rem(0.5);
+		@include adaptiveValue("margin-bottom", 30, 20);
+	}
+	&__row {
+		display: grid;
+		grid-template-columns: 75% 25%;
+		@include adaptiveValue("gap", 30, 20);
+	}
+	&__movies-list {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		@include adaptiveValue("gap", 20, 15);
+	}
+	&__movies-item {
+		width: 100%
+	}
+	&__filters {
+	}
+}

@@ -39,8 +39,8 @@ const Info = () => {
                         )}
                     </div>
                     <div className="person-info__flex flex-person-info">
-                        {items.map(item => (
-                            <div className="flex-person-info__cnt">
+                        {items.map((item, i) => (
+                            <div key={i} className="flex-person-info__cnt">
                                 <div className="flex-person-info__label">{item.label}</div>
                                 <div className="flex-person-info__content">{item.content}</div>
                             </div>

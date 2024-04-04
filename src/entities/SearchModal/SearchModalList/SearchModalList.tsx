@@ -96,8 +96,8 @@ const SearchModalList = () => {
             <>
                 {!isFetching && !isError && currentData && (
                     <ul className="search-modal__list">
-                        {currentData.map(item => (
-                            <SearchModalItem item={item} />
+                        {currentData.map((item, i) => (
+                            <SearchModalItem key={i} item={item} />
                         ))}
                     </ul>
                 )}

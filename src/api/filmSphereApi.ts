@@ -18,8 +18,8 @@ interface getRecommendTitleParams {
     limit: number
 }
 
-interface getGenreTitleParams extends getRecommendTitleParams {
-    genre: string
+interface getTitlesParams extends getRecommendTitleParams {
+    genre?: string
 }
 
 export const filmSphereApi = createApi({
@@ -43,7 +43,7 @@ export const filmSphereApi = createApi({
                 },
             }),
         }),
-        getGenreTitle: build.query<MovieDocsResponseDtoV14, getGenreTitleParams>({
+        getGenreTitle: build.query<MovieDocsResponseDtoV14, getTitlesParams>({
             query: ({ limit, genre, ratingValue = "7-10", year = "2016-2024" }) => ({
                 url: "v1.4/movie?notNullFields=name&notNullFields=poster.url&notNullFields=year",
                 method: "GET",
@@ -81,6 +81,24 @@ export const filmSphereApi = createApi({
                 },
             }),
         }),
+        // getTitles: build.query<MovieDocsResponseDtoV14, getTitlesParams>({
+        //     query: ({ limit, genre = null, ratingValue = "7-10", year = "2020-2024" }) => ({
+        //         url: "v1.4/movie?notNullFields=name&notNullFields=poster.url&notNullFields=year",
+        //         method: "GET",
+        //         headers: {
+        //             accept: "application/json",
+        //             "X-API-KEY": process.env.API_KEY,
+        //         },
+        //         params: {
+        //             ["rating.imdb"]: ratingValue,
+        //             ["genres.name"]: genre,
+        //             sortField: "votes.imdb",
+        //             sortType: -1,
+        //             year: year,
+        //             limit: limit,
+        //         },
+        //     }),
+        // }),
     }),
 })
 
