@@ -7,8 +7,8 @@ const FantasySlider = () => {
         limit: 10,
         genre: "фэнтези",
         type: "movie",
-        ratingValue: 6 - 10,
-        year: 2000 - 2024,
+        ratingValue: "6-10",
+        year: "2000-2024",
     })
 
     return (
