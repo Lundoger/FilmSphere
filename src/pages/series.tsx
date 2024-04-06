@@ -1,12 +1,12 @@
-import { Layout } from '@/widgets/Layout/Layout'
-import React from 'react'
+import { Layout } from "@/widgets/Layout/Layout"
+import Series from "@/screens/series/Series"
 
-const Series = () => {
-	return (
-		<Layout>
-			<div>series</div>
-		</Layout>
-	)
+const SeriesPage = () => {
+    return (
+        <Layout>
+            <Series />
+        </Layout>
+    )
 }
 
-export default Series
+export default SeriesPage

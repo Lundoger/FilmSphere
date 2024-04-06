@@ -3,6 +3,7 @@ import MovieItem from "@/entities/MovieItem/MovieItem"
 import Spinner from "@/shared/Spinner/Spinner"
 import clsx from "clsx"
 import { useRouter } from "next/router"
+import { paramsToObject } from "./lib/paramsToObject"
 
 interface CatalogProps {
     title: string
@@ -11,11 +12,14 @@ interface CatalogProps {
 
 const Catalog = ({ title, className }: CatalogProps) => {
     const { query } = useRouter()
-    const params = query.genre
+    const params = paramsToObject(
+        query.genre as string,
+        query.year as string,
+        query.type as string,
+        query.sortField as string
+    )
 
-    const { data, isLoading } = useGetGenreTitleQuery({
-        limit: 30,
-    })
+    const { data, isLoading } = useGetGenreTitleQuery({ ...params, limit: 40 })
 
     return (
         <section className={clsx("catalog", className)}>

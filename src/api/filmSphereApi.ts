@@ -20,6 +20,8 @@ interface getRecommendTitleParams {
 
 interface getTitlesParams extends getRecommendTitleParams {
     genre?: string
+    type?: string
+    sortField?: string
 }
 
 export const filmSphereApi = createApi({
@@ -44,7 +46,14 @@ export const filmSphereApi = createApi({
             }),
         }),
         getGenreTitle: build.query<MovieDocsResponseDtoV14, getTitlesParams>({
-            query: ({ limit, genre, ratingValue = "7-10", year = "2016-2024" }) => ({
+            query: ({
+                limit,
+                genre,
+                type,
+                ratingValue = "6-10",
+                year = "2000-2024",
+                sortField = "votes.imdb",
+            }) => ({
                 url: "v1.4/movie?notNullFields=name&notNullFields=poster.url&notNullFields=year",
                 method: "GET",
                 headers: {
@@ -54,7 +63,8 @@ export const filmSphereApi = createApi({
                 params: {
                     ["rating.imdb"]: ratingValue,
                     ["genres.name"]: genre,
-                    sortField: "votes.imdb",
+                    type: type,
+                    sortField: sortField,
                     sortType: -1,
                     year: year,
                     limit: limit,

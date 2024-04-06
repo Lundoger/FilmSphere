@@ -1,11 +1,12 @@
-import { Layout } from '@/widgets/Layout/Layout'
+import Anime from "@/screens/anime/Anime"
+import { Layout } from "@/widgets/Layout/Layout"
 
-const anime = () => {
-	return (
-		<Layout>
-			<div>anime</div>
-		</Layout>
-	)
+const AnimePage = () => {
+    return (
+        <Layout>
+            <Anime />
+        </Layout>
+    )
 }
 
-export default anime
+export default AnimePage

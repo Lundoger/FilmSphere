@@ -3,12 +3,12 @@ import { paths } from "@/helpers/routing"
 import { useGetGenreTitleQuery } from "@/api/filmSphereApi"
 
 const AnimeSlider = () => {
-    const { data, isError, isFetching } = useGetGenreTitleQuery({ limit: 10, genre: "аниме" })
+    const { data, isError, isFetching } = useGetGenreTitleQuery({ limit: 10, type: "anime" })
 
     return (
         <Category
             title="Аниме"
-            href={paths.catalog({ genre: "аниме" })}
+            href={paths.animeCatalog({ sortField: "year", type: "anime" })}
             data={data?.docs}
             isLoading={isFetching}
             isError={isError}

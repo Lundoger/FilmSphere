@@ -3,12 +3,18 @@ import { paths } from "@/helpers/routing"
 import { useGetGenreTitleQuery } from "@/api/filmSphereApi"
 
 const FantasySlider = () => {
-    const { data, isError, isFetching } = useGetGenreTitleQuery({ limit: 10, genre: "фэнтези" })
+    const { data, isError, isFetching } = useGetGenreTitleQuery({
+        limit: 10,
+        genre: "фэнтези",
+        type: "movie",
+        ratingValue: 6 - 10,
+        year: 2000 - 2024,
+    })
 
     return (
         <Category
             title="Фэнтези"
-            href={paths.catalog({ genre: "фэнтези" })}
+            href={paths.movieCatalog({ genre: "фэнтези", sortField: "year", type: "movie" })}
             data={data?.docs}
             isLoading={isFetching}
             isError={isError}
