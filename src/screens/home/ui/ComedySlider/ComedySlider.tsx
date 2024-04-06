@@ -7,8 +7,8 @@ const ComedySlider = () => {
         limit: 10,
         genre: "комедия",
         type: "movie",
-        ratingValue: 6 - 10,
-        year: 2000 - 2024,
+        ratingValue: "6-10",
+        year: "2000-2024",
     })
 
     return (

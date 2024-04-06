@@ -13,8 +13,8 @@ interface getSearchTitleParams {
 }
 
 interface getRecommendTitleParams {
-    ratingValue?: number
-    year?: number
+    ratingValue?: string
+    year?: string
     limit: number
 }
 
