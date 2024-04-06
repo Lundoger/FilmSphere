@@ -1,7 +1,7 @@
 import Catalog from "@/widgets/Catalog/Catalog"
 
 const Movies = () => {
-    return <Catalog title={"Фильмы"} />
+    return <Catalog title={"Смотреть фильмы онлайн"} />
 }
 
 export default Movies

@@ -1,12 +1,12 @@
-import { Layout } from '@/widgets/Layout/Layout'
-import React from 'react'
+import Cartoon from "@/screens/cartoon/Cartoon"
+import { Layout } from "@/widgets/Layout/Layout"
 
-const cartoons = () => {
-	return (
-		<Layout>
-			<div>cartoon</div>
-		</Layout>
-	)
+const CartoonsPage = () => {
+    return (
+        <Layout>
+            <Cartoon />
+        </Layout>
+    )
 }
 
-export default cartoons
+export default CartoonsPage
