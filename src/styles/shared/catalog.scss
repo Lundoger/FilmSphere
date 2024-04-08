@@ -1,5 +1,5 @@
 .catalog {
-
+	@include adaptiveValue("margin-top", 70, 40);
 	&__container {
 	}
 	&__title {
@@ -11,17 +11,27 @@
 	}
 	&__row {
 		display: grid;
-		grid-template-columns: 75% 25%;
+		grid-template-columns: 3fr 1fr;
 		@include adaptiveValue("gap", 30, 20);
 	}
 	&__movies-list {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(5, 1fr);
 		@include adaptiveValue("gap", 20, 15);
+		@media (max-width:$tablet){
+			grid-template-columns: repeat(4, 1fr);
+		}
+		@media (max-width:$mobile){
+			grid-template-columns: repeat(3, 1fr); 
+		}
+		@media (max-width:$mobileSmall){
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 	&__movies-item {
 		width: 100%
 	}
 	&__filters {
+		margin-bottom: rem(20);
 	}
 }
