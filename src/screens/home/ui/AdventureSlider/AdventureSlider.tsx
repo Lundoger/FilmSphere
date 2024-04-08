@@ -6,8 +6,8 @@ const AdventureSlider = () => {
     const { data, isError, isFetching } = useGetGenreTitleQuery({
         limit: 10,
         genre: "приключения",
-        ratingValue: "6-10",
-        year: "2000-2024",
+        ratingValue: "7-10",
+        year: "2016-2024",
         type: "movie",
     })
 

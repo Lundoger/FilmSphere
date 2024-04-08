@@ -10,7 +10,10 @@ type Id = number | string | null | undefined
 
 export const paths = {
     home: "/",
-    band: "#",
+    movies: "/movies",
+    series: "/series",
+    cartoons: "/cartoons",
+    anime: "/anime",
     profile: "/profile",
     movieCatalog: (params: CatalogParams): string => {
         const searchParams = new URLSearchParams({ ...params })

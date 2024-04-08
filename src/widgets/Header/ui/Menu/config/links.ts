@@ -6,19 +6,19 @@ export const links = [
         content: "Главная",
     },
     {
-        href: paths.movieCatalog({ type: "movie", sortField: "year" }),
+        href: paths.movies,
         content: "Фильмы",
     },
     {
-        href: paths.seriesCatalog({ type: "tv-series", sortField: "year" }),
+        href: paths.series,
         content: "Сериалы",
     },
     {
-        href: paths.cartoonCatalog({ type: "cartoon", sortField: "year" }),
+        href: paths.cartoons,
         content: "Мультфильмы",
     },
     {
-        href: paths.animeCatalog({ type: "anime", sortField: "year" }),
+        href: paths.anime,
         content: "Аниме",
     },
 ]
