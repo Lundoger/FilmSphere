@@ -25,6 +25,7 @@ const MovieItem = ({ item, className, rating }: MovieItemProps) => {
         <Link className={clsx("title-item", className)} href={paths.movie(item.id)}>
             <div className="title-item__bg">
                 <Image
+                    priority
                     alt={item?.name ?? "Нет названия (ಥ_ಥ)"}
                     className="title-item__bg-img"
                     fill

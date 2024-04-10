@@ -84,7 +84,7 @@ const SearchModalList = () => {
                     <Spinner />
                 </div>
             )}
-            {isError && isLazyError && (
+            {(isError || isLazyError) && (
                 <h1 className="title title--error">Упс.. Что-то пошло не так (⌣̩̩́_⌣̩̩̀)</h1>
             )}
             {searchPending && currentData.length === 0 && !isFetching && !isError && (
