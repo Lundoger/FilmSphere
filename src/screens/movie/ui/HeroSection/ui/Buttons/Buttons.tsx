@@ -7,8 +7,14 @@ const Buttons = () => {
     const { trailerModalToggle, shareModalToggle } = useActions()
 
     const scrollToPlayer = () => {
+        const player = document.getElementById("player")
+        if (!player) return null
+
+        const playerYPosition = window.scrollY + player.getBoundingClientRect().top
+        const scrollToPlayer = playerYPosition - (window.innerHeight - player.clientHeight) / 2
+
         window.scrollTo({
-            top: 1000,
+            top: scrollToPlayer,
             behavior: "smooth",
         })
     }
