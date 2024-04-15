@@ -21,7 +21,7 @@ const Player = () => {
                     allowFullScreen
                     onLoad={() => setIsLoading(false)}
                     className={clsx("player__iframe", !isLoading && "player__iframe--loaded")}
-                    src={`https://voidboost.net/embed/${movie.id}?poster=1&poster_id=4&df=1`}
+                    src={``}
                 />
             </div>
         </section>

@@ -13,25 +13,4 @@ const FilmPage: NextPage = () => {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-    if (!params?.id) {
-        return {
-            redirect: {
-                destination: paths.home,
-                permanent: false,
-            },
-        }
-    }
-
-    const store = initStore()
-
-    await store.dispatch(filmSphereApi.endpoints.getMovieById.initiate(params.id))
-
-    return {
-        props: {
-            initialReduxState: store.getState(),
-        },
-    }
-}
-
 export default FilmPage
