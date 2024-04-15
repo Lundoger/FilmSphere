@@ -19,8 +19,7 @@ const Catalog = ({ title, className, type }: CatalogProps) => {
         query.year as string,
         query.sortField as string
     )
-
-    const { data, isLoading } = useGetGenreTitleQuery({ ...params, type, limit: 40 })
+    const { data, isLoading, isError } = useGetGenreTitleQuery({ ...params, type, limit: 40 })
 
     return (
         <section className={clsx("catalog", className)}>
@@ -35,6 +34,7 @@ const Catalog = ({ title, className, type }: CatalogProps) => {
                         <Spinner />
                     </div>
                 )}
+                {isError && <p className="title--error">Упс.. Что-то пошло не так (⌣̩̩́_⌣̩̩̀)</p>}
                 {data && (
                     <div className="catalog__movies-list">
                         {data?.docs.map((item, i) => (

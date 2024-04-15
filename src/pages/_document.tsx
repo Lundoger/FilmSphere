@@ -11,6 +11,7 @@ const Document = () => (
             <Main />
             <div id="modal" />
             <NextScript />
+            <script src="https://kinobox.tv/kinobox.min.js"></script>
         </body>
     </Html>
 )
