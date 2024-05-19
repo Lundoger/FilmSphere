@@ -15,3 +15,4 @@ This project is designed for a wide audience and is capable of handling signific
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 - [swagger-typescript-api](https://github.com/acacode/swagger-typescript-api)
 - [Swiper](https://swiperjs.com/react)
+- [Kinopoisk API](https://kinopoisk.dev/)
