@@ -77,6 +77,10 @@
   }
 
   &__navigation {
+    &:disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
     @media (max-width: $mobileSmall) {
       padding: rem(7);
     }
