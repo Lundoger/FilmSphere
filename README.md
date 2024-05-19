@@ -7,7 +7,7 @@ Built on modern technologies, this online cinema offers users a convenient and e
 - Movie Player: A high-quality built-in player ensures smooth and comfortable content playback.
 - Dedicated Pages for Various Content Types: Separate pages for movies, TV shows, cartoons, and anime simplify navigation and allow users to quickly find the desired content.
 
-Our project features a responsive design, ensuring excellent interaction across all devices – from desktops to mobile phones. We utilize modern APIs and third-party services to provide up-to-date movie information, guaranteeing users access to the latest data and reviews.
+FilmSphere features a responsive design, ensuring excellent interaction across all devices – from desktops to mobile phones. We utilize modern APIs and third-party services to provide up-to-date movie information, guaranteeing users access to the latest data and reviews.
 This project is designed for a wide audience and is capable of handling significant loads, ensuring stable performance even under high traffic.
 
 ## Technologies used: 
