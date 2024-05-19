@@ -10,8 +10,8 @@ Our project features a responsive design, ensuring excellent interaction across 
 This project is designed for a wide audience and is capable of handling significant loads, ensuring stable performance even under high traffic.
 
 ## Technologies used: 
--[Next.js](https://nextjs.org/)
--Typescript
--[Redux Toolkit](https://redux-toolkit.js.org/)
--[swagger-typescript-api](https://github.com/acacode/swagger-typescript-api)
--[Swiper](https://swiperjs.com/react)
+- [Next.js](https://nextjs.org/)
+- Typescript
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [swagger-typescript-api](https://github.com/acacode/swagger-typescript-api)
+- [Swiper](https://swiperjs.com/react)
