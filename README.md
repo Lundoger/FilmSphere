@@ -1,29 +1,17 @@
-# Redux Toolkit TypeScript Example
+# FilmSphere - online cinema on Next.js, Redux Toolkit, and TypeScript
+Built on modern technologies, this online cinema offers users a convenient and enjoyable movie-watching experience. 
 
-This example shows how to integrate Next.js with [Redux Toolkit](https://redux-toolkit.js.org).
+## Key features include:
+- Movie Search: Easily find your favorite movies with a user-friendly search interface.
+- Genre-Based Collections: Explore carefully curated movie collections by genre to always find something interesting.
+- Movie Player: A high-quality built-in player ensures smooth and comfortable content playback.
+- Dedicated Pages for Various Content Types: Separate pages for movies, TV shows, cartoons, and anime simplify navigation and allow users to quickly find the desired content.
+Our project features a responsive design, ensuring excellent interaction across all devices – from desktops to mobile phones. We utilize modern APIs and third-party services to provide up-to-date movie information, guaranteeing users access to the latest data and reviews.
+This project is designed for a wide audience and is capable of handling significant loads, ensuring stable performance even under high traffic.
 
-The **Redux Toolkit** is a standardized way to write Redux logic (create actions and reducers, setup the store with some default middlewares like redux devtools extension). This example demonstrates each of these features with Next.js
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-redux&project-name=with-redux&repository-name=with-redux)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-redux with-redux-app
-```
-
-```bash
-yarn create next-app --example with-redux with-redux-app
-```
-
-```bash
-pnpm create next-app --example with-redux with-redux-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Technologies used: 
+-[Next.js](https://nextjs.org/)
+-Typescript
+-[Redux Toolkit](https://redux-toolkit.js.org/)
+-[swagger-typescript-api](https://github.com/acacode/swagger-typescript-api)
+-[Swiper](https://swiperjs.com/react)
