@@ -17,18 +17,18 @@
     "jsx": "preserve",
     "incremental": true,
     "plugins": [{ "name": "next" }],
-	"paths": {
-		"@/screens/*": ["src/screens/*"],
-		"@/store/*": ["src/store/*"],
-		"@/styles/*": ["src/styles/*"],
-		"@/hooks/*": ["src/hooks/*"],
-		"@/api/*": ["src/api/*"],
-		"@/shared/*": ["src/shared/*"],
-		"@/models/*": ["src/models/*"],
-		"@/helpers/*": ["src/helpers/*"],
-		"@/widgets/*": ["src/widgets/*"],
-		"@/entities/*": ["src/entities/*"],
-	}
+    "paths": {
+      "@/screens/*": ["src/screens/*"],
+      "@/store/*": ["src/store/*"],
+      "@/styles/*": ["src/styles/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/api/*": ["src/api/*"],
+      "@/shared/*": ["src/shared/*"],
+      "@/models/*": ["src/models/*"],
+      "@/helpers/*": ["src/helpers/*"],
+      "@/widgets/*": ["src/widgets/*"],
+      "@/entities/*": ["src/entities/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
