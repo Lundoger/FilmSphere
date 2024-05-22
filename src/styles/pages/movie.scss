@@ -172,13 +172,13 @@
     align-items: center;
     gap: rem(15);
     flex-wrap: wrap;
-    @media (max-width: em(520)) {
-      justify-content: space-around;
-      @include adaptiveValue("row-gap", 30, 20, 0, 520, 320);
-      & > :first-child {
-        width: 100%;
-      }
-    }
+    // @media (max-width: em(520)) {
+    //   justify-content: space-around;
+    //   @include adaptiveValue("row-gap", 30, 20, 0, 520, 320);
+    //   & > :first-child {
+    //     width: 100%;
+    //   }
+    // }
   }
 
   &__actions-button {
@@ -188,15 +188,6 @@
       @include adaptiveValue("padding-bottom", 14, 12, 0, 520, 320);
       @include adaptiveValue("padding-left", 16, 12, 0, 520, 320);
       @include adaptiveValue("padding-right", 16, 12, 0, 520, 320);
-      @media (max-width: em(520)) {
-        border-radius: 50%;
-        &::after {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          @include adaptiveValue("font-size", 16, 12, 0, 520, 320);
-        }
-      }
     }
     &--trailer {
       font-size: rem(16);
@@ -208,34 +199,6 @@
       @media (max-width: em(520)) {
         span {
           display: none;
-        }
-        &::after {
-          content: "Трейлер";
-          transform: translate(-10%, calc(100% + rem(5)));
-        }
-      }
-    }
-    &--save {
-      @media (max-width: em(520)) {
-        &::after {
-          content: "Сохранить";
-          transform: translate(-15%, calc(100% + rem(5)));
-        }
-      }
-    }
-    &--rating {
-      @media (max-width: em(520)) {
-        &::after {
-          content: "Оценить";
-          transform: translate(0, calc(100% + rem(5)));
-        }
-      }
-    }
-    &--share {
-      @media (max-width: em(520)) {
-        &::after {
-          content: "Поделиться";
-          transform: translate(-15%, calc(100% + rem(5)));
         }
       }
     }
