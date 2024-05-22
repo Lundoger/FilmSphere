@@ -1,6 +1,8 @@
 # FilmSphere - online cinema on Next.js, Redux Toolkit, and TypeScript
 Built on modern technologies, this online cinema offers users a convenient and enjoyable movie-watching experience. 
 
+**If requests to the API don't work, try using a VPN.**
+
 ## Key features include:
 - Movie Search: Easily find your favorite movies with a user-friendly search interface.
 - Genre-Based Collections: Explore carefully curated movie collections by genre to always find something interesting.
