@@ -24,7 +24,7 @@ const Header = () => {
                 <Menu />
                 <div className="header__actions">
                     <SearchButton />
-                    <Account />
+                    //<Account />
                     <BurgerButton />
                 </div>
             </div>
