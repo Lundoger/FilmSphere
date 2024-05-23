@@ -16,7 +16,7 @@ FilmSphere has a responsive design that provides a great experience on all devic
 
 ## Technologies used: 
 - [Next.js](https://nextjs.org/)
-- Typescript
+- [Typescript](https://www.typescriptlang.org/)
 - [Redux Toolkit](https://redux-toolkit.js.org/) & [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) 
 - [swagger-typescript-api](https://github.com/acacode/swagger-typescript-api)
 - [Swiper](https://swiperjs.com/react)
