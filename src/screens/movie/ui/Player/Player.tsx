@@ -21,7 +21,7 @@ const Player = () => {
                     allowFullScreen
                     onLoad={() => setIsLoading(false)}
                     className={clsx("player__iframe", !isLoading && "player__iframe--loaded")}
-                    src={`https://api.linktodo.ws/embed/kp/${movie.id}`}
+                    src={`https://api.linktodo.ws/embed/kp/${movie.id}?host=kinobd.net`}
                 />
             </div>
         </section>
